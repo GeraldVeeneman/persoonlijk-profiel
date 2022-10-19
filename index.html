@@ -15,8 +15,8 @@
 </head>
 <body>
     <form id="regForm" action="/action_page.php">
-  <h1>Registratieformulier</h1>
-  <!-- One "tab" for each step in the form: -->
+  <h1>Persoonlijk profiel</h1>
+  <!-- Tab #1 Persoonlijke gegevens -->
   <div class="tab">
     <h2>Persoonlijke gegevens</h2>
     <p>
@@ -81,28 +81,229 @@
       <label for="medicijnen_nee">Nee</label>
     </p>
     
-   </div> <!-- end div tab Persoonlijke gegevens -->
-  <div class="tab">Birthday:
-    <p><input placeholder="dd" oninput="this.className = ''" name="dd"></p>
-    <p><input placeholder="mm" oninput="this.className = ''" name="nn"></p>
-    <p><input placeholder="jjjj" oninput="this.className = ''" name="yyyy"></p>
-  </div>
-  <div class="tab">Login Info:
-    <p><input placeholder="Username..." oninput="this.className = ''" name="uname"></p>
-    <p><input placeholder="Password..." oninput="this.className = ''" name="pword" type="password"></p>
-  </div>
+   </div> <!-- end div tab #1 Persoonlijke gegevens -->
+
+   <!-- Tab #2 Werkervaring -->
+  <div class="tab"><h2>Werkervaring:</h2>
+    <p>
+      <label for="werk_begindatum_1">Van:</label>
+      <input type="date" oninput="this.className = ''" id="werk_begindatum_1" id="werk_begindatum_1" name="werk_begindatum_1">
+    </p>
+    <p>
+      <label for="werk_einddatum_1">Tot:</label>
+      <input type="date" oninput="this.className = ''" id="werk_einddatum_1" id="werk_einddatum_1" name="werk_einddatum_1">
+    </p>
+    <p>
+      <label for="functie_1">Functie:</label>
+      <input oninput="this.className = ''" id="functie_1" id="functie_1" name="functie_1">
+    </p>
+    <p>
+      <label for="werkgever_1">Werkgever:</label>
+      <input oninput="this.className = ''" id="werkgever_1" id="werkgever_1" name="werkgever_1">
+    </p>
+
+    <p>
+      <label for="werk_begindatum_2">Van:</label>
+      <input type="date" oninput="this.className = ''" id="werk_begindatum_2" id="werk_begindatum_2" name="werk_begindatum_2">
+    </p>
+    <p>
+      <label for="werk_einddatum_2">Tot:</label>
+      <input type="date" oninput="this.className = ''" id="werk_einddatum_2" id="werk_einddatum_2" name="werk_einddatum_2">
+    </p>
+    <p>
+      <label for="functie_2">Functie:</label>
+      <input oninput="this.className = ''" id="functie_2" id="functie_2" name="functie_2">
+    </p>
+    <p>
+      <label for="werkgever_2">Werkgever:</label>
+      <input oninput="this.className = ''" id="werkgever_2" id="werkgever_2" name="werkgever_2">
+    </p>
+
+    <p>
+      <label for="werk_begindatum_3">Van:</label>
+      <input type="date" oninput="this.className = ''" id="werk_begindatum_3" id="werk_begindatum_3" name="werk_begindatum_3">
+    </p>
+    <p>
+      <label for="werk_einddatum_3">Tot:</label>
+      <input type="date" oninput="this.className = ''" id="werk_einddatum_3" id="werk_einddatum_3" name="werk_einddatum_3">
+    </p>
+    <p>
+      <label for="functie_3">Functie:</label>
+      <input oninput="this.className = ''" id="functie_3" id="functie_3" name="functie_3">
+    </p>
+    <p>
+      <label for="werkgever_3">Werkgever:</label>
+      <input oninput="this.className = ''" id="werkgever_3" id="werkgever_3" name="werkgever_3">
+    </p>
+
+    <p>
+      <label for="werk_begindatum_4">Van:</label>
+      <input type="date" oninput="this.className = ''" id="werk_begindatum_4" id="werk_begindatum_4" name="werk_begindatum_4">
+    </p>
+    <p>
+      <label for="werk_einddatum_4">Tot:</label>
+      <input type="date" oninput="this.className = ''" id="werk_einddatum_4" id="werk_einddatum_4" name="werk_einddatum_4">
+    </p>
+    <p>
+      <label for="functie_4">Functie:</label>
+      <input oninput="this.className = ''" id="functie_4" id="functie_4" name="functie_4">
+    </p>
+    <p>
+      <label for="werkgever_4">Werkgever:</label>
+      <input oninput="this.className = ''" id="werkgever_4" id="werkgever_4" name="werkgever_4">
+    </p>
+
+    <p>
+      <label for="werk_begindatum_5">Van:</label>
+      <input type="date" oninput="this.className = ''" id="werk_begindatum_5" id="werk_begindatum_5" name="werk_begindatum_5">
+    </p>
+    <p>
+      <label for="werk_einddatum_5">Tot:</label>
+      <input type="date" oninput="this.className = ''" id="werk_einddatum_5" id="werk_einddatum_5" name="werk_einddatum_5">
+    </p>
+    <p>
+      <label for="functie_5">Functie:</label>
+      <input oninput="this.className = ''" id="functie_5" id="functie_5" name="functie_5">
+    </p>
+    <p>
+      <label for="werkgever_5">Werkgever:</label>
+      <input oninput="this.className = ''" id="werkgever_5" id="werkgever_5" name="werkgever_5">
+    </p>    
+  </div> <!-- End div tab #2 Werkervaring -->
+
+  <!-- Tab #3 Opleiding -->
+  <div class="tab">Opleiding, cursussen, trainingen:
+    <p>
+      <label for="opleiding_begindatum_1">Van:</label>
+      <input type="date" oninput="this.className = ''" id="opleiding_begindatum_1" id="opleiding_begindatum_1" name="opleiding_begindatum_1">
+    </p>
+    <p>
+      <label for="opleiding_einddatum_1">Tot:</label>
+      <input type="date" oninput="this.className = ''" id="opleiding_einddatum_1" id="opleiding_einddatum_1" name="opleiding_einddatum_1">
+    </p>
+    <p>
+      <label for="opleiding_naam_1">Naam opleiding/cursus/training:</label>
+      <input oninput="this.className = ''" id="opleiding_naam_1" id="opleiding_naam_1" name="opleiding_naam_1">
+    </p>
+    <p>
+      <label for="opleiding_inst_1">Onderwijsinstelling/instituut:</label>
+      <input oninput="this.className = ''" id="opleiding_inst_1" id="opleiding_inst_1" name="opleiding_inst_1">
+    </p>
+
+    <p>
+      <label for="opleiding_begindatum_2">Van:</label>
+      <input type="date" oninput="this.className = ''" id="opleiding_begindatum_2" id="opleiding_begindatum_2" name="opleiding_begindatum_2">
+    </p>
+    <p>
+      <label for="opleiding_einddatum_2">Tot:</label>
+      <input type="date" oninput="this.className = ''" id="opleiding_einddatum_2" id="opleiding_einddatum_2" name="opleiding_einddatum_2">
+    </p>
+    <p>
+      <label for="opleiding_naam_2">Naam opleiding/cursus/training:</label>
+      <input oninput="this.className = ''" id="opleiding_naam_2" id="opleiding_naam_2" name="opleiding_naam_2">
+    </p>
+    <p>
+      <label for="opleiding_inst_2">Onderwijsinstelling/instituut:</label>
+      <input oninput="this.className = ''" id="opleiding_inst_2" id="opleiding_inst_2" name="opleiding_inst_2">
+    </p>
+
+    <p>
+      <label for="opleiding_begindatum_3">Van:</label>
+      <input type="date" oninput="this.className = ''" id="opleiding_begindatum_3" id="opleiding_begindatum_3" name="opleiding_begindatum_3">
+    </p>
+    <p>
+      <label for="opleiding_einddatum_3">Tot:</label>
+      <input type="date" oninput="this.className = ''" id="opleiding_einddatum_3" id="opleiding_einddatum_3" name="opleiding_einddatum_3">
+    </p>
+    <p>
+      <label for="opleiding_naam_3">Naam opleiding/cursus/training:</label>
+      <input oninput="this.className = ''" id="opleiding_naam_3" id="opleiding_naam_3" name="opleiding_naam_3">
+    </p>
+    <p>
+      <label for="opleiding_inst_3">Onderwijsinstelling/instituut:</label>
+      <input oninput="this.className = ''" id="opleiding_inst_3" id="opleiding_inst_3" name="opleiding_inst_3">
+    </p>
+
+    <p>
+      <label for="opleiding_begindatum_4">Van:</label>
+      <input type="date" oninput="this.className = ''" id="opleiding_begindatum_4" id="opleiding_begindatum_4" name="opleiding_begindatum_4">
+    </p>
+    <p>
+      <label for="opleiding_einddatum_4">Tot:</label>
+      <input type="date" oninput="this.className = ''" id="opleiding_einddatum_4" id="opleiding_einddatum_4" name="opleiding_einddatum_4">
+    </p>
+    <p>
+      <label for="opleiding_naam_4">Naam opleiding/cursus/training:</label>
+      <input oninput="this.className = ''" id="opleiding_naam_4" id="opleiding_naam_4" name="opleiding_naam_4">
+    </p>
+    <p>
+      <label for="opleiding_inst_4">Onderwijsinstelling/instituut:</label>
+      <input oninput="this.className = ''" id="opleiding_inst_4" id="opleiding_inst_4" name="opleiding_inst_4">
+    </p>
+
+    <p>
+      <label for="opleiding_begindatum_5">Van:</label>
+      <input type="date" oninput="this.className = ''" id="opleiding_begindatum_5" id="opleiding_begindatum_5" name="opleiding_begindatum_5">
+    </p>
+    <p>
+      <label for="opleiding_einddatum_5">Tot:</label>
+      <input type="date" oninput="this.className = ''" id="opleiding_einddatum_5" id="opleiding_einddatum_5" name="opleiding_einddatum_5">
+    </p>
+    <p>
+      <label for="opleiding_naam_5">Naam opleiding/cursus/training:</label>
+      <input oninput="this.className = ''" id="opleiding_naam_5" id="opleiding_naam_5" name="opleiding_naam_5">
+    </p>
+    <p>
+      <label for="opleiding_inst_5">Onderwijsinstelling/instituut:</label>
+      <input oninput="this.className = ''" id="opleiding_inst_5" id="opleiding_inst_5" name="opleiding_inst_5">
+    </p>
+    
+  </div> <!-- End div tab #3 Opleiding -->
+
+  <!-- Tab # 4 Vakgebieden -->
+  <div class="tab"><h2>Vakgebieden:</h2>
+
+  </div> <!-- End div tab #4 Vakgebieden -->
+
+  <!-- Tab # 5 Werksituatie -->
+  <div class="tab"><h2>Werksituatie:</h2>
+    
+  </div> <!-- End div tab #5 Werksituatie -->
+
+  <!-- Tab # 6 Persoonlijke ontwikkeling -->
+  <div class="tab"><h2>Persoonlijke ontwikkeling</h2>
+    
+  </div> <!-- End div tab #6 Persoonlijke ontwikkeling -->
+
+  <!-- Tab # 7 Overige informatie: bijv. aantal werkuren per week-->
+  <div class="tab"><h2>Overige informatie:</h2>
+    <p>
+      <label for="aantal_uren">Aantal uren per week:</label>
+      <select id="aantal_uren" name="aantal_uren">
+        <option value="0-16">0-16</option>
+        <option value="12-16">12-16</option>
+        <option value="16-20">16-20</option>
+        <option value="20-32">20-32</option>
+        <option value="32-40">32-40</option>
+      </select>
+    </p>    
+  </div> <!-- End div tab #7 Overige informatie:  -->
+  
   <div style="overflow:auto;">
     <div style="float:right;">
       <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
       <button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
     </div>
   </div>
-  <!-- Circles which indicates the steps of the form: -->
+  <!-- Cirkels, die de stappen van het formulier aangeven: -->
   <div style="text-align:center;margin-top:40px;">
-    <span class="step"></span>
-    <span class="step"></span>
-    <span class="step"></span>
-    <span class="step"></span>
+    <span class="step" title="Persoonlijke gegevens">1</span>
+    <span class="step">2</span>
+    <span class="step">3</span>
+    <span class="step">4</span>
+    <span class="step">5</span>
+    <span class="step">6</span>
+    <span class="step">7</span>
   </div>
 </form>
     <script src="js/script.js"></script>
