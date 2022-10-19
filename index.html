@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet"> 
+
+    <title>Persoonlijk profiel</title>
+</head>
+<body>
+    <form id="regForm" action="/action_page.php">
+  <h1>Registratieformulier</h1>
+  <!-- One "tab" for each step in the form: -->
+  <div class="tab">
+    <h2>Persoonlijke gegevens</h2>
+    <p>
+      <label for="voornaam">Voornaam:</label>
+      <input oninput="this.className = ''" id="voornaam" name="voornaam">
+    </p>
+    <p>
+      <label for="tussenvoegsel">Tussenvoegsel:</label>
+      <input oninput="this.className = ''" id="tussenvoegsel" name="tussenvoegsel">
+    </p>
+    <p>
+      <label for="achternaam">Achternaam:</label>
+      <input oninput="this.className = ''" id="achternaam" name="achternaam">
+    </p>
+    <p>
+      <label for="straatnaam">Straatnaam:</label>
+      <input oninput="this.className = ''" id="straatnaam" name="straatnaam">
+    </p>
+    <p>
+      <label for="huisnummer">Huisnummer:</label>
+      <input oninput="this.className = ''" id="huisnummer" name="huisnummer">
+    </p>
+    <p>
+      <label for="postcode">Postcode:</label>
+      <input oninput="this.className = ''" id="postcode" name="postcode">
+    </p>
+    <p>
+      <label for="stad">Stad:</label>
+      <input oninput="this.className = ''" id="stad" name="stad">
+    </p>
+      
+    <p>
+      <label for="telefoon">Telefoonnummer:</label>
+      <input type="tel" oninput="this.className = ''" id="telefoon" name="telefoon">
+    </p>
+    <p>
+      <label for="email">Emailadres:</label>
+      <input type="email oninput="this.className = ''" id="email" name="email">
+    </p>
+
+    <p>
+      <label for="rijbewijs">Rijbewijs:</label>
+      <input type="radio" oninput="this.className = ''" id="rijbewijs_ja" name="rijbewijs" value="ja">
+      <label for="rijbewijs_ja">Ja</label>
+      <input type="radio" oninput="this.className = ''" id="rijbewijs_nee" name="rijbewijs" value="nee">
+      <label for="rijbewijs_nee">Nee</label>
+    </p>
+
+    <p>
+      <label for="rijbewijs">Eigen auto:</label>
+      <input type="radio" oninput="this.className = ''" id="eigenauto_ja" name="eigenauto" value="ja">
+      <label for="eigenauto_ja">Ja</label>
+      <input type="radio" oninput="this.className = ''" id="eigenauto_nee" name="eigenauto" value="nee">
+      <label for="eigenauto_nee">Nee</label>
+    </p>
+
+    <p>
+      <label for="medicijnen">Gebruik je medicijnen</label>
+      <input type="radio" oninput="this.className = ''" id="medicijnen_ja" name="medicijnen" value="ja">
+      <label for="medicijnen_ja">Ja</label>
+      <input type="radio" oninput="this.className = ''" id="medicijnen_nee" name="medicijnen" value="nee">
+      <label for="medicijnen_nee">Nee</label>
+    </p>
+    
+   </div> <!-- end div tab Persoonlijke gegevens -->
+  <div class="tab">Birthday:
+    <p><input placeholder="dd" oninput="this.className = ''" name="dd"></p>
+    <p><input placeholder="mm" oninput="this.className = ''" name="nn"></p>
+    <p><input placeholder="jjjj" oninput="this.className = ''" name="yyyy"></p>
+  </div>
+  <div class="tab">Login Info:
+    <p><input placeholder="Username..." oninput="this.className = ''" name="uname"></p>
+    <p><input placeholder="Password..." oninput="this.className = ''" name="pword" type="password"></p>
+  </div>
+  <div style="overflow:auto;">
+    <div style="float:right;">
+      <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
+      <button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
+    </div>
+  </div>
+  <!-- Circles which indicates the steps of the form: -->
+  <div style="text-align:center;margin-top:40px;">
+    <span class="step"></span>
+    <span class="step"></span>
+    <span class="step"></span>
+    <span class="step"></span>
+  </div>
+</form>
+    <script src="js/script.js"></script>
+</body>
+</html>
