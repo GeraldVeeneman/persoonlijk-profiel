@@ -21,7 +21,7 @@
     <h2>Persoonlijke gegevens</h2>
     <p>
       <label for="voornaam">Voornaam:</label>
-      <input oninput="this.className = ''" id="voornaam" name="voornaam">
+      <input oninput="this.className = ''" id="voornaam" name="voornaam" required>
     </p>
     <p>
       <label for="tussenvoegsel">Tussenvoegsel:</label>
@@ -29,7 +29,7 @@
     </p>
     <p>
       <label for="achternaam">Achternaam:</label>
-      <input oninput="this.className = ''" id="achternaam" name="achternaam">
+      <input oninput="this.className = ''" id="achternaam" name="achternaam" required>
     </p>
     <p>
       <label for="straatnaam">Straatnaam:</label>
@@ -58,6 +58,24 @@
     </p>
 
     <p>
+      <label for="soort_uitkering">Hoeveel uren per week ben je beschikbaar?</label>
+      <select id="soort_uitkering" name="soort_uitkering" required>
+        <option value="WIA">WIA</option>
+        <option value="WAO">WAO</option>
+        <option value="WaJong">WaJong</option>
+        <option value="Bijstand/Doelgroepregister">Bijstand/Doelgroepregister</option>
+      </select>
+    </p>
+    
+    <p>
+      <label for="doelgroepregister">Ben je opgenomen in het doelgroepregister?</label>
+      <input type="radio" oninput="this.className = ''" id="doelgroepregister_ja" name="doelgroepregister" value="ja">
+      <label for="doelgroepregister_ja">Ja</label>
+      <input type="radio" oninput="this.className = ''" id="doelgroepregister_nee" name="doelgroepregister" value="nee">
+      <label for="doelgroepregister_nee">Nee</label>
+    </p>
+
+    <p>
       <label for="rijbewijs">Rijbewijs:</label>
       <input type="radio" oninput="this.className = ''" id="rijbewijs_ja" name="rijbewijs" value="ja">
       <label for="rijbewijs_ja">Ja</label>
@@ -73,292 +91,21 @@
       <label for="eigenauto_nee">Nee</label>
     </p>
 
-    <p>
-      <label for="medicijnen">Gebruik je medicijnen</label>
-      <input type="radio" oninput="this.className = ''" id="medicijnen_ja" name="medicijnen" value="ja">
-      <label for="medicijnen_ja">Ja</label>
-      <input type="radio" oninput="this.className = ''" id="medicijnen_nee" name="medicijnen" value="nee">
-      <label for="medicijnen_nee">Nee</label>
-    </p>
+     <p>
+      <label for="aantal_uren">Hoeveel uren per week ben je beschikbaar?</label>
+      <select id="aantal_uren" name="aantal_uren">
+        <option value="0-8">0-8</option>
+        <option value="9-16">9-16</option>
+        <option value="17-24">17-24</option>
+        <option value="25-32">25-32</option>
+        <option value="33-36">33-36</option>
+        <option value="37-40+">37-40+</option>
+      </select>
+    </p>  
     
    </div> <!-- end div tab #1 Persoonlijke gegevens -->
 
-   <!-- Tab #2 Werkervaring -->
-  <div class="tab"><h2>Werkervaring:</h2>
-    <p>
-      <label for="werk_begindatum_1">Van:</label>
-      <input type="date" oninput="this.className = ''" id="werk_begindatum_1" id="werk_begindatum_1" name="werk_begindatum_1">
-    </p>
-    <p>
-      <label for="werk_einddatum_1">Tot:</label>
-      <input type="date" oninput="this.className = ''" id="werk_einddatum_1" id="werk_einddatum_1" name="werk_einddatum_1">
-    </p>
-    <p>
-      <label for="functie_1">Functie:</label>
-      <input oninput="this.className = ''" id="functie_1" id="functie_1" name="functie_1">
-    </p>
-    <p>
-      <label for="werkgever_1">Werkgever:</label>
-      <input oninput="this.className = ''" id="werkgever_1" id="werkgever_1" name="werkgever_1">
-    </p>
-
-    <p>
-      <label for="werk_begindatum_2">Van:</label>
-      <input type="date" oninput="this.className = ''" id="werk_begindatum_2" id="werk_begindatum_2" name="werk_begindatum_2">
-    </p>
-    <p>
-      <label for="werk_einddatum_2">Tot:</label>
-      <input type="date" oninput="this.className = ''" id="werk_einddatum_2" id="werk_einddatum_2" name="werk_einddatum_2">
-    </p>
-    <p>
-      <label for="functie_2">Functie:</label>
-      <input oninput="this.className = ''" id="functie_2" id="functie_2" name="functie_2">
-    </p>
-    <p>
-      <label for="werkgever_2">Werkgever:</label>
-      <input oninput="this.className = ''" id="werkgever_2" id="werkgever_2" name="werkgever_2">
-    </p>
-
-    <p>
-      <label for="werk_begindatum_3">Van:</label>
-      <input type="date" oninput="this.className = ''" id="werk_begindatum_3" id="werk_begindatum_3" name="werk_begindatum_3">
-    </p>
-    <p>
-      <label for="werk_einddatum_3">Tot:</label>
-      <input type="date" oninput="this.className = ''" id="werk_einddatum_3" id="werk_einddatum_3" name="werk_einddatum_3">
-    </p>
-    <p>
-      <label for="functie_3">Functie:</label>
-      <input oninput="this.className = ''" id="functie_3" id="functie_3" name="functie_3">
-    </p>
-    <p>
-      <label for="werkgever_3">Werkgever:</label>
-      <input oninput="this.className = ''" id="werkgever_3" id="werkgever_3" name="werkgever_3">
-    </p>
-
-    <p>
-      <label for="werk_begindatum_4">Van:</label>
-      <input type="date" oninput="this.className = ''" id="werk_begindatum_4" id="werk_begindatum_4" name="werk_begindatum_4">
-    </p>
-    <p>
-      <label for="werk_einddatum_4">Tot:</label>
-      <input type="date" oninput="this.className = ''" id="werk_einddatum_4" id="werk_einddatum_4" name="werk_einddatum_4">
-    </p>
-    <p>
-      <label for="functie_4">Functie:</label>
-      <input oninput="this.className = ''" id="functie_4" id="functie_4" name="functie_4">
-    </p>
-    <p>
-      <label for="werkgever_4">Werkgever:</label>
-      <input oninput="this.className = ''" id="werkgever_4" id="werkgever_4" name="werkgever_4">
-    </p>
-
-    <p>
-      <label for="werk_begindatum_5">Van:</label>
-      <input type="date" oninput="this.className = ''" id="werk_begindatum_5" id="werk_begindatum_5" name="werk_begindatum_5">
-    </p>
-    <p>
-      <label for="werk_einddatum_5">Tot:</label>
-      <input type="date" oninput="this.className = ''" id="werk_einddatum_5" id="werk_einddatum_5" name="werk_einddatum_5">
-    </p>
-    <p>
-      <label for="functie_5">Functie:</label>
-      <input oninput="this.className = ''" id="functie_5" id="functie_5" name="functie_5">
-    </p>
-    <p>
-      <label for="werkgever_5">Werkgever:</label>
-      <input oninput="this.className = ''" id="werkgever_5" id="werkgever_5" name="werkgever_5">
-    </p>    
-  </div> <!-- End div tab #2 Werkervaring -->
-
-  <!-- Tab #3 Opleiding -->
-  <div class="tab">Opleiding, cursussen, trainingen:
-    <p>
-      <label for="opleiding_begindatum_1">Van:</label>
-      <input type="date" oninput="this.className = ''" id="opleiding_begindatum_1" id="opleiding_begindatum_1" name="opleiding_begindatum_1">
-    </p>
-    <p>
-      <label for="opleiding_einddatum_1">Tot:</label>
-      <input type="date" oninput="this.className = ''" id="opleiding_einddatum_1" id="opleiding_einddatum_1" name="opleiding_einddatum_1">
-    </p>
-    <p>
-      <label for="opleiding_naam_1">Naam opleiding/cursus/training:</label>
-      <input oninput="this.className = ''" id="opleiding_naam_1" id="opleiding_naam_1" name="opleiding_naam_1">
-    </p>
-    <p>
-      <label for="opleiding_inst_1">Onderwijsinstelling/instituut:</label>
-      <input oninput="this.className = ''" id="opleiding_inst_1" id="opleiding_inst_1" name="opleiding_inst_1">
-    </p>
-
-    <p>
-      <label for="opleiding_begindatum_2">Van:</label>
-      <input type="date" oninput="this.className = ''" id="opleiding_begindatum_2" id="opleiding_begindatum_2" name="opleiding_begindatum_2">
-    </p>
-    <p>
-      <label for="opleiding_einddatum_2">Tot:</label>
-      <input type="date" oninput="this.className = ''" id="opleiding_einddatum_2" id="opleiding_einddatum_2" name="opleiding_einddatum_2">
-    </p>
-    <p>
-      <label for="opleiding_naam_2">Naam opleiding/cursus/training:</label>
-      <input oninput="this.className = ''" id="opleiding_naam_2" id="opleiding_naam_2" name="opleiding_naam_2">
-    </p>
-    <p>
-      <label for="opleiding_inst_2">Onderwijsinstelling/instituut:</label>
-      <input oninput="this.className = ''" id="opleiding_inst_2" id="opleiding_inst_2" name="opleiding_inst_2">
-    </p>
-
-    <p>
-      <label for="opleiding_begindatum_3">Van:</label>
-      <input type="date" oninput="this.className = ''" id="opleiding_begindatum_3" id="opleiding_begindatum_3" name="opleiding_begindatum_3">
-    </p>
-    <p>
-      <label for="opleiding_einddatum_3">Tot:</label>
-      <input type="date" oninput="this.className = ''" id="opleiding_einddatum_3" id="opleiding_einddatum_3" name="opleiding_einddatum_3">
-    </p>
-    <p>
-      <label for="opleiding_naam_3">Naam opleiding/cursus/training:</label>
-      <input oninput="this.className = ''" id="opleiding_naam_3" id="opleiding_naam_3" name="opleiding_naam_3">
-    </p>
-    <p>
-      <label for="opleiding_inst_3">Onderwijsinstelling/instituut:</label>
-      <input oninput="this.className = ''" id="opleiding_inst_3" id="opleiding_inst_3" name="opleiding_inst_3">
-    </p>
-
-    <p>
-      <label for="opleiding_begindatum_4">Van:</label>
-      <input type="date" oninput="this.className = ''" id="opleiding_begindatum_4" id="opleiding_begindatum_4" name="opleiding_begindatum_4">
-    </p>
-    <p>
-      <label for="opleiding_einddatum_4">Tot:</label>
-      <input type="date" oninput="this.className = ''" id="opleiding_einddatum_4" id="opleiding_einddatum_4" name="opleiding_einddatum_4">
-    </p>
-    <p>
-      <label for="opleiding_naam_4">Naam opleiding/cursus/training:</label>
-      <input oninput="this.className = ''" id="opleiding_naam_4" id="opleiding_naam_4" name="opleiding_naam_4">
-    </p>
-    <p>
-      <label for="opleiding_inst_4">Onderwijsinstelling/instituut:</label>
-      <input oninput="this.className = ''" id="opleiding_inst_4" id="opleiding_inst_4" name="opleiding_inst_4">
-    </p>
-
-    <p>
-      <label for="opleiding_begindatum_5">Van:</label>
-      <input type="date" oninput="this.className = ''" id="opleiding_begindatum_5" id="opleiding_begindatum_5" name="opleiding_begindatum_5">
-    </p>
-    <p>
-      <label for="opleiding_einddatum_5">Tot:</label>
-      <input type="date" oninput="this.className = ''" id="opleiding_einddatum_5" id="opleiding_einddatum_5" name="opleiding_einddatum_5">
-    </p>
-    <p>
-      <label for="opleiding_naam_5">Naam opleiding/cursus/training:</label>
-      <input oninput="this.className = ''" id="opleiding_naam_5" id="opleiding_naam_5" name="opleiding_naam_5">
-    </p>
-    <p>
-      <label for="opleiding_inst_5">Onderwijsinstelling/instituut:</label>
-      <input oninput="this.className = ''" id="opleiding_inst_5" id="opleiding_inst_5" name="opleiding_inst_5">
-    </p>
-    
-  </div> <!-- End div tab #3 Opleiding -->
-
-  <!-- Tab # 4 Vakgebieden -->
-  <div class="tab"><h2>Vakgebieden:</h2>
-    <p>
-      <input type="checkbox" oninput="this.className = ''" id="bouw" id="bouw" name="bouw">
-      <label for="bouw">Bouw</label>      
-    </p>
-    <p>
-      <input type="checkbox" oninput="this.className = ''" id="logistiek" id="logistiek" name="logistiek">
-      <label for="logistiek">Logistiek</label>      
-    </p>
-    <p>
-      <input type="checkbox" oninput="this.className = ''" id="IT" id="IT" name="IT">
-      <label for="IT">IT</label>      
-    </p>
-    <p>
-      <input type="checkbox" oninput="this.className = ''" id="horeca" id="horeca" name="horeca">
-      <label for="horeca">Horeca</label>      
-    </p>
-    <p>
-      <input type="checkbox" oninput="this.className = ''" id="groen" id="groen" name="groen">
-      <label for="groen">Groen</label>      
-    </p>
-    <p>
-      <input type="checkbox" oninput="this.className = ''" id="zorg" id="zorg" name="zorg">
-      <label for="zorg">Zorg</label>      
-    </p>
-    <p>
-      <input type="checkbox" oninput="this.className = ''" id="helpdesk" id="helpdesk" name="helpdesk">
-      <label for="helpdesk">Helpdesk</label>      
-    </p>
-    <p>
-      <input type="checkbox" oninput="this.className = ''" id="administratief/secretarieel" id="administratief/secretarieel" name="administratief/secretarieel">
-      <label for="administratief/secretarieel">Administratief/secretarieel</label>      
-    </p>
-    <p>
-      <input type="checkbox" oninput="this.className = ''" id="bank & verzekeringen" id="bank & verzekeringen" name="bank & verzekeringen">
-      <label for="bank & verzekeringen">Bank & verzekeringen</label>      
-    </p>
-    <p>
-      <input type="checkbox" oninput="this.className = ''" id="detail-groothandel" id="detail-groothandel" name="detail-groothandel">
-      <label for="detail-groothandel">Detail-groothandel</label>      
-    </p>
-    <p>
-      <input type="checkbox" oninput="this.className = ''" id="inkoop" id="inkoop" name="inkoop">
-      <label for="inkoop">Inkoop</label>      
-    </p>
-    <p>
-      <input type="checkbox" oninput="this.className = ''" id="food" id="food" name="food">
-      <label for="food">Food</label>      
-    </p>
-    <p>
-      <input type="checkbox" oninput="this.className = ''" id="Land- en tuinbouw" id="Land- en tuinbouw" name="Land- en tuinbouw">
-      <label for="Land- en tuinbouw">Land- en tuinbouw</label>      
-    </p>
-    <p>
-      <input type="checkbox" oninput="this.className = ''" id="beveiliging" id="beveiliging" name="beveiliging">
-      <label for="beveiliging">Beveiliging</label>      
-    </p>
-    <p>
-      <input type="checkbox" oninput="this.className = ''" id="commercieel/verkoop" id="commercieel/verkoop" name="commercieel/verkoop">
-      <label for="commercieel/verkoop">Commercieel/verkoop</label>      
-    </p>
-    <p>
-      <input type="checkbox" oninput="this.className = ''" id="juridisch" id="juridisch" name="juridisch">
-      <label for="juridisch">Juridisch</label>      
-    </p>
-    <p>
-      <input type="checkbox" oninput="this.className = ''" id="overheid" id="overheid" name="overheid">
-      <label for="overheid">Overheid</label>      
-    </p>
-    <p>
-      <input type="checkbox" oninput="this.className = ''" id="management" id="management" name="management">
-      <label for="management">Management</label>      
-    </p>
-    <p>
-      <input type="checkbox" oninput="this.className = ''" id="techniek" id="techniek" name="techniek">
-      <label for="techniek">techniek</label>      
-    </p>
-    <p>
-      <input type="checkbox" oninput="this.className = ''" id="schoonmaak" id="schoonmaak" name="schoonmaak">
-      <label for="schoonmaak">Schoonmaak</label>      
-    </p>
-    <p>
-      <input type="checkbox" oninput="this.className = ''" id="productie" id="productie" name="productie">
-      <label for="productie">Productie</label>      
-    </p>
-    <p>
-      <input type="checkbox" oninput="this.className = ''" id="human resources" id="human resources" name="human resources">
-      <label for="human resources">Human resources</label>      
-    </p>
-    <p>
-      <input type="checkbox" oninput="this.className = ''" id="overige" id="overige" name="overige">
-      <label for="overige">Overige</label>      
-    </p>
-
-
-  </div> <!-- End div tab #4 Vakgebieden -->
-
-  <!-- Tab # 5 Werksituatie -->
+   <!-- Tab #2 Werksituatie -->
   <div class="tab"><h2>Werksituatie:</h2>
     <fieldset>
       <legend>Ik kan op tijd komen</legend>
@@ -512,7 +259,204 @@
         <input type="radio" id="verantwoordelijk_3" name="verantwoordelijk" value="geen probleem"><label for="verantwoordelijk_3">geen probleem</label>
       </div>
     </fieldset>
-  </div> <!-- End div tab #5 Werksituatie -->
+  </div> <!-- End div tab #2 Werksituatie -->
+
+   <!-- Tab #3 Werkervaring -->
+  <div class="tab"><h2>Werkervaring:</h2>
+    <button type="button" id="btnToevoegenWerk" title="Werkervaring toevoegen" onclick="toevoegenWerk()">+</button>
+    <div id="divResult"></div>
+
+    
+  </div> <!-- End div tab #3 Werkervaring -->
+
+  <!-- Tab #4 Opleiding -->
+  <div class="tab">Opleiding, cursussen, trainingen:
+    <p>
+      <label for="opleiding_begindatum_1">Van:</label>
+      <input type="date" oninput="this.className = ''" id="opleiding_begindatum_1" name="opleiding_begindatum_1">
+    </p>
+    <p>
+      <label for="opleiding_einddatum_1">Tot:</label>
+      <input type="date" oninput="this.className = ''" id="opleiding_einddatum_1" name="opleiding_einddatum_1">
+    </p>
+    <p>
+      <label for="opleiding_naam_1">Naam opleiding/cursus/training:</label>
+      <input oninput="this.className = ''" id="opleiding_naam_1" name="opleiding_naam_1">
+    </p>
+    <p>
+      <label for="opleiding_inst_1">Onderwijsinstelling/instituut:</label>
+      <input oninput="this.className = ''" id="opleiding_inst_1" name="opleiding_inst_1">
+    </p>
+
+    <p>
+      <label for="opleiding_begindatum_2">Van:</label>
+      <input type="date" oninput="this.className = ''" id="opleiding_begindatum_2" name="opleiding_begindatum_2">
+    </p>
+    <p>
+      <label for="opleiding_einddatum_2">Tot:</label>
+      <input type="date" oninput="this.className = ''" id="opleiding_einddatum_2" name="opleiding_einddatum_2">
+    </p>
+    <p>
+      <label for="opleiding_naam_2">Naam opleiding/cursus/training:</label>
+      <input oninput="this.className = ''" id="opleiding_naam_2" id="opleiding_naam_2" name="opleiding_naam_2">
+    </p>
+    <p>
+      <label for="opleiding_inst_2">Onderwijsinstelling/instituut:</label>
+      <input oninput="this.className = ''" id="opleiding_inst_2" name="opleiding_inst_2">
+    </p>
+
+    <p>
+      <label for="opleiding_begindatum_3">Van:</label>
+      <input type="date" oninput="this.className = ''" id="opleiding_begindatum_3" name="opleiding_begindatum_3">
+    </p>
+    <p>
+      <label for="opleiding_einddatum_3">Tot:</label>
+      <input type="date" oninput="this.className = ''" id="opleiding_einddatum_3" name="opleiding_einddatum_3">
+    </p>
+    <p>
+      <label for="opleiding_naam_3">Naam opleiding/cursus/training:</label>
+      <input oninput="this.className = ''" id="opleiding_naam_3" name="opleiding_naam_3">
+    </p>
+    <p>
+      <label for="opleiding_inst_3">Onderwijsinstelling/instituut:</label>
+      <input oninput="this.className = ''" id="opleiding_inst_3" name="opleiding_inst_3">
+    </p>
+
+    <p>
+      <label for="opleiding_begindatum_4">Van:</label>
+      <input type="date" oninput="this.className = ''" id="opleiding_begindatum_4" name="opleiding_begindatum_4">
+    </p>
+    <p>
+      <label for="opleiding_einddatum_4">Tot:</label>
+      <input type="date" oninput="this.className = ''" id="opleiding_einddatum_4" name="opleiding_einddatum_4">
+    </p>
+    <p>
+      <label for="opleiding_naam_4">Naam opleiding/cursus/training:</label>
+      <input oninput="this.className = ''" id="opleiding_naam_4" name="opleiding_naam_4">
+    </p>
+    <p>
+      <label for="opleiding_inst_4">Onderwijsinstelling/instituut:</label>
+      <input oninput="this.className = ''" id="opleiding_inst_4" name="opleiding_inst_4">
+    </p>
+
+    <p>
+      <label for="opleiding_begindatum_5">Van:</label>
+      <input type="date" oninput="this.className = ''" id="opleiding_begindatum_5" name="opleiding_begindatum_5">
+    </p>
+    <p>
+      <label for="opleiding_einddatum_5">Tot:</label>
+      <input type="date" oninput="this.className = ''" id="opleiding_einddatum_5" name="opleiding_einddatum_5">
+    </p>
+    <p>
+      <label for="opleiding_naam_5">Naam opleiding/cursus/training:</label>
+      <input oninput="this.className = ''" id="opleiding_naam_5" name="opleiding_naam_5">
+    </p>
+    <p>
+      <label for="opleiding_inst_5">Onderwijsinstelling/instituut:</label>
+      <input oninput="this.className = ''" id="opleiding_inst_5" name="opleiding_inst_5">
+    </p>
+    
+  </div> <!-- End div tab #4 Opleiding, cursus en training -->
+
+  <!-- Tab # 5 Vakgebieden -->
+  <div class="tab"><h2>Vakgebieden:</h2>
+    <p>
+      <input type="checkbox" oninput="this.className = ''" id="bouw" id="bouw" name="bouw">
+      <label for="bouw">Bouw</label>      
+    </p>
+    <p>
+      <input type="checkbox" oninput="this.className = ''" id="logistiek" name="logistiek">
+      <label for="logistiek">Logistiek</label>      
+    </p>
+    <p>
+      <input type="checkbox" oninput="this.className = ''" id="IT" name="IT">
+      <label for="IT">IT</label>      
+    </p>
+    <p>
+      <input type="checkbox" oninput="this.className = ''" id="horeca" name="horeca">
+      <label for="horeca">Horeca</label>      
+    </p>
+    <p>
+      <input type="checkbox" oninput="this.className = ''" id="groen" name="groen">
+      <label for="groen">Groen</label>      
+    </p>
+    <p>
+      <input type="checkbox" oninput="this.className = ''" id="zorg" name="zorg">
+      <label for="zorg">Zorg</label>      
+    </p>
+    <p>
+      <input type="checkbox" oninput="this.className = ''" id="helpdesk" name="helpdesk">
+      <label for="helpdesk">Helpdesk</label>      
+    </p>
+    <p>
+      <input type="checkbox" oninput="this.className = ''" id="administratief/secretarieel" name="administratief/secretarieel">
+      <label for="administratief/secretarieel">Administratief/secretarieel</label>      
+    </p>
+    <p>
+      <input type="checkbox" oninput="this.className = ''" id="bank & verzekeringen" name="bank & verzekeringen">
+      <label for="bank & verzekeringen">Bank & verzekeringen</label>      
+    </p>
+    <p>
+      <input type="checkbox" oninput="this.className = ''" id="detail-groothandel" name="detail-groothandel">
+      <label for="detail-groothandel">Detail-groothandel</label>      
+    </p>
+    <p>
+      <input type="checkbox" oninput="this.className = ''" id="inkoop" name="inkoop">
+      <label for="inkoop">Inkoop</label>      
+    </p>
+    <p>
+      <input type="checkbox" oninput="this.className = ''" id="food" name="food">
+      <label for="food">Food</label>      
+    </p>
+    <p>
+      <input type="checkbox" oninput="this.className = ''" id="Land- en tuinbouw" name="Land- en tuinbouw">
+      <label for="Land- en tuinbouw">Land- en tuinbouw</label>      
+    </p>
+    <p>
+      <input type="checkbox" oninput="this.className = ''" id="beveiliging" name="beveiliging">
+      <label for="beveiliging">Beveiliging</label>      
+    </p>
+    <p>
+      <input type="checkbox" oninput="this.className = ''" id="commercieel/verkoop" name="commercieel/verkoop">
+      <label for="commercieel/verkoop">Commercieel/verkoop</label>      
+    </p>
+    <p>
+      <input type="checkbox" oninput="this.className = ''" id="juridisch" name="juridisch">
+      <label for="juridisch">Juridisch</label>      
+    </p>
+    <p>
+      <input type="checkbox" oninput="this.className = ''" id="overheid" name="overheid">
+      <label for="overheid">Overheid</label>      
+    </p>
+    <p>
+      <input type="checkbox" oninput="this.className = ''" id="management" name="management">
+      <label for="management">Management</label>      
+    </p>
+    <p>
+      <input type="checkbox" oninput="this.className = ''" id="techniek" name="techniek">
+      <label for="techniek">techniek</label>      
+    </p>
+    <p>
+      <input type="checkbox" oninput="this.className = ''" id="schoonmaak" name="schoonmaak">
+      <label for="schoonmaak">Schoonmaak</label>      
+    </p>
+    <p>
+      <input type="checkbox" oninput="this.className = ''" id="productie" name="productie">
+      <label for="productie">Productie</label>      
+    </p>
+    <p>
+      <input type="checkbox" oninput="this.className = ''" id="human resources" name="human resources">
+      <label for="human resources">Human resources</label>      
+    </p>
+    <p>
+      <input type="checkbox" oninput="this.className = ''" id="weetikniet" name="weetikniet">
+      <label for="weetikniet">Weet ik (nog) niet</label>      
+    </p>
+
+
+  </div> <!-- End div tab #5 Vakgebieden -->
+
+  
 
   <!-- Tab # 6 Persoonlijke ontwikkeling -->
   <div class="tab">
@@ -544,37 +488,21 @@
       </div>
     </fieldset>
   </div> <!-- End div Tab # 6 Persoonlijke ontwikkeling -->
- 
-
-  <!-- Tab # 7 Overige informatie: bijv. aantal werkuren per week-->
-  <div class="tab"><h2>Overige informatie:</h2>
-    <p>
-      <label for="aantal_uren">Aantal uren per week:</label>
-      <select id="aantal_uren" name="aantal_uren">
-        <option value="0-16">0-16</option>
-        <option value="12-16">12-16</option>
-        <option value="16-20">16-20</option>
-        <option value="20-32">20-32</option>
-        <option value="32-40">32-40</option>
-      </select>
-    </p>    
-  </div> <!-- End div tab #7 Overige informatie:  -->
   
   <div style="overflow:auto;">
     <div style="float:right;">
-      <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
-      <button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
+      <button type="button" id="prevBtn" onclick="nextPrev(-1)">Vorige</button>
+      <button type="button" id="nextBtn" onclick="nextPrev(1)">Volgende</button>
     </div>
   </div>
   <!-- Cirkels, die de stappen van het formulier aangeven: -->
   <div style="text-align:center;margin-top:40px;">
     <span class="step" title="Persoonlijke gegevens">1</span>
-    <span class="step">2</span>
-    <span class="step">3</span>
-    <span class="step">4</span>
-    <span class="step">5</span>
-    <span class="step">6</span>
-    <span class="step">7</span>
+    <span class="step" title="Werksituatie">2</span>
+    <span class="step" title="Werkervaring">3</span>
+    <span class="step" title="Opleiding, cursus en training">4</span>
+    <span class="step" title="Vakgebieden">5</span>
+    <span class="step" title="Persoonlijke ontwikkeling">6</span>
   </div>
 </form>
     <script src="js/script.js"></script>
