@@ -13,9 +13,9 @@ function showTab(n) {
     document.getElementById("prevBtn").style.display = "inline";
   }
   if (n == (x.length - 1)) {
-    document.getElementById("nextBtn").innerHTML = "Verzenden";
+    document.getElementById("nextBtn").textContent = "Verzenden";
   } else {
-    document.getElementById("nextBtn").innerHTML = "Volgende";
+    document.getElementById("nextBtn").textContent = "Volgende";
   }
   //... and run a function that will display the correct step indicator:
   fixStepIndicator(n)
@@ -85,7 +85,7 @@ function toevoegenWerk() {
     werkBegindatum.name = werkBegindatum.id;
     const label_werkBegindatum = document.createElement('label');
     label_werkBegindatum.setAttribute("for", werkBegindatum.id);
-    label_werkBegindatum.innerHTML = "Van:";
+    label_werkBegindatum.textContent = "Van:";
 
     const werkEinddatum = document.createElement("input");
     werkEinddatum.type = "date";
@@ -93,7 +93,7 @@ function toevoegenWerk() {
     werkEinddatum.name = werkEinddatum.id;
     const label_werkEinddatum = document.createElement("label");
     label_werkEinddatum.setAttribute("for", werkEinddatum.id);
-    label_werkEinddatum.innerHTML = "Tot:";
+    label_werkEinddatum.textContent = "Tot:";
     
     const werkFunctie = document.createElement("input");
     werkFunctie.type = "text";
@@ -101,7 +101,7 @@ function toevoegenWerk() {
     werkFunctie.name = werkFunctie.id;
     const label_werkFunctie = document.createElement("label");
     label_werkFunctie.setAttribute("for", werkFunctie.id);
-    label_werkFunctie.innerHTML = "Functie:";
+    label_werkFunctie.textContent = "Functie:";
 
     const werkWerkgever = document.createElement("input");
     werkWerkgever.type = "text";
@@ -109,14 +109,14 @@ function toevoegenWerk() {
     werkWerkgever.name = werkWerkgever.id;
     const label_werkWerkgever = document.createElement("label");
     label_werkWerkgever.setAttribute("for", werkWerkgever.id);
-    label_werkWerkgever.innerHTML = "Werkgever:";
+    label_werkWerkgever.textContent = "Werkgever:";
 
     const werkToelichting = document.createElement("textarea");
     werkToelichting.id = "werkToelichting" + indexWerk;
     werkToelichting.name = werkToelichting.id;
     const label_werkToelichting = document.createElement("label");
     label_werkToelichting.setAttribute("for", werkToelichting.id);
-    label_werkToelichting.innerHTML = "Toelichting:";
+    label_werkToelichting.textContent = "Toelichting:";
 
     // Div per werkervaring
     let divWerk = document.createElement('div');
@@ -162,7 +162,7 @@ function toevoegenWerk() {
     // Button verwijderen werkervaring
     const btnVerwijderenWerk = document.createElement('button');
     btnVerwijderenWerk.type="button";
-    btnVerwijderenWerk.innerHTML="&times";
+    btnVerwijderenWerk.textContent="x";
     btnVerwijderenWerk.id="btnVerwijderenWerk" + indexWerk;
     btnVerwijderenWerk.title="Werkervaring verwijderen";
     document.getElementById('divWerk' + indexWerk).appendChild(btnVerwijderenWerk);
