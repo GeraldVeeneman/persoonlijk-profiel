@@ -1,6 +1,7 @@
-let indexWerk = 1 // Teller voor nieuwe werkgevers
-var currentTab = 0; // Current tab is set to be the first tab (0)
-showTab(currentTab); // Display the current tab
+let indexWerk = 1     // Teller voor nieuwe werkgevers
+let aantalWerk = 0    // Aantal werkervaringen
+var currentTab = 0;   // Current tab is set to be the first tab (0)
+showTab(currentTab);  // Display the current tab
 
 function showTab(n) {
   // This function will display the specified tab of the form...
@@ -72,13 +73,22 @@ function fixStepIndicator(n) {
   x[n].className += " active";
 }
 
+function createParField(label, input) {
+  // Deze functie maakt een nieuwe paragraaf aan en plaatst daarin een label en formulierveld
+  let p = document.createElement('p');
+  p.append(label, input);
+  return p;
+}
+
 function verwijderenWerk() {
+  // Deze functie verwijdert een werkervaring
   this.parentElement.remove();
+  aantalWerk--;
 }
 
 function toevoegenWerk() {
-  if (indexWerk <=5) { // Maximaal 5 werkervaringen kunnen worden toegevoegd.
-    // Velden maken (input en label)
+  if (aantalWerk <=4) { // Maximaal 5 werkervaringen kunnen worden toegevoegd.
+    // Velden met labels voor werkervaring maken
     const werkBegindatum = document.createElement('input');
     werkBegindatum.type = 'date'
     werkBegindatum.id = "werkBegindatum" + indexWerk;
@@ -118,46 +128,18 @@ function toevoegenWerk() {
     label_werkToelichting.setAttribute("for", werkToelichting.id);
     label_werkToelichting.textContent = "Toelichting:";
 
-    // Div per werkervaring
-    let divWerk = document.createElement('div');
-    divWerk.id = "divWerk" + indexWerk;
+    let divResult = document.querySelector("#divResult"); // Div voor het resultaat
 
-    // Nieuwe paragraaf (per veld) maken
-    let parBegindatum = document.createElement('p');    
-    parBegindatum.id="parBegindatum" + indexWerk;
+    let divWerk = document.createElement('div'); // Div per werkervaring
+    divWerk.id = "divWerk" + indexWerk;  
 
-    let parEinddatum = document.createElement("p");
-    parEinddatum.id = "parEinddatum" + indexWerk;
-
-    let parFunctie = document.createElement("p");
-    parFunctie.id = "parFunctie" + indexWerk;
-
-    let parWerkgever = document.createElement("p");    
-    parWerkgever.id = "parWerkgever" + indexWerk;
-
-    let parToelichting = document.createElement("p");
-    parToelichting.id = "parToelichting" + indexWerk;
-
-    // Paragrafen binnen result div plaatsen
-    document.getElementById('divResult').appendChild(divWerk);
-    document.getElementById("divWerk" + indexWerk).appendChild(parBegindatum);
-    document.getElementById("divWerk" + indexWerk).appendChild(parEinddatum);
-    document.getElementById("divWerk" + indexWerk).appendChild(parFunctie);
-    document.getElementById("divWerk" + indexWerk).appendChild(parWerkgever);
-    document.getElementById("divWerk" + indexWerk).appendChild(parToelichting);
-
-
-    // Velden binnen paragraaf toevoegen
-    document.getElementById("parBegindatum" + indexWerk).appendChild(label_werkBegindatum);
-    document.getElementById("parBegindatum" + indexWerk).appendChild(werkBegindatum);
-    document.getElementById("parEinddatum" + indexWerk).appendChild(label_werkEinddatum);
-    document.getElementById("parEinddatum" + indexWerk).appendChild(werkEinddatum);
-    document.getElementById("parFunctie" + indexWerk).appendChild(label_werkFunctie);
-    document.getElementById("parFunctie" + indexWerk).appendChild(werkFunctie);
-    document.getElementById("parWerkgever" + indexWerk).appendChild(label_werkWerkgever);
-    document.getElementById("parWerkgever" + indexWerk).appendChild(werkWerkgever);
-    document.getElementById("parToelichting" + indexWerk).appendChild(label_werkToelichting);
-    document.getElementById("parToelichting" + indexWerk).appendChild(werkToelichting);
+    // Paragrafen + velden (met label en input) binnen result div plaatsen
+    divResult.appendChild(divWerk);
+    document.getElementById("divWerk" + indexWerk).appendChild(createParField(label_werkBegindatum, werkBegindatum));
+    document.getElementById("divWerk" + indexWerk).appendChild(createParField(label_werkEinddatum, werkEinddatum));
+    document.getElementById("divWerk" + indexWerk).appendChild(createParField(label_werkFunctie, werkFunctie));
+    document.getElementById("divWerk" + indexWerk).appendChild(createParField(label_werkWerkgever, werkWerkgever));
+    document.getElementById("divWerk" + indexWerk).appendChild(createParField(label_werkToelichting, werkToelichting));
 
     // Button verwijderen werkervaring
     const btnVerwijderenWerk = document.createElement('button');
@@ -167,7 +149,9 @@ function toevoegenWerk() {
     btnVerwijderenWerk.title="Werkervaring verwijderen";
     document.getElementById('divWerk' + indexWerk).appendChild(btnVerwijderenWerk);
     btnVerwijderenWerk.addEventListener('click', verwijderenWerk);
+    
     indexWerk++;
+    aantalWerk++;
   }
   else {
     document.getElementById('btnVerwijderenWerkgever').disabled = true;

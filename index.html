@@ -15,54 +15,54 @@
 </head>
 <body>
     <form id="regForm" action="/action_page.php">
-  <h1>Persoonlijk profiel</h1>
+  <h1 class="form__title">Persoonlijk profiel</h1>
+
+  <div style="overflow:auto;">
+    <div style="float:right;">
+      <button type="button" id="prevBtn" onclick="nextPrev(-1)">Vorige</button>
+      <button type="button" id="nextBtn" onclick="nextPrev(1)">Volgende</button>
+    </div>
+  </div>
+
   <!-- Tab #1 Persoonlijke gegevens -->
   <div class="tab">
-    <h2>Persoonlijke gegevens</h2>
+    <h2 class="tab__title">Persoonlijke gegevens</h2>
     <p>
-      <label for="voornaam">Voornaam:</label>
-      <input oninput="this.className = ''" id="voornaam" name="voornaam" required>
+      <input oninput="this.className = ''" placeholder="Voornaam" id="voornaam" name="voornaam" required>
     </p>
     <p>
-      <label for="tussenvoegsel">Tussenvoegsel:</label>
-      <input oninput="this.className = ''" id="tussenvoegsel" name="tussenvoegsel">
+      <input oninput="this.className = ''" placeholder="Tussenvoegsel" id="tussenvoegsel" name="tussenvoegsel">
     </p>
     <p>
-      <label for="achternaam">Achternaam:</label>
-      <input oninput="this.className = ''" id="achternaam" name="achternaam" required>
+      <input oninput="this.className = ''" placeholder="Achternaam" id="achternaam" name="achternaam" required>
     </p>
     <p>
-      <label for="straatnaam">Straatnaam:</label>
-      <input oninput="this.className = ''" id="straatnaam" name="straatnaam">
+      <input oninput="this.className = ''" placeholder="Straatnaam" id="straatnaam" name="straatnaam">
     </p>
     <p>
-      <label for="huisnummer">Huisnummer:</label>
-      <input oninput="this.className = ''" id="huisnummer" name="huisnummer">
+      <input oninput="this.className = ''" placeholder="Huisnummer" id="huisnummer" name="huisnummer">
     </p>
     <p>
-      <label for="postcode">Postcode:</label>
-      <input oninput="this.className = ''" id="postcode" name="postcode">
+      <input oninput="this.className = ''" placeholder="Postcode" id="postcode" name="postcode">
     </p>
     <p>
-      <label for="stad">Stad:</label>
-      <input oninput="this.className = ''" id="stad" name="stad">
+      <input oninput="this.className = ''" placeholder="Stad" id="stad" name="stad">
     </p>
       
     <p>
-      <label for="telefoon">Telefoonnummer:</label>
-      <input type="tel" oninput="this.className = ''" id="telefoon" name="telefoon">
+      <input type="tel" oninput="this.className = ''" placeholder="Telefoon" id="telefoon" name="telefoon">
     </p>
     <p>
-      <label for="email">Emailadres:</label>
-      <input type="email oninput="this.className = ''" id="email" name="email">
+      <input type="email oninput="this.className = ''" placeholder="E-mailadres" id="email" name="email">
     </p>
 
     <p>
-      <label for="soort_uitkering">Hoeveel uren per week ben je beschikbaar?</label>
+      <label for="soort_uitkering">Selecteer je type uitkering</label>
       <select id="soort_uitkering" name="soort_uitkering" required>
+        <option value="" disabled selected hidden>Selecteer</option>
         <option value="WIA">WIA</option>
         <option value="WAO">WAO</option>
-        <option value="WaJong">WaJong</option>
+        <option value="Wajong">Wajong</option>
         <option value="Bijstand/Doelgroepregister">Bijstand/Doelgroepregister</option>
       </select>
     </p>
@@ -414,7 +414,7 @@
     </details>
 
     <details>
-      <summary>IT</summary>
+      <summary>ICT</summary>
       <p>
         <input type="checkbox" oninput="this.className = ''" id="developer" name="developer">
         <label for="developer">Developer</label>      
