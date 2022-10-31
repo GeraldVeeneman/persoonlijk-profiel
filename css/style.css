@@ -5,6 +5,7 @@
   --grayish-blue: hsl(229, 7%, 55%);
   --dark-blue: hsl(228, 56%, 26%);
   --very-dark-blue: hsl(229, 57%, 11%);
+  --orange: #e84e1b;
 }
 
 /* Typography */
@@ -28,12 +29,13 @@ html {
 
 body {
   background-color: #f1f1f1;
+  font-family: "Lexend Deca", sans-serif;
 }
 
 #regForm {
   background-color: #f4f4f7;
   margin: 100px auto;
-  font-family: "Raleway", sans-serif;
+  font-family: "Lexend Deca", sans-serif;
   padding: 40px;
   width: 70%;
   min-width: 300px;
@@ -42,18 +44,19 @@ body {
 
 .form__title {
   text-align: center;
-}
-
-h1 {
-  text-align: center;
+  font-size: 2.88rem;
+  color: #29255b;
+  margin-bottom: 2rem;
 }
 
 p {
-  padding: 1rem 0;
+  margin: 1.4rem 0;
 }
 
 label {
   font-size: 1.44rem;
+  display: block;
+  margin-bottom: 1rem;
 }
 
 input, select, textarea {
@@ -80,14 +83,19 @@ input.invalid {
 .tab {
   display: none;
 }
+.tab__title {
+  color: #e84e1b;
+  font-size: 2.2rem;
+  margin-bottom: 1.5rem;
+}
 
 button {
-  background-color: #04AA6D;
+  background-color: var(--orange);
   color: #ffffff;
   border: none;
-  padding: 10px 20px;
-  font-size: 17px;
-  font-family: Raleway;
+  padding: 1rem 2rem;
+  font-size: 1.7rem;
+  font-weight: 700;
   cursor: pointer;
 }
 

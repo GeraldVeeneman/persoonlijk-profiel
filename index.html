@@ -9,7 +9,7 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet"> 
+<link href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@400;700&display=swap" rel="stylesheet"> 
 
     <title>Persoonlijk profiel</title>
 </head>
@@ -93,7 +93,8 @@
 
      <p>
       <label for="aantal_uren">Hoeveel uren per week ben je beschikbaar?</label>
-      <select id="aantal_uren" name="aantal_uren">
+      <select id="aantal_uren" name="aantal_uren" required>
+        <option value="" disabled selected hidden>Selecteer</option>
         <option value="0-8">0-8</option>
         <option value="9-16">9-16</option>
         <option value="17-24">17-24</option>
@@ -106,7 +107,8 @@
    </div> <!-- end div tab #1 Persoonlijke gegevens -->
 
    <!-- Tab #2 Werksituatie -->
-  <div class="tab"><h2>Werksituatie:</h2>
+  <div class="tab">
+    <h2 class="tab__title">Werksituatie:</h2>
     <fieldset>
       <legend>Ik kan op tijd komen</legend>
       <div>
@@ -262,7 +264,8 @@
   </div> <!-- End div tab #2 Werksituatie -->
 
    <!-- Tab #3 Werkervaring -->
-  <div class="tab"><h2>Werkervaring:</h2>
+  <div class="tab">
+    <h2 class="tab__title">Werkervaring:</h2>
     <button type="button" id="btnToevoegenWerk" title="Werkervaring toevoegen" onclick="toevoegenWerk()">+</button>
     <div id="divResult"></div>
 
@@ -270,7 +273,7 @@
   </div> <!-- End div tab #3 Werkervaring -->
 
   <!-- Tab #4 Opleiding -->
-  <div class="tab">Opleiding, cursussen, trainingen:
+  <div class="tab"><h2 class="tab__title">Opleiding, cursussen, trainingen:</h2>
     <p>
       <label for="opleiding_begindatum_1">Van:</label>
       <input type="date" oninput="this.className = ''" id="opleiding_begindatum_1" name="opleiding_begindatum_1">
@@ -359,7 +362,7 @@
   </div> <!-- End div tab #4 Opleiding, cursus en training -->
 
   <!-- Tab # 5 Vakgebieden -->
-  <div class="tab"><h2>Vakgebieden:</h2>
+  <div class="tab"><h2 class="tab__title">Vakgebieden:</h2>
     
     <details>
       <summary>Bouw</summary>
@@ -591,7 +594,7 @@
 
   <!-- Tab # 6 Persoonlijke ontwikkeling -->
   <div class="tab">
-    <h2>Persoonlijke ontwikkeling</h2>
+    <h2 class="tab__title">Persoonlijke ontwikkeling</h2>
     <fieldset>
       <legend>Ik ben bereid een opleiding of cursus te volgen</legend>
       <div>

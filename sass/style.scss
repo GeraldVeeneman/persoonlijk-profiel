@@ -8,12 +8,13 @@
     --grayish-blue: hsl(229, 7%, 55%); // Text of GB left
     --dark-blue: hsl(228, 56%, 26%); // Background divs
     --very-dark-blue: hsl(229, 57%, 11%); // Background icons and color number of GB left
+    --orange: #e84e1b; // Oranje navigatiebuttons
 }
 
 /* Typography */
 
 /* Fonts */
-$font-primary: 'Raleway', sans-serif;
+$font-primary: 'Lexend Deca', sans-serif;
 
 /* Global reset */
 * {
@@ -34,6 +35,7 @@ html {
 
 body {
     background-color: #f1f1f1;
+    font-family: $font-primary;
 }
 
 #regForm {
@@ -48,17 +50,19 @@ body {
 
 .form__title {
     text-align: center;
-}
-h1 {
-    text-align: center;
+    font-size: 2.88rem;
+    color: #29255b;
+    margin-bottom: 2rem;
 }
 
 p {
-    padding: 1rem 0;
+    margin: 1.4rem 0;
 }
 
 label {
     font-size: 1.44rem;
+    display: block;
+    margin-bottom: 1rem;
 }
 
 input, select, textarea {
@@ -84,15 +88,21 @@ input.invalid {
 /* Hide all steps by default: */
 .tab {
     display: none;
+
+    &__title {
+        color: #e84e1b;
+        font-size: 2.2rem;
+        margin-bottom: 1.5rem;
+    }
 }
 
 button {
-    background-color: #04AA6D;
+    background-color: var(--orange);
     color: #ffffff;
     border: none;
-    padding: 10px 20px;
-    font-size: 17px;
-    font-family: Raleway;
+    padding: 1rem 2rem;
+    font-size: 1.7rem;
+    font-weight: 700;
     cursor: pointer;
 }
 
