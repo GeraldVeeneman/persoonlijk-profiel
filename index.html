@@ -28,22 +28,13 @@
   <div class="tab">
     <h2 class="tab__title">Persoonlijke gegevens</h2>
     <p>
-      <input oninput="this.className = ''" placeholder="Voornaam" id="voornaam" name="voornaam" required>
+      <input oninput="this.className = ''" placeholder="Voornaam*" id="voornaam" name="voornaam" required>
     </p>
     <p>
       <input oninput="this.className = ''" placeholder="Tussenvoegsel" id="tussenvoegsel" name="tussenvoegsel">
     </p>
     <p>
-      <input oninput="this.className = ''" placeholder="Achternaam" id="achternaam" name="achternaam" required>
-    </p>
-    <p>
-      <input oninput="this.className = ''" placeholder="Straatnaam" id="straatnaam" name="straatnaam">
-    </p>
-    <p>
-      <input oninput="this.className = ''" placeholder="Huisnummer" id="huisnummer" name="huisnummer">
-    </p>
-    <p>
-      <input oninput="this.className = ''" placeholder="Postcode" id="postcode" name="postcode">
+      <input oninput="this.className = ''" placeholder="Achternaam*" id="achternaam" name="achternaam" required>
     </p>
     <p>
       <input oninput="this.className = ''" placeholder="Stad" id="stad" name="stad">
@@ -59,7 +50,7 @@
     <p>
       <label for="soort_uitkering">Selecteer je type uitkering</label>
       <select id="soort_uitkering" name="soort_uitkering" required>
-        <option value="" disabled selected hidden>Selecteer</option>
+        <option value="" disabled selected hidden>Selecteer*</option>
         <option value="WIA">WIA</option>
         <option value="WAO">WAO</option>
         <option value="Wajong">Wajong</option>
@@ -76,8 +67,8 @@
     </p>
 
     <p>
-      <label for="rijbewijs">Rijbewijs:</label>
-      <input type="radio" oninput="this.className = ''" id="rijbewijs_ja" name="rijbewijs" value="ja">
+      <label for="rijbewijs">Rijbewijs*:</label>
+      <input type="radio" oninput="this.className = ''" id="rijbewijs_ja" name="rijbewijs" value="ja" required>
       <label for="rijbewijs_ja">Ja</label>
       <input type="radio" oninput="this.className = ''" id="rijbewijs_nee" name="rijbewijs" value="nee">
       <label for="rijbewijs_nee">Nee</label>
