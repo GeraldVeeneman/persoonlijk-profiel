@@ -1,5 +1,5 @@
-let indexWerk = 1     // Teller voor nieuwe werkgevers
-let aantalWerk = 0    // Aantal werkervaringen
+let indexWerk = indexOpleiding = indexTraining = indexCursus = 1;       // Teller voor werkervaringen, opleidingen, trainingen en curussen
+let aantalWerk = aantalOpleiding = aantalTraining = aantalCursus = 0;   // Aantal toegevoegde werkervaringen, opleidingen, trainingen en cursussen
 var currentTab = 0;   // Current tab is set to be the first tab (0)
 showTab(currentTab);  // Display the current tab
 
@@ -73,11 +73,43 @@ function fixStepIndicator(n) {
   x[n].className += " active";
 }
 
-function createParField(label, input) {
-  // Deze functie maakt een nieuwe paragraaf aan en plaatst daarin een label en formulierveld
-  let p = document.createElement('p');
-  p.append(label, input);
+function createParField(input) {
+  let p = document.createElement("p");
+  p.append(input);
   return p;
+}
+
+function changeToDateType() {
+  const str = this.value;
+  console.log(str);
+  console.log(str.length);
+  if (str.length == 10) { 
+    // Converteer datestring naar datumformaat yyyy-mm-dd
+    const day = str.substring(0, 2);
+    const month = str.substring(3, 5);
+    const year = str.substring(6, 10);
+    const dateString = year + "-" + month + "-" + day;
+    console.log(dateString);
+    this.value = dateString;
+    
+  }
+  // Verander het huidige veld in een datumveld
+  this.type = "date";
+}
+
+function changeToTextType() {
+  // Verander het huidige veld in een tekstveld
+  
+  this.type = "text";
+  // Converteer datumstring naar dd-mm-jjjj formaat
+  const str = this.value;
+  if (str.length == 10) {
+    const day = str.substring(8,10);
+    const month = str.substring(5,7);
+    const year = str.substring(0,4);
+    const dateString = day + '-' + month + '-' + year;
+    this.value = dateString;
+  }
 }
 
 function verwijderenWerk() {
@@ -87,73 +119,152 @@ function verwijderenWerk() {
 }
 
 function toevoegenWerk() {
-  if (aantalWerk <=4) { // Maximaal 5 werkervaringen kunnen worden toegevoegd.
-    // Velden met labels voor werkervaring maken
-    const werkBegindatum = document.createElement('input');
-    werkBegindatum.type = 'date'
+  if (aantalWerk < 5) {
+    // Maximaal 5 werkervaringen kunnen worden toegevoegd.
+    // Velden maken (begindatum, einddatum, functie, werkgever, toelichting)
+    const werkBegindatum = document.createElement("input");
+    werkBegindatum.type = "text";
     werkBegindatum.id = "werkBegindatum" + indexWerk;
     werkBegindatum.name = werkBegindatum.id;
-    const label_werkBegindatum = document.createElement('label');
-    label_werkBegindatum.setAttribute("for", werkBegindatum.id);
-    label_werkBegindatum.textContent = "Van:";
+    werkBegindatum.placeholder = "Begindatum";
 
     const werkEinddatum = document.createElement("input");
-    werkEinddatum.type = "date";
+    werkEinddatum.type = "text";
     werkEinddatum.id = "werkEinddatum" + indexWerk;
     werkEinddatum.name = werkEinddatum.id;
-    const label_werkEinddatum = document.createElement("label");
-    label_werkEinddatum.setAttribute("for", werkEinddatum.id);
-    label_werkEinddatum.textContent = "Tot:";
-    
+    werkEinddatum.placeholder = "Einddatum";
+
     const werkFunctie = document.createElement("input");
     werkFunctie.type = "text";
     werkFunctie.id = "werkFunctie" + indexWerk;
     werkFunctie.name = werkFunctie.id;
-    const label_werkFunctie = document.createElement("label");
-    label_werkFunctie.setAttribute("for", werkFunctie.id);
-    label_werkFunctie.textContent = "Functie:";
+    werkFunctie.placeholder = "Functie";
 
     const werkWerkgever = document.createElement("input");
     werkWerkgever.type = "text";
     werkWerkgever.id = "werkWerkgever" + indexWerk;
     werkWerkgever.name = werkWerkgever.id;
-    const label_werkWerkgever = document.createElement("label");
-    label_werkWerkgever.setAttribute("for", werkWerkgever.id);
-    label_werkWerkgever.textContent = "Werkgever:";
+    werkWerkgever.placeholder = "Werkgever";
 
     const werkToelichting = document.createElement("textarea");
     werkToelichting.id = "werkToelichting" + indexWerk;
     werkToelichting.name = werkToelichting.id;
-    const label_werkToelichting = document.createElement("label");
-    label_werkToelichting.setAttribute("for", werkToelichting.id);
-    label_werkToelichting.textContent = "Toelichting:";
+    werkToelichting.placeholder = "Toelichting over uitgevoerde werkzaamheden";
 
-    let divResult = document.querySelector("#divResult"); // Div voor het resultaat
+    let divWerk = document.createElement("div"); // Div per werkervaring
+    divWerk.id = "divWerk" + indexWerk;
 
-    let divWerk = document.createElement('div'); // Div per werkervaring
-    divWerk.id = "divWerk" + indexWerk;  
+    let divResult = document.querySelector("#divWerkResult"); // Div voor het resultaat
 
-    // Paragrafen + velden (met label en input) binnen result div plaatsen
+    let p = document.createElement("p");
+
+    // Paragrafen + velden binnen result div plaatsen
     divResult.appendChild(divWerk);
-    document.getElementById("divWerk" + indexWerk).appendChild(createParField(label_werkBegindatum, werkBegindatum));
-    document.getElementById("divWerk" + indexWerk).appendChild(createParField(label_werkEinddatum, werkEinddatum));
-    document.getElementById("divWerk" + indexWerk).appendChild(createParField(label_werkFunctie, werkFunctie));
-    document.getElementById("divWerk" + indexWerk).appendChild(createParField(label_werkWerkgever, werkWerkgever));
-    document.getElementById("divWerk" + indexWerk).appendChild(createParField(label_werkToelichting, werkToelichting));
+    document.getElementById("divWerk" + indexWerk).appendChild(createParField(werkBegindatum));
+    document.getElementById("divWerk" + indexWerk).appendChild(createParField(werkEinddatum));
+    document.getElementById("divWerk" + indexWerk).appendChild(createParField(werkFunctie));
+    document.getElementById("divWerk" + indexWerk).appendChild(createParField(werkWerkgever));
+    document.getElementById("divWerk" + indexWerk).appendChild(createParField(werkToelichting));
+
+    // Button toevoegen werkervaring
+    const btnToevoegenWerk2 = document.createElement("button");
+    btnToevoegenWerk2.type = "button";
+    btnToevoegenWerk2.textContent = "+";
+    btnToevoegenWerk2.id = "btnToevoegenWerk" + indexWerk;
+    btnToevoegenWerk2.title = "Werkervaring toevoegen";
+    document.getElementById("divWerk" + indexWerk).appendChild(btnToevoegenWerk2);
+    btnToevoegenWerk2.addEventListener("click", toevoegenWerk);
 
     // Button verwijderen werkervaring
-    const btnVerwijderenWerk = document.createElement('button');
-    btnVerwijderenWerk.type="button";
-    btnVerwijderenWerk.textContent="x";
-    btnVerwijderenWerk.id="btnVerwijderenWerk" + indexWerk;
-    btnVerwijderenWerk.title="Werkervaring verwijderen";
-    document.getElementById('divWerk' + indexWerk).appendChild(btnVerwijderenWerk);
-    btnVerwijderenWerk.addEventListener('click', verwijderenWerk);
-    
+    const btnVerwijderenWerk = document.createElement("button");
+    btnVerwijderenWerk.type = "button";
+    btnVerwijderenWerk.textContent = "x";
+    btnVerwijderenWerk.id = "btnVerwijderenWerk" + indexWerk;
+    btnVerwijderenWerk.title = "Werkervaring verwijderen";
+    document.getElementById("divWerk" + indexWerk).appendChild(btnVerwijderenWerk);
+    btnVerwijderenWerk.addEventListener("click", verwijderenWerk);
+
+    werkBegindatum.addEventListener("focus", changeToDateType);
+    werkBegindatum.addEventListener("blur", changeToTextType);
+    werkEinddatum.addEventListener("focus", changeToDateType);
+    werkEinddatum.addEventListener("blur", changeToTextType);
+
+    // Scroll naar de nieuwe rij
+    divWerk.scrollIntoView({ behavior: "smooth" });
+
     indexWerk++;
     aantalWerk++;
   }
   else {
     document.getElementById('btnVerwijderenWerkgever').disabled = true;
+  }
+}
+
+function toevoegenItem(subject, max) {
+  if (eval("aantal" + subject) < max) {
+    // Velden maken (begindatum, einddatum, naam opleiding/cursus/training, instelling/instituut)
+    const begindatum = document.createElement("input");
+    begindatum.type = "date";
+    begindatum.id = subject + "Begindatum" + eval("index" + subject);
+    begindatum.name = subject + "Begindatum".id;
+    const labelBegindatum = document.createElement("label");
+    labelBegindatum.setAttribute("for", begindatum.id);
+    labelBegindatum.textContent = "Van:";
+
+    const einddatum = document.createElement("input");
+    einddatum.type = "date";
+    einddatum.id = subject + "Einddatum" + eval("index" + subject);
+    einddatum.name = subject + "Einddatum".id;
+    const labelEinddatum = document.createElement("label");
+    labelEinddatum.setAttribute("for", einddatum.id);
+    labelEinddatum.textContent = "Tot:";
+
+    const naam = document.createElement("input");
+    naam.type = "text";
+    naam.id = "naam" + subject + indexWerk;
+    naam.name = naam.id;
+    naam.placeholder = "Naam " + subject;
+
+    const inst = document.createElement("input");
+    inst.type = "text";
+    inst.id = "inst" + subject + eval("index" + subject);
+    inst.name = inst.id;
+    inst.placeholder = "Instelling/Instituut " + subject;
+
+    let divOpleiding = document.createElement("div"); // Div per item
+    divOpleiding.id = "div" + subject + eval("index" + subject);
+
+    let divResult = document.querySelector("#divOpleidingResult"); // Div voor het resultaat
+
+    // Paragrafen + velden (met label en input) binnen result div plaatsen
+    divResult.appendChild(divOpleiding);
+    document
+      .getElementById("div" + subject + eval("index" + subject))
+      .appendChild(createParField(begindatum));
+    document
+      .getElementById("div" + subject + eval("index" + subject))
+      .appendChild(createParField(einddatum));
+    document
+      .getElementById("div" + subject + eval("index" + subject))
+      .appendChild(createParField(naam));
+    document
+      .getElementById("div" + subject + eval("index" + subject))
+      .appendChild(createParField(inst));
+
+    // Button verwijderen opleiding
+    const btnVerwijderenOpleiding = document.createElement("button");
+    btnVerwijderenOpleiding.type = "button";
+    btnVerwijderenOpleiding.textContent = "x";
+    btnVerwijderenOpleiding.id = "btnVerwijderenOpleiding" + indexOpleiding;
+    btnVerwijderenOpleiding.title = "Opleiding verwijderen";
+    document
+      .getElementById("divOpleiding" + indexWerk)
+      .appendChild(btnVerwijderenOpleiding);
+    btnVerwijderenOpleiding.addEventListener("click", verwijderenOpleiding);
+
+    indexOpleiding++;
+    aantalOpleiding++;
+  } else {
+    document.getElementById("btnVerwijderenOpleiding").disabled = true;
   }
 }

@@ -66,7 +66,7 @@ label {
     margin-bottom: 1rem;
 }
 
-input, select, textarea {
+input[type=text], input[type=date], input[type=tel], input[type=email], select, textarea {
     font-size: 1.8rem;
     box-shadow: 0 6px 20px rgba(41, 37, 91, .04), inset 0 1px 1px rgba(0, 0, 0, .05);
     border-radius: 3px;
@@ -81,6 +81,29 @@ input, select, textarea {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
+}
+
+.selectpar {
+    position: relative;   
+}
+
+.selectpar:after {
+    content: '>';
+    font-size: 2.5rem;
+    color: var(--orange);
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    transform: rotate(90deg);
+    right: 1rem;
+    top: 4.2rem;
+    padding: 0 0 2px;
+    position: absolute;
+    pointer-events: none;
+}
+
+.selectpar select{
+    margin-top: 1rem;
 }
 
 textarea {
@@ -144,4 +167,17 @@ button:hover {
 /* Mark the steps that are finished and valid: */
 .step.finish {
     background-color: #04AA6D;
+}
+
+details {
+
+    summary {
+        width: 100%;
+        background: var(--orange);
+        color: white;
+        font-size: 1.8rem;
+        padding: 5px;
+        border-radius: 5px;
+        margin-bottom: 1rem;
+    }
 }

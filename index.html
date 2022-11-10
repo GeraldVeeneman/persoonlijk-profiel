@@ -28,27 +28,27 @@
   <div class="tab">
     <h2 class="tab__title">Persoonlijke gegevens</h2>
     <p>
-      <input oninput="this.className = ''" placeholder="Voornaam*" id="voornaam" name="voornaam" required>
+      <input type="text" oninput="this.className = ''" placeholder="Voornaam*" id="voornaam" name="voornaam" required>
     </p>
     <p>
-      <input oninput="this.className = ''" placeholder="Tussenvoegsel" id="tussenvoegsel" name="tussenvoegsel">
+      <input type="text" oninput="this.className = ''" placeholder="Tussenvoegsel" id="tussenvoegsel" name="tussenvoegsel">
     </p>
     <p>
-      <input oninput="this.className = ''" placeholder="Achternaam*" id="achternaam" name="achternaam" required>
+      <input type="text" oninput="this.className = ''" placeholder="Achternaam*" id="achternaam" name="achternaam" required>
     </p>
     <p>
-      <input oninput="this.className = ''" placeholder="Stad" id="stad" name="stad">
+      <input type="text" oninput="this.className = ''" placeholder="Stad" id="stad" name="stad">
     </p>
       
     <p>
       <input type="tel" oninput="this.className = ''" placeholder="Telefoon" id="telefoon" name="telefoon">
     </p>
     <p>
-      <input type="email oninput="this.className = ''" placeholder="E-mailadres" id="email" name="email">
+      <input type="email" oninput="this.className = ''" placeholder="E-mailadres" id="email" name="email">
     </p>
 
-    <p>
-      <label for="soort_uitkering">Selecteer je type uitkering</label>
+    <p class="selectpar">
+      <label for="soort_uitkering">Selecteer je type uitkering
       <select id="soort_uitkering" name="soort_uitkering" required>
         <option value="" disabled selected hidden>Selecteer*</option>
         <option value="WIA">WIA</option>
@@ -56,6 +56,7 @@
         <option value="Wajong">Wajong</option>
         <option value="Bijstand/Doelgroepregister">Bijstand/Doelgroepregister</option>
       </select>
+      </label>
     </p>
     
     <p>
@@ -256,99 +257,17 @@
 
    <!-- Tab #3 Werkervaring -->
   <div class="tab">
-    <h2 class="tab__title">Werkervaring:</h2>
-    <button type="button" id="btnToevoegenWerk" title="Werkervaring toevoegen" onclick="toevoegenWerk()">+</button>
-    <div id="divResult"></div>
-
-    
+    <h2 class="tab__title">Werkervaring:</h2>    
+      <button type="button" id="btnToevoegenWerk" title="Werkervaring toevoegen" onclick="toevoegenWerk()">+</button>
+    <div id="divWerkResult"></div>    
   </div> <!-- End div tab #3 Werkervaring -->
 
   <!-- Tab #4 Opleiding -->
-  <div class="tab"><h2 class="tab__title">Opleiding, cursussen, trainingen:</h2>
-    <p>
-      <label for="opleiding_begindatum_1">Van:</label>
-      <input type="date" oninput="this.className = ''" id="opleiding_begindatum_1" name="opleiding_begindatum_1">
-    </p>
-    <p>
-      <label for="opleiding_einddatum_1">Tot:</label>
-      <input type="date" oninput="this.className = ''" id="opleiding_einddatum_1" name="opleiding_einddatum_1">
-    </p>
-    <p>
-      <label for="opleiding_naam_1">Naam opleiding/cursus/training:</label>
-      <input oninput="this.className = ''" id="opleiding_naam_1" name="opleiding_naam_1">
-    </p>
-    <p>
-      <label for="opleiding_inst_1">Onderwijsinstelling/instituut:</label>
-      <input oninput="this.className = ''" id="opleiding_inst_1" name="opleiding_inst_1">
-    </p>
-
-    <p>
-      <label for="opleiding_begindatum_2">Van:</label>
-      <input type="date" oninput="this.className = ''" id="opleiding_begindatum_2" name="opleiding_begindatum_2">
-    </p>
-    <p>
-      <label for="opleiding_einddatum_2">Tot:</label>
-      <input type="date" oninput="this.className = ''" id="opleiding_einddatum_2" name="opleiding_einddatum_2">
-    </p>
-    <p>
-      <label for="opleiding_naam_2">Naam opleiding/cursus/training:</label>
-      <input oninput="this.className = ''" id="opleiding_naam_2" id="opleiding_naam_2" name="opleiding_naam_2">
-    </p>
-    <p>
-      <label for="opleiding_inst_2">Onderwijsinstelling/instituut:</label>
-      <input oninput="this.className = ''" id="opleiding_inst_2" name="opleiding_inst_2">
-    </p>
-
-    <p>
-      <label for="opleiding_begindatum_3">Van:</label>
-      <input type="date" oninput="this.className = ''" id="opleiding_begindatum_3" name="opleiding_begindatum_3">
-    </p>
-    <p>
-      <label for="opleiding_einddatum_3">Tot:</label>
-      <input type="date" oninput="this.className = ''" id="opleiding_einddatum_3" name="opleiding_einddatum_3">
-    </p>
-    <p>
-      <label for="opleiding_naam_3">Naam opleiding/cursus/training:</label>
-      <input oninput="this.className = ''" id="opleiding_naam_3" name="opleiding_naam_3">
-    </p>
-    <p>
-      <label for="opleiding_inst_3">Onderwijsinstelling/instituut:</label>
-      <input oninput="this.className = ''" id="opleiding_inst_3" name="opleiding_inst_3">
-    </p>
-
-    <p>
-      <label for="opleiding_begindatum_4">Van:</label>
-      <input type="date" oninput="this.className = ''" id="opleiding_begindatum_4" name="opleiding_begindatum_4">
-    </p>
-    <p>
-      <label for="opleiding_einddatum_4">Tot:</label>
-      <input type="date" oninput="this.className = ''" id="opleiding_einddatum_4" name="opleiding_einddatum_4">
-    </p>
-    <p>
-      <label for="opleiding_naam_4">Naam opleiding/cursus/training:</label>
-      <input oninput="this.className = ''" id="opleiding_naam_4" name="opleiding_naam_4">
-    </p>
-    <p>
-      <label for="opleiding_inst_4">Onderwijsinstelling/instituut:</label>
-      <input oninput="this.className = ''" id="opleiding_inst_4" name="opleiding_inst_4">
-    </p>
-
-    <p>
-      <label for="opleiding_begindatum_5">Van:</label>
-      <input type="date" oninput="this.className = ''" id="opleiding_begindatum_5" name="opleiding_begindatum_5">
-    </p>
-    <p>
-      <label for="opleiding_einddatum_5">Tot:</label>
-      <input type="date" oninput="this.className = ''" id="opleiding_einddatum_5" name="opleiding_einddatum_5">
-    </p>
-    <p>
-      <label for="opleiding_naam_5">Naam opleiding/cursus/training:</label>
-      <input oninput="this.className = ''" id="opleiding_naam_5" name="opleiding_naam_5">
-    </p>
-    <p>
-      <label for="opleiding_inst_5">Onderwijsinstelling/instituut:</label>
-      <input oninput="this.className = ''" id="opleiding_inst_5" name="opleiding_inst_5">
-    </p>
+  <div class="tab">
+    <h2 class="tab__title">Opleiding, cursussen, trainingen:</h2>
+    <button type="button" id="btnToevoegenOpleiding" title="Opleiding toevoegen" onclick="toevoegenItem('Opleiding', 5)">+</button>
+    <div id="divOpleidingResult"></div> 
+    
     
   </div> <!-- End div tab #4 Opleiding, cursus en training -->
 
