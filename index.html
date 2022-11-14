@@ -265,8 +265,17 @@
   <!-- Tab #4 Opleiding -->
   <div class="tab">
     <h2 class="tab__title">Opleiding, cursussen, trainingen:</h2>
-    <button type="button" id="btnToevoegenOpleiding" title="Opleiding toevoegen" onclick="toevoegenItem('Opleiding', 5)">+</button>
-    <div id="divOpleidingResult"></div> 
+    <h3>Opleiding</h3>
+    <button type="button" id="btnToevoegenOpleiding" title="Opleiding toevoegen" onclick="toevoegenRij('Opleiding')">+</button>
+    <div id="divOpleidingResult"></div>
+    
+    <h3>Cursus</h3>
+    <button type="button" id="btnToevoegenCursus" title="Cursus toevoegen" onclick="toevoegenRij('Cursus')">+</button>
+    <div id="divCursusResult"></div>
+
+    <h3>Training</h3>
+    <button type="button" id="btnToevoegenTraining" title="Training toevoegen" onclick="toevoegenRij('Training')">+</button>
+    <div id="divTrainingResult"></div>
     
     
   </div> <!-- End div tab #4 Opleiding, cursus en training -->

@@ -1,5 +1,15 @@
-let indexWerk = indexOpleiding = indexTraining = indexCursus = 1;       // Teller voor werkervaringen, opleidingen, trainingen en curussen
+// Initialisatie variabelen tbv het toevoegen en verwijderen van rijen met velden
+// voor Werkervaring, Opleiding, Training en Cursussen.
+let indexWerk = indexOpleiding = indexTraining = indexCursus = 0;       // Teller voor werkervaringen, opleidingen, trainingen en curussen
 let aantalWerk = aantalOpleiding = aantalTraining = aantalCursus = 0;   // Aantal toegevoegde werkervaringen, opleidingen, trainingen en cursussen
+let maxWerk = 5
+let maxOpleiding = 5;
+let maxTraining = 3;
+let maxCursus = 3;
+
+let aantal = 0;
+let index = 0;
+
 var currentTab = 0;   // Current tab is set to be the first tab (0)
 showTab(currentTab);  // Display the current tab
 
@@ -118,8 +128,14 @@ function verwijderenWerk() {
   aantalWerk--;
 }
 
+function verwijderenRij() {
+  // Deze functie verwijdert een rij uit werkervaring, opleiding, training of cursus
+  // en vermindert het aantal (rijen) met 1  
+  this.parentElement.remove();
+}
+
 function toevoegenWerk() {
-  if (aantalWerk < 5) {
+  if (aantalWerk < maxWerk) {
     // Maximaal 5 werkervaringen kunnen worden toegevoegd.
     // Velden maken (begindatum, einddatum, functie, werkgever, toelichting)
     const werkBegindatum = document.createElement("input");
@@ -151,15 +167,13 @@ function toevoegenWerk() {
     werkToelichting.name = werkToelichting.id;
     werkToelichting.placeholder = "Toelichting over uitgevoerde werkzaamheden";
 
-    let divWerk = document.createElement("div"); // Div per werkervaring
-    divWerk.id = "divWerk" + indexWerk;
+    let divRij = document.createElement("div"); // Div per werkervaring
+    divRij.id = "divWerk" + indexWerk;
 
     let divResult = document.querySelector("#divWerkResult"); // Div voor het resultaat
 
-    let p = document.createElement("p");
-
     // Paragrafen + velden binnen result div plaatsen
-    divResult.appendChild(divWerk);
+    divResult.appendChild(divRij);
     document.getElementById("divWerk" + indexWerk).appendChild(createParField(werkBegindatum));
     document.getElementById("divWerk" + indexWerk).appendChild(createParField(werkEinddatum));
     document.getElementById("divWerk" + indexWerk).appendChild(createParField(werkFunctie));
@@ -167,13 +181,13 @@ function toevoegenWerk() {
     document.getElementById("divWerk" + indexWerk).appendChild(createParField(werkToelichting));
 
     // Button toevoegen werkervaring
-    const btnToevoegenWerk2 = document.createElement("button");
-    btnToevoegenWerk2.type = "button";
-    btnToevoegenWerk2.textContent = "+";
-    btnToevoegenWerk2.id = "btnToevoegenWerk" + indexWerk;
-    btnToevoegenWerk2.title = "Werkervaring toevoegen";
-    document.getElementById("divWerk" + indexWerk).appendChild(btnToevoegenWerk2);
-    btnToevoegenWerk2.addEventListener("click", toevoegenWerk);
+    const btnToevoegenWerk = document.createElement("button");
+    btnToevoegenWerk.type = "button";
+    btnToevoegenWerk.textContent = "+";
+    btnToevoegenWerk.id = "btnToevoegenWerk" + indexWerk;
+    btnToevoegenWerk.title = "Werkervaring toevoegen";
+    document.getElementById("divWerk" + indexWerk).appendChild(btnToevoegenWerk);
+    btnToevoegenWerk.addEventListener("click", toevoegenWerk);
 
     // Button verwijderen werkervaring
     const btnVerwijderenWerk = document.createElement("button");
@@ -190,81 +204,125 @@ function toevoegenWerk() {
     werkEinddatum.addEventListener("blur", changeToTextType);
 
     // Scroll naar de nieuwe rij
-    divWerk.scrollIntoView({ behavior: "smooth" });
+    divRij.scrollIntoView({ behavior: "smooth" });
 
     indexWerk++;
     aantalWerk++;
   }
   else {
-    document.getElementById('btnVerwijderenWerkgever').disabled = true;
+    // Melding tonen van maximum aantal rijen, die reeds zijn toegevoegd
+    alert("Er zijn reeds " + aantalWerk + "rijen voor werkervaring(-en) toegevoegd");
   }
 }
 
-function toevoegenItem(subject, max) {
-  if (eval("aantal" + subject) < max) {
-    // Velden maken (begindatum, einddatum, naam opleiding/cursus/training, instelling/instituut)
-    const begindatum = document.createElement("input");
-    begindatum.type = "date";
-    begindatum.id = subject + "Begindatum" + eval("index" + subject);
-    begindatum.name = subject + "Begindatum".id;
-    const labelBegindatum = document.createElement("label");
-    labelBegindatum.setAttribute("for", begindatum.id);
-    labelBegindatum.textContent = "Van:";
+function toevoegenRij(subject) {
+  // Bepaal divResult en aantal (reeds aanwezige) rijen per onderwerp
+  divResult = document.querySelector("#div" + subject + "Result");
+  aantal = divResult.childElementCount;
+  index = aantal + 1;
 
-    const einddatum = document.createElement("input");
-    einddatum.type = "date";
-    einddatum.id = subject + "Einddatum" + eval("index" + subject);
-    einddatum.name = subject + "Einddatum".id;
-    const labelEinddatum = document.createElement("label");
-    labelEinddatum.setAttribute("for", einddatum.id);
-    labelEinddatum.textContent = "Tot:";
+  // Bepaal maximum aantal rijen per onderwerp
+  if (subject === "Werk") {
+    max = maxWerk; 
+  } else if (subject === "Opleiding") {
+    max = maxOpleiding;
+  } else if (subject === "Training") {
+    max = maxTraining;
+  } else if (subject === "Cursus") {
+    max = maxCursus;
+  }
 
-    const naam = document.createElement("input");
-    naam.type = "text";
-    naam.id = "naam" + subject + indexWerk;
-    naam.name = naam.id;
-    naam.placeholder = "Naam " + subject;
+  if (aantal < max) {
+    if (subject === "Werk") {
+      // Maak een rij met de volgende velden voor werkervaring aan:
+      // begindatum, einddatum, functie, werkgever, toelichting
+      // TODO makenVeldenWerk();
+    } else if (subject === "Opleiding" || subject === "Cursus" || subject === "Training") {
+      // Maak een rij met de volgende velden voor Opleiding, Cursus of Training aan:
+      // begindatum, einddatum, naam opleiding/cursus/training, instelling/instituut
+      // TODO makenVeldenOpleiding();
 
-    const inst = document.createElement("input");
-    inst.type = "text";
-    inst.id = "inst" + subject + eval("index" + subject);
-    inst.name = inst.id;
-    inst.placeholder = "Instelling/Instituut " + subject;
+      // Velden maken (begindatum, einddatum, naam opleiding/cursus/training, instelling/instituut)
+      const begindatum = document.createElement("input");
+      begindatum.type = "text";
+      begindatum.id = subject + "Begindatum" + index;
+      begindatum.name = begindatum.id;
+      begindatum.placeholder = "Begindatum";
 
-    let divOpleiding = document.createElement("div"); // Div per item
-    divOpleiding.id = "div" + subject + eval("index" + subject);
+      const einddatum = document.createElement("input");
+      einddatum.type = "text";
+      einddatum.id = subject + "Einddatum" + index;
+      einddatum.name = einddatum.id;
+      einddatum.placeholder = "Einddatum";
 
-    let divResult = document.querySelector("#divOpleidingResult"); // Div voor het resultaat
+      const naam = document.createElement("input");
+      naam.type = "text";
+      naam.id = "naam" + subject + index;
+      naam.name = naam.id;
+      naam.placeholder = "Naam " + subject;
 
-    // Paragrafen + velden (met label en input) binnen result div plaatsen
-    divResult.appendChild(divOpleiding);
-    document
-      .getElementById("div" + subject + eval("index" + subject))
-      .appendChild(createParField(begindatum));
-    document
-      .getElementById("div" + subject + eval("index" + subject))
-      .appendChild(createParField(einddatum));
-    document
-      .getElementById("div" + subject + eval("index" + subject))
-      .appendChild(createParField(naam));
-    document
-      .getElementById("div" + subject + eval("index" + subject))
-      .appendChild(createParField(inst));
+      const inst = document.createElement("input");
+      inst.type = "text";
+      inst.id = "inst" + subject + index;
+      inst.name = inst.id;
+      inst.placeholder = "Instelling/Instituut " + subject;
 
-    // Button verwijderen opleiding
-    const btnVerwijderenOpleiding = document.createElement("button");
-    btnVerwijderenOpleiding.type = "button";
-    btnVerwijderenOpleiding.textContent = "x";
-    btnVerwijderenOpleiding.id = "btnVerwijderenOpleiding" + indexOpleiding;
-    btnVerwijderenOpleiding.title = "Opleiding verwijderen";
-    document
-      .getElementById("divOpleiding" + indexWerk)
-      .appendChild(btnVerwijderenOpleiding);
-    btnVerwijderenOpleiding.addEventListener("click", verwijderenOpleiding);
+      let divRij = document.createElement("div"); // Div per rij
+      divRij.id = "div" + subject + index;
 
-    indexOpleiding++;
-    aantalOpleiding++;
+      // Paragrafen + velden (met label en input) binnen result div plaatsen
+      divResult.appendChild(divRij);
+      document
+        .getElementById("div" + subject + index)
+        .appendChild(createParField(begindatum));
+      document
+        .getElementById("div" + subject + index)
+        .appendChild(createParField(einddatum));
+      document
+        .getElementById("div" + subject + index)
+        .appendChild(createParField(naam));
+      document
+        .getElementById("div" + subject + index)
+        .appendChild(createParField(inst));
+
+      // Button toevoegen
+      const btnToevoegen = document.createElement("button");
+      btnToevoegen.type = "button";
+      btnToevoegen.textContent = "+";
+      btnToevoegen.id = "btnToevoegen" + subject + index;
+      btnToevoegen.title = subject + " toevoegen";
+      document
+        .getElementById("div" + subject + index)
+        .appendChild(btnToevoegen);
+      btnToevoegen.addEventListener("click", () => {
+        toevoegenRij(subject);
+      });
+
+      // Button verwijderen
+      const btnVerwijderen = document.createElement("button");
+      btnVerwijderen.type = "button";
+      btnVerwijderen.textContent = "x";
+      btnVerwijderen.id = "btnVerwijderen" + subject + index;
+      btnVerwijderen.title = subject + " verwijderen";
+      document
+        .getElementById("div" + subject + index)
+        .appendChild(btnVerwijderen);
+      btnVerwijderen.addEventListener("click", verwijderenRij);
+
+      begindatum.addEventListener("focus", changeToDateType);
+      begindatum.addEventListener("blur", changeToTextType);
+      einddatum.addEventListener("focus", changeToDateType);
+      einddatum.addEventListener("blur", changeToTextType);
+      
+      // Scroll naar de nieuwe rij
+      divRij.scrollIntoView({ behavior: "smooth" });
+
+      // Hoog het (reeds) aantal toegevoegde rijen en indexes (voor unieke veld-id's) op per onderwerp
+      aantal++;
+      index++;
+    }
   } else {
-    document.getElementById("btnVerwijderenOpleiding").disabled = true;
+    // Melding tonen van maximum aantal rijen, die reeds zijn toegevoegd
+    alert("Je hebt reeds het maximum aantal (" + max + ") toegestane rijen voor " + subject + " toegevoegd.");
   }
 }
