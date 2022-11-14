@@ -1,14 +1,13 @@
 // Initialisatie variabelen tbv het toevoegen en verwijderen van rijen met velden
 // voor Werkervaring, Opleiding, Training en Cursussen.
-let indexWerk = indexOpleiding = indexTraining = indexCursus = 0;       // Teller voor werkervaringen, opleidingen, trainingen en curussen
-let aantalWerk = aantalOpleiding = aantalTraining = aantalCursus = 0;   // Aantal toegevoegde werkervaringen, opleidingen, trainingen en cursussen
+let indexWerk = 0;    // Teller voor werkervaringen
+let aantalWerk = 0;   // Aantal toegevoegde werkervaringen
+
+// Maximum aantal rijen per onderwerp
 let maxWerk = 5
 let maxOpleiding = 5;
 let maxTraining = 3;
 let maxCursus = 3;
-
-let aantal = 0;
-let index = 0;
 
 var currentTab = 0;   // Current tab is set to be the first tab (0)
 showTab(currentTab);  // Display the current tab
