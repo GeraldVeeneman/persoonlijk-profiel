@@ -316,10 +316,6 @@ function toevoegenRij(subject) {
       
       // Scroll naar de nieuwe rij
       divRij.scrollIntoView({ behavior: "smooth" });
-
-      // Hoog het (reeds) aantal toegevoegde rijen en indexes (voor unieke veld-id's) op per onderwerp
-      aantal++;
-      index++;
     }
   } else {
     // Melding tonen van maximum aantal rijen, die reeds zijn toegevoegd
