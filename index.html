@@ -47,7 +47,52 @@
       <input type="email" oninput="this.className = ''" placeholder="E-mailadres" id="email" name="email">
     </p>
 
-    <p class="selectpar">
+    <!-- <div class="select-group">
+
+        <label for="button">Where did you find us?</label>
+        <button id="button" class="button">
+          <span id="select-label">- please select one -</span>
+          <div id="arrow" class="arrow"></div>
+        </button>
+        
+        <div class="dropdown hidden" id="dropdown">
+          <input type="radio" id="select-internet" name="where" value="internet" class="option">
+          <label for="select-internet" class="select-item">Internet search</label>
+  
+          <input type="radio" id="select-family" name="where" value="family" class="option">
+          <label for="select-family" class="select-item">Friends & family</label>
+    
+          <input type="radio" id="select-existing" name="where" value="existing" class="option">
+          <label for="select-existing" class="select-item">Existing customer</label>
+        </div>
+               
+      </div> -->
+
+      <div class="select-group">
+
+        <label for="button">Selecteer je type uitkering</label>
+        <button id="button" class="button">
+          <span id="select-label">Selecteer je type uitkering*</span>
+          <div id="arrow" class="arrow"></div>
+        </button>
+        
+        <div class="dropdown hidden" id="dropdown">
+          <input type="radio" id="select-wia" name="type_uitkering" value="wia" class="option">
+          <label for="select-wia" class="select-item">WIA</label>
+  
+          <input type="radio" id="select-wao" name="type_uitkering" value="wao" class="option">
+          <label for="select-wao" class="select-item">WAO</label>
+    
+          <input type="radio" id="select-wajong" name="type_uitkering" value="wajong" class="option">
+          <label for="select-wajong" class="select-item">Wajong</label>
+
+          <input type="radio" id="select-bijstand" name="type_uitkering" value="bijstand" class="option">
+          <label for="select-bijstand" class="select-item">Bijstand/Doelgroep</label>
+        </div>
+               
+      </div>
+
+    <!-- <p class="selectpar">
       <label for="soort_uitkering">Selecteer je type uitkering
       <select id="soort_uitkering" name="soort_uitkering" required>
         <option value="" disabled selected hidden>Selecteer*</option>
@@ -57,7 +102,7 @@
         <option value="Bijstand/Doelgroepregister">Bijstand/Doelgroepregister</option>
       </select>
       </label>
-    </p>
+    </p> -->
     
     <p>
       <label for="doelgroepregister">Ben je opgenomen in het doelgroepregister?</label>
@@ -257,17 +302,19 @@
 
    <!-- Tab #3 Werkervaring -->
   <div class="tab">
-    <h2 class="tab__title">Werkervaring:</h2>    
-      <button type="button" id="btnToevoegenWerk" title="Werkervaring toevoegen" onclick="toevoegenRij('Werk')">+</button>
+    <h2 class="tab__title">Werkervaring:</h2>
     <div id="divWerkResult"></div>    
+    <button type="button" id="btnToevoegenWerk" title="Werkervaring toevoegen" onclick="toevoegenRij('Werk')">+</button>
+        
   </div> <!-- End div tab #3 Werkervaring -->
 
   <!-- Tab #4 Opleiding -->
   <div class="tab">
     <h2 class="tab__title">Opleiding, cursussen, trainingen:</h2>
     <h3>Opleiding</h3>
-    <button type="button" id="btnToevoegenOpleiding" title="Opleiding toevoegen" onclick="toevoegenRij('Opleiding')">+</button>
     <div id="divOpleidingResult"></div>
+    <button type="button" id="btnToevoegenOpleiding" title="Opleiding toevoegen" onclick="toevoegenRij('Opleiding')">+</button>
+    
     
     <h3>Cursus</h3>
     <button type="button" id="btnToevoegenCursus" title="Cursus toevoegen" onclick="toevoegenRij('Cursus')">+</button>

@@ -5,10 +5,38 @@ let indexWerk = 0; // Teller voor werkervaringen
 let aantalWerk = 0; // Aantal toegevoegde werkervaringen
 
 // Maximum aantal rijen per onderwerp
-let maxWerk = 5;
-let maxOpleiding = 5;
-let maxTraining = 3;
-let maxCursus = 3;
+const maxWerk = 5;
+const maxOpleiding = 5;
+const maxTraining = 3;
+const maxCursus = 3;
+
+// Elementen voor dropdown velden
+const button = document.querySelector("#button");
+const select = document.querySelector("#dropdown");
+const options = document.querySelectorAll(".option");
+const selectLabel = document.querySelector("#select-label");
+
+button.addEventListener("click", function (e) {
+  e.preventDefault();
+  toggleHidden();
+});
+
+function toggleHidden() {
+  select.classList.toggle("hidden");
+}
+
+options.forEach(function(option) {
+  option.addEventListener("click", function (e) {
+    setSelectTitle(e);
+  });
+});
+
+function setSelectTitle(e) {
+	const labelElement = document.querySelector(`label[for="${e.target.id}"]`).innerText;
+	selectLabel.innerText = labelElement;
+	toggleHidden();
+};
+
 
 var currentTab = 0; // Current tab is set to be the first tab (0)
 showTab(currentTab); // Display the current tab
@@ -131,6 +159,9 @@ function verwijderenRij() {
 }
 
 function makenVelden(subject, index) {
+  // Deze functie maakt velden (oftewel DOM elementen) aan voor Werkervaring of Opleiding/Training/Cursus
+  let velden;
+
   if (subject === "Werk") {
     // Velden maken voor Werkervaring (begindatum, einddatum, functie, werkgever, toelichting)
     const begindatum = document.createElement("input");
@@ -162,9 +193,8 @@ function makenVelden(subject, index) {
     toelichting.name = toelichting.id;
     toelichting.placeholder = "Toelichting over uitgevoerde werkzaamheden";
 
-    const velden = { begindatum, einddatum, functie, werkgever, toelichting };
+    velden = { begindatum, einddatum, functie, werkgever, toelichting };
 
-    return velden;
   } else if (
     subject === "Opleiding" ||
     subject === "Cursus" ||
@@ -196,10 +226,10 @@ function makenVelden(subject, index) {
     inst.name = inst.id;
     inst.placeholder = "Instelling/Instituut " + subject;
 
-    const velden = { begindatum, einddatum, naam, inst };
-
-    return velden;
+    velden = { begindatum, einddatum, naam, inst };  
   }
+
+  return velden;
 }
 
 function toevoegenRij(subject) {
@@ -244,17 +274,6 @@ function toevoegenRij(subject) {
     velden.einddatum.addEventListener("focus", changeToDateType);
     velden.einddatum.addEventListener("blur", changeToTextType);
 
-    // Button toevoegen
-    const btnToevoegen = document.createElement("button");
-    btnToevoegen.type = "button";
-    btnToevoegen.textContent = "+";
-    btnToevoegen.id = "btnToevoegen" + subject + index;
-    btnToevoegen.title = subject + " toevoegen";
-    document.getElementById("div" + subject + index).appendChild(btnToevoegen);
-    btnToevoegen.addEventListener("click", () => {
-      toevoegenRij(subject);
-    });
-
     // Button verwijderen
     const btnVerwijderen = document.createElement("button");
     btnVerwijderen.type = "button";
@@ -270,12 +289,6 @@ function toevoegenRij(subject) {
     divRij.scrollIntoView({ behavior: "smooth" });
   } else {
     // Melding tonen van maximum aantal rijen, die reeds zijn toegevoegd
-    alert(
-      "Je hebt reeds het maximum aantal (" +
-        max +
-        ") toegestane rijen voor " +
-        subject +
-        " toegevoegd."
-    );
+    alert("Je hebt reeds het maximum aantal (" + max + ") toegestane rijen voor " + subject + " toegevoegd.");
   }
 }

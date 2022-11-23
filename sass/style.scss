@@ -83,6 +83,97 @@ input[type=text], input[type=date], input[type=tel], input[type=email], select, 
     appearance: none;
 }
 
+.select-group {
+    position: relative;
+
+    label {
+        display: block;
+        font-weight: 500;
+        padding: 2rem 0 0.5rem;
+        }
+
+    .button {
+
+        // #select-label {
+
+        // }
+
+        display: flex;
+        padding: 1rem;
+        justify-content: space-between;
+        align-items: center;
+        border-radius: .3rem;
+        height: 6rem;
+        width: 100%;
+        background-color: white;
+        color: #8c8fa3;
+        border: 2px solid #d3d9f0;
+        position: relative;
+
+        &:focus {
+            border: 2px solid #2659ff;
+        }
+
+        .arrow {
+            border: solid var(--orange);
+            border-width: 0 3px 3px 0;
+            padding: 4px;
+            transform: rotate(45deg);
+        }
+
+    }    
+
+    .dropdown {
+        position: absolute;
+        width: 100%;
+        top: 11.5rem;
+        background-color: white;
+        box-sizing: border-box;
+        border: 2px solid #d3d9f0;
+        border-radius: .3rem;
+        overflow: hidden;
+
+        input {
+            border: 2px solid #d3d9f0;
+            width: 100%;
+            box-sizing: border-box;
+            border-radius: 0.3rem;
+            height: 6rem;
+            padding: 1rem;
+
+            &:focus {
+                border: 2px solid #2659ff;
+            }
+
+            &:checked+label {
+                color: var(--orange);
+            }
+
+        }
+
+        .option {
+            display: none;
+        }
+
+        .select-item {
+            display: block;
+            padding: 1rem;
+            font-weight: 400;
+            background-color: #FFFFFF;
+            color: black;
+
+            &:hover {
+                background-color: #f2f2f2;
+            }
+        }
+
+    }
+
+    .hidden {
+        display: none;
+    }
+}
+
 .selectpar {
     position: relative;   
 }
