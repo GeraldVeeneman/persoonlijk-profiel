@@ -11,30 +11,36 @@ const maxTraining = 3;
 const maxCursus = 3;
 
 // Elementen voor dropdown velden
-const button = document.querySelector("#button");
+const selectButtons = document.querySelectorAll(".select-button");
 const select = document.querySelector("#dropdown");
 const options = document.querySelectorAll(".option");
-const selectLabel = document.querySelector("#select-label");
+//const selectLabel = document.querySelector("#select-label");
 
-button.addEventListener("click", function (e) {
-  e.preventDefault();
-  toggleHidden();
+selectButtons.forEach(function(selectButton) {
+  selectButton.addEventListener("click", (e) => {
+      e.preventDefault();
+      const dropdown = e.currentTarget.nextElementSibling;
+      toggleHidden(dropdown);
+    });
 });
 
-function toggleHidden() {
-  select.classList.toggle("hidden");
+function toggleHidden(e) {
+  e.classList.toggle("hidden");
 }
 
+
 options.forEach(function(option) {
-  option.addEventListener("click", function (e) {
-    setSelectTitle(e);
-  });
+  option.addEventListener("click", (e) => {
+      setSelectTitle(e);
+    });
 });
 
 function setSelectTitle(e) {
 	const labelElement = document.querySelector(`label[for="${e.target.id}"]`).innerText;
+  const selectDropdown = e.target.closest('.dropdown');
+  const selectLabel = selectDropdown.previousElementSibling.firstElementChild;
 	selectLabel.innerText = labelElement;
-	toggleHidden();
+	toggleHidden(selectDropdown);
 };
 
 

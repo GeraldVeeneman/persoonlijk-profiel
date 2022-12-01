@@ -93,7 +93,7 @@ input[type=text], input[type=date], input[type=tel], input[type=email], select, 
         padding: 2rem 0 0.5rem;
         }
 
-    .button {
+    .select-button {
 
         // #select-label {
 
@@ -128,7 +128,7 @@ input[type=text], input[type=date], input[type=tel], input[type=email], select, 
     .dropdown {
         position: absolute;
         width: 100%;
-        top: 6.5rem;
+        top: 11.5rem;
         background-color: white;
         box-sizing: border-box;
         border: 2px solid #d3d9f0;
@@ -174,29 +174,6 @@ input[type=text], input[type=date], input[type=tel], input[type=email], select, 
     .hidden {
         display: none;
     }
-}
-
-.selectpar {
-    position: relative;   
-}
-
-.selectpar:after {
-    content: '>';
-    font-size: 2.5rem;
-    color: var(--orange);
-    -webkit-transform: rotate(90deg);
-    -moz-transform: rotate(90deg);
-    -ms-transform: rotate(90deg);
-    transform: rotate(90deg);
-    right: 1rem;
-    top: 4.2rem;
-    padding: 0 0 2px;
-    position: absolute;
-    pointer-events: none;
-}
-
-.selectpar select{
-    margin-top: 1rem;
 }
 
 textarea {

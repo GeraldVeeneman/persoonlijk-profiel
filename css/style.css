@@ -86,7 +86,7 @@ input[type=text], input[type=date], input[type=tel], input[type=email], select, 
   font-weight: 500;
   padding: 2rem 0 0.5rem;
 }
-.select-group .button {
+.select-group .select-button {
   display: flex;
   padding: 1rem;
   justify-content: space-between;
@@ -100,10 +100,10 @@ input[type=text], input[type=date], input[type=tel], input[type=email], select, 
   border: 1px solid #ededed;
   position: relative;
 }
-.select-group .button:focus {
+.select-group .select-button:focus {
   border: 2px solid #000;
 }
-.select-group .button .arrow {
+.select-group .select-button .arrow {
   border: solid var(--orange);
   border-width: 0 3px 3px 0;
   padding: 4px;
@@ -112,7 +112,7 @@ input[type=text], input[type=date], input[type=tel], input[type=email], select, 
 .select-group .dropdown {
   position: absolute;
   width: 100%;
-  top: 6.5rem;
+  top: 11.5rem;
   background-color: white;
   box-sizing: border-box;
   border: 2px solid #d3d9f0;
@@ -148,29 +148,6 @@ input[type=text], input[type=date], input[type=tel], input[type=email], select, 
 }
 .select-group .hidden {
   display: none;
-}
-
-.selectpar {
-  position: relative;
-}
-
-.selectpar:after {
-  content: ">";
-  font-size: 2.5rem;
-  color: var(--orange);
-  -webkit-transform: rotate(90deg);
-  -moz-transform: rotate(90deg);
-  -ms-transform: rotate(90deg);
-  transform: rotate(90deg);
-  right: 1rem;
-  top: 4.2rem;
-  padding: 0 0 2px;
-  position: absolute;
-  pointer-events: none;
-}
-
-.selectpar select {
-  margin-top: 1rem;
 }
 
 textarea {
