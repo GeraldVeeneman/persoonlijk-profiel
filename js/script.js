@@ -121,9 +121,9 @@ function fixStepIndicator(n) {
   x[n].className += " active";
 }
 
-function createParField(input) {
+function createParLabelField(label, input) {
   let p = document.createElement("p");
-  p.append(input);
+  p.append(label, input);
   return p;
 }
 
@@ -165,39 +165,76 @@ function verwijderenRij() {
 }
 
 function makenVelden(subject, index) {
-  // Deze functie maakt velden (oftewel DOM elementen) aan voor Werkervaring of Opleiding/Training/Cursus
+  // Deze functie maakt velden met bijbehorende labels aan voor Werkervaring of Opleiding/Training/Cursus
   let velden;
 
   if (subject === "Werk") {
-    // Velden maken voor Werkervaring (begindatum, einddatum, functie, werkgever, toelichting)
-    const begindatum = document.createElement("input");
-    begindatum.type = "text";
-    begindatum.id = "begindatum" + index;
-    begindatum.name = begindatum.id;
-    begindatum.placeholder = "Begindatum";
+    // Velden en labels maken voor Werkervaring (begindatum, einddatum, functie, werkgever, toelichting)
+    // Label en veld worden binnen een paragraaf toegevoegd
+    // De aangemaakte paragraaf wordt uiteindelijk als een variabele opgeslagen en doorgegeven. 
 
-    const einddatum = document.createElement("input");
-    einddatum.type = "text";
-    einddatum.id = "einddatum" + index;
-    einddatum.name = einddatum.id;
-    einddatum.placeholder = "Einddatum";
+    // Begindatum werkervaring
+    const inputBegindatum = document.createElement("input");
+    inputBegindatum.type = "text";
+    inputBegindatum.id = "begindatum" + index;
+    inputBegindatum.name = inputBegindatum.id;
+    inputBegindatum.placeholder = "Begindatum";
 
-    const functie = document.createElement("input");
-    functie.type = "text";
-    functie.id = "functie" + index;
-    functie.name = functie.id;
-    functie.placeholder = "Functie";
+    const labelBegindatum = document.createElement("label");
+    labelBegindatum.setAttribute("for", inputBegindatum.id);
+    labelBegindatum.textContent = "Begindatum";
+    const begindatum = createParLabelField(labelBegindatum, inputBegindatum);    
+    console.log(begindatum);
 
-    const werkgever = document.createElement("input");
-    werkgever.type = "text";
-    werkgever.id = "werkgever" + index;
-    werkgever.name = werkgever.id;
-    werkgever.placeholder = "Werkgever";
+    // Einddatum werkervaring
+    const inputEinddatum = document.createElement("input");
+    inputEinddatum.type = "text";
+    inputEinddatum.id = "einddatum" + index;
+    inputEinddatum.name = inputEinddatum.id;
+    inputEinddatum.placeholder = "Einddatum";
 
-    const toelichting = document.createElement("textarea");
-    toelichting.id = "toelichting" + index;
-    toelichting.name = toelichting.id;
-    toelichting.placeholder = "Toelichting over uitgevoerde werkzaamheden";
+    const labelEinddatum = document.createElement("label");
+    labelEinddatum.setAttribute("for", inputEinddatum.id);
+    labelEinddatum.textContent = "Einddatum";
+    const einddatum = createParLabelField(labelEinddatum, inputEinddatum);
+
+    // Functie werkervaring
+    const inputFunctie = document.createElement("input");
+    inputFunctie.type = "text";
+    inputFunctie.id = "functie" + index;
+    inputFunctie.name = inputFunctie.id;
+    inputFunctie.placeholder = "Functie";
+
+    const labelFunctie = document.createElement("label");
+    labelFunctie.setAttribute("for", inputFunctie.id);
+    labelFunctie.textContent = "Functie";
+
+    const functie = createParLabelField(labelFunctie, inputFunctie);
+
+    // Werkgever werkervaring
+    const inputWerkgever = document.createElement("input");
+    inputWerkgever.type = "text";
+    inputWerkgever.id = "werkgever" + index;
+    inputWerkgever.name = inputWerkgever.id;
+    inputWerkgever.placeholder = "Werkgever";
+
+    const labelWerkgever = document.createElement("label");
+    labelWerkgever.setAttribute("for", inputWerkgever.id);
+    labelWerkgever.textContent = "Werkgever";
+
+    const werkgever = createParLabelField(labelWerkgever, inputWerkgever);
+
+    // Toelichting werkervaring
+    const inputToelichting = document.createElement("textarea");
+    inputToelichting.id = "toelichting" + index;
+    inputToelichting.name = inputToelichting.id;
+    inputToelichting.placeholder = "Toelichting over uitgevoerde werkzaamheden";
+
+    const labelToelichting = document.createElement("label");
+    labelToelichting.setAttribute("for", inputToelichting.id);
+    labelToelichting.textContent = "Toelichting";
+
+    const toelichting = createParLabelField(labelToelichting, inputToelichting);
 
     velden = { begindatum, einddatum, functie, werkgever, toelichting };
 
@@ -208,31 +245,60 @@ function makenVelden(subject, index) {
   ) {
     // Velden maken voor Opleiding, Cursus of Training
     // (begindatum, einddatum, naam opleiding/cursus/training, instelling/instituut)
-    const begindatum = document.createElement("input");
-    begindatum.type = "text";
-    begindatum.id = subject + "Begindatum" + index;
-    begindatum.name = begindatum.id;
-    begindatum.placeholder = "Begindatum";
 
-    const einddatum = document.createElement("input");
-    einddatum.type = "text";
-    einddatum.id = subject + "Einddatum" + index;
-    einddatum.name = einddatum.id;
-    einddatum.placeholder = "Einddatum";
+    // Begindatum opleiding/Cursus/Training
+    const inputBegindatum = document.createElement("input");
+    inputBegindatum.type = "text";
+    inputBegindatum.id = "begindatum" + index;
+    inputBegindatum.name = inputBegindatum.id;
+    inputBegindatum.placeholder = "Begindatum";
 
-    const naam = document.createElement("input");
-    naam.type = "text";
-    naam.id = "naam" + subject + index;
-    naam.name = naam.id;
-    naam.placeholder = "Naam " + subject;
+    const labelBegindatum = document.createElement("label");
+    labelBegindatum.setAttribute("for", inputBegindatum.id);
+    labelBegindatum.textContent = "Begindatum";
 
-    const inst = document.createElement("input");
-    inst.type = "text";
-    inst.id = "inst" + subject + index;
-    inst.name = inst.id;
-    inst.placeholder = "Instelling/Instituut " + subject;
+    const begindatum = createParLabelField(labelBegindatum, inputBegindatum);
 
-    velden = { begindatum, einddatum, naam, inst };  
+    // Einddatum opleiding/Cursus/Training
+    const inputEinddatum = document.createElement("input");
+    inputEinddatum.type = "text";
+    inputEinddatum.id = "einddatum" + index;
+    inputEinddatum.name = inputEinddatum.id;
+    inputEinddatum.placeholder = "Einddatum";
+
+    const labelEinddatum = document.createElement("label");
+    labelEinddatum.setAttribute("for", inputEinddatum.id);
+    labelEinddatum.textContent = "Einddatum";
+
+    const einddatum = createParLabelField(labelEinddatum, inputEinddatum);
+
+    // Naam opleiding/cursus/training
+    const inputNaam = document.createElement("input");
+    inputNaam.type = "text";
+    inputNaam.id = "naam" + subject + index;
+    inputNaam.name = inputNaam.id;
+    inputNaam.placeholder = "Naam " + subject;
+
+    const labelNaam = document.createElement("label");
+    labelNaam.setAttribute("for", inputEinddatum.id);
+    labelNaam.textContent = "Naam";
+
+    const naam = createParLabelField(labelNaam, inputNaam);
+
+    // Instelling opleiding/cursus/training
+    const inputInst = document.createElement("input");
+    inputInst.type = "text";
+    inputInst.id = "inst" + subject + index;
+    inputInst.name = inputInst.id;
+    inputInst.placeholder = "Instelling/Instituut " + subject;
+
+    const labelInst = document.createElement("label");
+    labelInst.setAttribute("for", inputInst.id);
+    labelInst.textContent = "Einddatum";
+
+    const inst = createParLabelField(labelInst, inputInst);
+
+    velden = { begindatum, einddatum, naam, inst };
   }
 
   return velden;
@@ -271,7 +337,7 @@ function toevoegenRij(subject) {
     veldElementen.forEach((veldElement) =>
       document
         .getElementById("div" + subject + index)
-        .appendChild(createParField(veldElement))
+        .appendChild(veldElement)
     );
 
     // Datumvelden converteren van datum naar tekst en visa versa
