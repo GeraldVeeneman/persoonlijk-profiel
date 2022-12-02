@@ -64,6 +64,8 @@ label {
     font-size: 1.44rem;
     display: block;
     margin-bottom: 1rem;
+    color: var(--dark-blue);
+    font-weight: 600;
 }
 
 input[type=text], input[type=date], input[type=tel], input[type=email], select, textarea {

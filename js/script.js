@@ -180,6 +180,9 @@ function makenVelden(subject, index) {
     inputBegindatum.name = inputBegindatum.id;
     inputBegindatum.placeholder = "Begindatum";
 
+    inputBegindatum.addEventListener("focus", changeToDateType);
+    inputBegindatum.addEventListener("blur", changeToTextType);
+
     const labelBegindatum = document.createElement("label");
     labelBegindatum.setAttribute("for", inputBegindatum.id);
     labelBegindatum.textContent = "Begindatum";
@@ -193,9 +196,13 @@ function makenVelden(subject, index) {
     inputEinddatum.name = inputEinddatum.id;
     inputEinddatum.placeholder = "Einddatum";
 
+    inputEinddatum.addEventListener("focus", changeToDateType);
+    inputEinddatum.addEventListener("blur", changeToTextType);
+
     const labelEinddatum = document.createElement("label");
     labelEinddatum.setAttribute("for", inputEinddatum.id);
     labelEinddatum.textContent = "Einddatum";
+
     const einddatum = createParLabelField(labelEinddatum, inputEinddatum);
 
     // Functie werkervaring
@@ -253,6 +260,9 @@ function makenVelden(subject, index) {
     inputBegindatum.name = inputBegindatum.id;
     inputBegindatum.placeholder = "Begindatum";
 
+    inputBegindatum.addEventListener("focus", changeToDateType);
+    inputBegindatum.addEventListener("blur", changeToTextType);
+
     const labelBegindatum = document.createElement("label");
     labelBegindatum.setAttribute("for", inputBegindatum.id);
     labelBegindatum.textContent = "Begindatum";
@@ -265,6 +275,9 @@ function makenVelden(subject, index) {
     inputEinddatum.id = "einddatum" + index;
     inputEinddatum.name = inputEinddatum.id;
     inputEinddatum.placeholder = "Einddatum";
+
+    inputEinddatum.addEventListener("focus", changeToDateType);
+    inputEinddatum.addEventListener("blur", changeToTextType);
 
     const labelEinddatum = document.createElement("label");
     labelEinddatum.setAttribute("for", inputEinddatum.id);
@@ -294,7 +307,7 @@ function makenVelden(subject, index) {
 
     const labelInst = document.createElement("label");
     labelInst.setAttribute("for", inputInst.id);
-    labelInst.textContent = "Einddatum";
+    labelInst.textContent = "Instelling/Instituut";
 
     const inst = createParLabelField(labelInst, inputInst);
 
