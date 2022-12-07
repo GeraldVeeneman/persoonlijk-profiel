@@ -17,18 +17,22 @@
     <form id="regForm" action="/action_page.php">
   <h1 class="form__title">Persoonlijk profiel</h1>
 
-  <div style="overflow:auto;">
-    <div style="float:right;">
-      <button type="button" id="prevBtn" onclick="nextPrev(-1)">Vorige</button>
-      <button type="button" id="nextBtn" onclick="nextPrev(1)">Volgende</button>
-    </div>
+  <!-- Cirkels, die de stappen van het formulier aangeven: -->
+  <div style="text-align:center;margin-top:40px;">
+    <span class="step" title="Persoonlijke gegevens">1</span>
+    <span class="step" title="Werksituatie">2</span>
+    <span class="step" title="Werkervaring">3</span>
+    <span class="step" title="Opleiding, cursus en training">4</span>
+    <span class="step" title="Vakgebieden">5</span>
+    <span class="step" title="Persoonlijke ontwikkeling">6</span>
   </div>
 
   <!-- Tab #1 Persoonlijke gegevens -->
   <div class="tab">
     <h2 class="tab__title">Persoonlijke gegevens</h2>
+    <p>Velden met een <span aria-label="required">*</span> dienen verplicht ingevuld te worden.</p>
     <p>
-      <label for="voornaam">Voornaam</label>
+      <label for="voornaam">Voornaam <span aria-label="required">*</span></label>
       <input type="text" oninput="this.className = ''" placeholder="Voornaam*" id="voornaam" name="voornaam" required>
     </p>
     <p>
@@ -36,11 +40,11 @@
       <input type="text" oninput="this.className = ''" placeholder="Tussenvoegsel" id="tussenvoegsel" name="tussenvoegsel">
     </p>
     <p>
-      <label for="achternaam">Achternaam</label>
+      <label for="achternaam">Achternaam <span aria-label="required">*</span></label>
       <input type="text" oninput="this.className = ''" placeholder="Achternaam*" id="achternaam" name="achternaam" required>
     </p>
     <p>
-      <label for="stad">Stad</label>
+      <label for="stad">Stad <span aria-label="required">*</span></label>
       <input type="text" oninput="this.className = ''" placeholder="Stad" id="stad" name="stad">
     </p>
       
@@ -55,9 +59,9 @@
 
       <div class="select-group">
 
-        <label for="select-button-uitkering">Selecteer je type uitkering</label>
+        <label for="select-button-uitkering">Type uitkering <span aria-label="required">*</span></label>
         <button id="select-button-uitkering" class="select-button">
-          <span id="select-label" class="select-label">Selecteer je type uitkering*</span>
+          <span id="select-label" class="select-label">Selecteer je type uitkering</span>
           <div id="arrow" class="arrow"></div>
         </button>
         
@@ -78,7 +82,7 @@
       </div>
     
     <p>
-      <label for="doelgroepregister">Ben je opgenomen in het doelgroepregister?</label>
+      <label for="doelgroepregister">Ben je opgenomen in het doelgroepregister? <span aria-label="required">*</span></label>
       <input type="radio" oninput="this.className = ''" id="doelgroepregister_ja" name="doelgroepregister" value="ja">
       <label for="doelgroepregister_ja">Ja</label>
       <input type="radio" oninput="this.className = ''" id="doelgroepregister_nee" name="doelgroepregister" value="nee">
@@ -86,7 +90,7 @@
     </p>
 
     <p>
-      <label for="rijbewijs">Rijbewijs*:</label>
+      <label for="rijbewijs">Rijbewijs <span aria-label="required">*</span></label>
       <input type="radio" oninput="this.className = ''" id="rijbewijs_ja" name="rijbewijs" value="ja" required>
       <label for="rijbewijs_ja">Ja</label>
       <input type="radio" oninput="this.className = ''" id="rijbewijs_nee" name="rijbewijs" value="nee">
@@ -94,7 +98,7 @@
     </p>
 
     <p>
-      <label for="rijbewijs">Eigen auto:</label>
+      <label for="rijbewijs">Eigen auto</label>
       <input type="radio" oninput="this.className = ''" id="eigenauto_ja" name="eigenauto" value="ja">
       <label for="eigenauto_ja">Ja</label>
       <input type="radio" oninput="this.className = ''" id="eigenauto_nee" name="eigenauto" value="nee">
@@ -103,9 +107,9 @@
     
     <div class="select-group">
 
-        <label for="select-button-uren">Hoeveel uren per week ben je beschikbaar?</label>
+        <label for="select-button-uren">Hoeveel uren per week ben je beschikbaar? <span aria-label="required">*</span></label>
         <button id="select-button-uren" class="select-button">
-          <span id="select-label" class="select-label">Selecteer uren*</span>
+          <span id="select-label" class="select-label">Selecteer uren</span>
           <div id="arrow" class="arrow"></div>
         </button>
         
@@ -585,15 +589,7 @@
       <button type="button" id="nextBtn" onclick="nextPrev(1)">Volgende</button>
     </div>
   </div>
-  <!-- Cirkels, die de stappen van het formulier aangeven: -->
-  <div style="text-align:center;margin-top:40px;">
-    <span class="step" title="Persoonlijke gegevens">1</span>
-    <span class="step" title="Werksituatie">2</span>
-    <span class="step" title="Werkervaring">3</span>
-    <span class="step" title="Opleiding, cursus en training">4</span>
-    <span class="step" title="Vakgebieden">5</span>
-    <span class="step" title="Persoonlijke ontwikkeling">6</span>
-  </div>
+  
 </form>
     <script src="js/script.js"></script>
 </body>
