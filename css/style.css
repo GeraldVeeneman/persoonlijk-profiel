@@ -1,11 +1,13 @@
 /* Colours */
 :root {
-  --gradient: linear-gradient(to right, hsl(6, 100%, 80%), hsl(335, 100%, 65%));
-  --pale-blue: hsl(243, 100%, 93%);
-  --grayish-blue: hsl(229, 7%, 55%);
+  --light-blue: hsl(228deg 21% 96%);
   --dark-blue: hsl(228, 56%, 26%);
-  --very-dark-blue: hsl(229, 57%, 11%);
   --orange: #e84e1b;
+  --very-light-gray-1: hsla(244, 42%, 25%, 0.102);
+  --very-light-gray-2: hsla(0, 0%, 0%, 0.102);
+  --gray: hsl(0, 0%, 73%);
+  --green: #04AA6D;
+  --dark-gray: #757575;
 }
 
 /* Typography */
@@ -32,22 +34,160 @@ body {
   font-family: "Lexend Deca", sans-serif;
 }
 
-#regForm {
-  background-color: #fff;
-  margin: 100px auto;
+.persForm {
+  background-color: var(--light-blue);
+  margin: 10rem auto;
   font-family: "Lexend Deca", sans-serif;
-  padding: 40px;
+  padding: 4rem;
   width: 70%;
-  min-width: 300px;
+  min-width: 30rem;
   border-radius: 3px;
-  box-shadow: 0 6px 20px rgba(41, 37, 91, 0.1), inset 0 1px 1px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 6px 20px var(--very-light-gray-1), inset 0 1px 1px var(--very-light-gray-2);
+  /* Verberg standaard alle tabs */
 }
-
-.form__title {
+.persForm__title {
   text-align: center;
   font-size: 2.88rem;
-  color: #29255b;
+  color: var(--dark-blue);
   margin-bottom: 2rem;
+}
+.persForm__steps {
+  text-align: center;
+  margin: 4rem 0 2rem 0;
+}
+.persForm .tab {
+  display: none;
+}
+.persForm .tab__required-fields-text {
+  font-size: 1.6rem;
+  margin: 2rem 0 4rem 0;
+}
+.persForm .tab__title {
+  font-size: 2.6rem;
+  line-height: 1.08;
+  color: var(--dark-blue);
+  margin-top: 4rem;
+  margin-bottom: 3rem;
+  font-weight: 600;
+}
+.persForm .tab .select-group {
+  position: relative;
+}
+.persForm .tab .select-group .select-button {
+  display: flex;
+  padding: 0 2rem;
+  margin-bottom: 3rem;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 0.3rem;
+  height: 6rem;
+  width: 100%;
+  background-color: white;
+  box-shadow: 6px 6px 20px rgba(41, 37, 91, 0.2), inset 0 1px 1px rgba(0, 0, 0, 0.05);
+  color: var(--dark-gray);
+  border: 1px solid #ededed;
+  font-size: 1.4rem;
+  position: relative;
+  cursor: pointer;
+}
+.persForm .tab .select-group .select-button:focus {
+  border: 2px solid #000;
+}
+.persForm .tab .select-group .select-button .select-label {
+  font-family: "Lexend Deca", sans-serif;
+  color: black;
+}
+.persForm .tab .select-group .select-button .select-label--placeholder {
+  color: var(--dark-gray);
+}
+.persForm .tab .select-group .select-button .arrow {
+  border: solid var(--orange);
+  border-width: 0 3px 3px 0;
+  padding: 4px;
+  transition: 0.3s ease;
+}
+.persForm .tab .select-group .select-button .arrow--down {
+  transform: rotate(45deg);
+}
+.persForm .tab .select-group .select-button .arrow--up {
+  transform: rotate(225deg);
+}
+.persForm .tab .select-group .dropdown {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 2rem;
+  position: absolute;
+  width: 100%;
+  top: 9rem;
+  background-color: white;
+  box-sizing: border-box;
+  border: 1px solid #ededed;
+  box-shadow: 2px 4px 5px #dedede;
+  border-radius: 0.3rem;
+  overflow-y: auto;
+  max-height: 9rem;
+  z-index: 999;
+  scrollbar-color: var(--orange) var(--gray);
+}
+.persForm .tab .select-group .dropdown::-webkit-scrollbar {
+  width: 15px;
+  height: 15px;
+}
+.persForm .tab .select-group .dropdown::-webkit-scrollbar-thumb {
+  background: var(--orange);
+}
+.persForm .tab .select-group .dropdown::-webkit-scrollbar-track {
+  background: var(--gray);
+}
+.persForm .tab .select-group .dropdown input:checked + label {
+  color: var(--orange);
+}
+.persForm .tab .select-group .dropdown .option {
+  display: none;
+}
+.persForm .tab .select-group .dropdown .select-item {
+  display: block;
+  margin: 0;
+  font-weight: 400;
+  background-color: #FFFFFF;
+  color: black;
+}
+.persForm .tab .select-group .dropdown .select-item:hover {
+  background-color: #f2f2f2;
+  cursor: pointer;
+}
+.persForm .tab .select-group .hidden {
+  display: none;
+}
+.persForm .tab .fieldset-container {
+  background-color: white;
+  box-shadow: 6px 6px 20px rgba(41, 37, 91, 0.2), inset 0 1px 1px rgba(0, 0, 0, 0.05);
+  border: 1px solid #ededed;
+  margin: 1rem 0 2rem 0;
+  border-radius: 3px;
+}
+.persForm .tab fieldset {
+  display: flex;
+  margin: 1.5rem 0;
+  padding: 2rem 2rem 0rem;
+  border: none;
+}
+.persForm .tab fieldset legend {
+  font-size: 1.4rem;
+}
+.persForm .tab fieldset div {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.persForm .tab fieldset div label {
+  font-size: 1.4rem;
+  color: #000;
+  font-weight: normal;
+  margin: 0;
 }
 
 p {
@@ -65,14 +205,14 @@ label {
 input[type=text], input[type=date], input[type=tel], input[type=email], select, textarea {
   font-size: 1.4rem;
   font-family: inherit;
-  box-shadow: 0 6px 20px rgba(41, 37, 91, 0.04), inset 0 1px 1px rgba(0, 0, 0, 0.05);
+  box-shadow: 6px 6px 20px rgba(41, 37, 91, 0.2), inset 0 1px 1px rgba(0, 0, 0, 0.05);
   border-radius: 3px;
   height: 6rem;
   padding: 0 2rem;
   margin-bottom: 3rem;
   width: 100%;
   display: block;
-  color: #8c8fa3;
+  color: var(--blue-gray);
   line-height: 2rem;
   border: 1px solid #ededed;
   -webkit-appearance: none;
@@ -80,71 +220,9 @@ input[type=text], input[type=date], input[type=tel], input[type=email], select, 
   appearance: none;
 }
 
-.select-group {
-  position: relative;
-}
-.select-group label {
-  display: block;
-  padding: 2rem 0 0.5rem;
-}
-.select-group .select-button {
-  display: flex;
-  padding: 1rem;
-  justify-content: space-between;
-  align-items: center;
-  border-radius: 0.3rem;
-  height: 6rem;
-  width: 100%;
-  background-color: white;
-  box-shadow: 0 6px 20px rgba(41, 37, 91, 0.04), inset 0 1px 1px rgba(0, 0, 0, 0.05);
-  color: #8c8fa3;
-  border: 1px solid #ededed;
-  font-size: 1.4rem;
-  position: relative;
-}
-.select-group .select-button:focus {
-  border: 2px solid #000;
-}
-.select-group .select-button .arrow {
-  border: solid var(--orange);
-  border-width: 0 3px 3px 0;
-  padding: 4px;
-  transform: rotate(45deg);
-}
-.select-group .dropdown {
-  position: absolute;
-  width: 100%;
-  top: 11.5rem;
-  background-color: white;
-  box-sizing: border-box;
-  border: 1px solid #ededed;
-  box-shadow: 2px 4px 5px #dedede;
-  border-radius: 0.3rem;
-  overflow-y: auto;
-  max-height: 9rem;
-}
-.select-group .dropdown input:checked + label {
-  color: var(--orange);
-}
-.select-group .dropdown .option {
-  display: none;
-}
-.select-group .dropdown .select-item {
-  display: block;
-  padding: 1rem;
-  font-weight: 400;
-  background-color: #FFFFFF;
-  color: black;
-}
-.select-group .dropdown .select-item:hover {
-  background-color: #f2f2f2;
-}
-.select-group .hidden {
-  display: none;
-}
-
 textarea {
   height: 10rem;
+  padding: 2rem;
 }
 
 /* Mark input boxes that gets an error on validation: */
@@ -152,79 +230,37 @@ input.invalid {
   background-color: #ffdddd;
 }
 
-/* Hide all steps by default: */
-.tab {
-  display: none;
-}
-.tab__title {
-  font-size: 2.6rem;
-  line-height: 1.08;
-  color: var(--dark-blue);
-  margin-top: 4rem;
-  margin-bottom: 3rem;
-  font-weight: 600;
-}
-.tab fieldset {
-  position: relative;
-  background: #efefef;
-  display: flex;
-  border: 1px solid #ccc;
-  margin: 1.5rem 0;
-  border-radius: 5px;
-  padding: 5rem 2rem 1rem;
-  box-shadow: 2px 2px 5px #ddd;
-}
-.tab fieldset legend {
-  position: absolute;
-  top: -25px;
-  left: 10;
-  font-size: 1.6rem;
-  padding-top: 4rem;
-  color: var(--dark-blue);
-  font-weight: 600;
-}
-.tab fieldset div {
-  /* width: 100%; */
-  display: flex;
-  gap: 1rem;
-  align-items: baseline;
-}
-.tab fieldset div label {
-  font-size: 1.6rem;
-  margin-bottom: 1rem;
-  color: #000;
-  font-weight: normal;
-  /* display: inline-flex; */
-  align-content: center;
-  /* align-items: center; */
-}
-
-button {
+.button {
   background-color: var(--orange);
   color: #ffffff;
   border: none;
+  border-radius: 3px;
   padding: 1rem 2rem;
   font-family: inherit;
   font-size: 1.8rem;
   cursor: pointer;
 }
-
-button:hover {
+.button:hover {
   opacity: 0.8;
 }
-
-#prevBtn {
+.button#prevBtn {
   background-color: #bbbbbb;
 }
+.button--red {
+  background-color: red;
+}
+.button--green {
+  background-color: var(--green);
+}
 
-/* Make circles that indicate the steps of the form: */
+/* Maak cirkels, die de stappen van het formulier aangeven */
 .step {
   height: 3rem;
   width: 3rem;
   font-size: 1.4rem;
   font-weight: 600;
   margin: 0 2px;
-  background-color: #bbbbbb;
+  background-color: var(--gray);
   border: none;
   border-radius: 50%;
   opacity: 0.5;
@@ -239,7 +275,7 @@ button:hover {
 
 /* Mark the steps that are finished and valid: */
 .step.finish {
-  background-color: #04AA6D;
+  background-color: var(--green);
 }
 
 details summary {

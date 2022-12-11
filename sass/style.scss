@@ -1,14 +1,40 @@
 /* Colours */
 :root {
     // Primary
-    --gradient: linear-gradient(to right, hsl(6, 100%, 80%), hsl(335, 100%, 65%)); // gradient colour meter bar
+    --light-blue: hsl(228deg 21% 96%);;                 // background colour form
+    --dark-blue: hsl(228, 56%, 26%);                    // labels
+    --orange: #e84e1b;                                  // Orange buttons
 
     // Neutral
-    --pale-blue: hsl(243, 100%, 93%); // Colour of icons
-    --grayish-blue: hsl(229, 7%, 55%); // Text of GB left
-    --dark-blue: hsl(228, 56%, 26%); // Background divs
-    --very-dark-blue: hsl(229, 57%, 11%); // Background icons and color number of GB left
-    --orange: #e84e1b; // Oranje navigatiebuttons
+    --very-light-gray-1: hsla(244, 42%, 25%, 0.102);    // box-shadow colour 1
+    --very-light-gray-2: hsla(0, 0%, 0%, 0.102);        // box-shadow colour 2
+    --gray: hsl(0, 0%, 73%);                            // Background colour steps
+    --green: #04AA6D;                                   // Background colour steps finished
+    --dark-gray: #757575;                               // Placeholder text colour
+
+}
+
+// Mixins
+@mixin scrollbars($size: 15px,
+    $foreground-color: var(--orange),
+    $background-color: var(--gray)) {
+
+    // For Chrome & Safari
+    &::-webkit-scrollbar {
+        width: $size;
+        height: $size;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: $foreground-color;
+    }
+
+    &::-webkit-scrollbar-track {
+        background: $background-color;
+    }
+
+    // Standard version (Firefox only for now)
+    scrollbar-color: $foreground-color $background-color;
 }
 
 /* Typography */
@@ -38,23 +64,186 @@ body {
     font-family: $font-primary;
 }
 
-#regForm {
-    background-color: #fff;
-    margin: 100px auto;
+.persForm {
+    background-color: var(--light-blue);
+    margin: 10rem auto;
     font-family: $font-primary;
-    padding: 40px;
+    padding: 4rem;
     width: 70%;
-    min-width: 300px;
+    min-width: 30rem;
     border-radius: 3px;
-    box-shadow: 0 6px 20px rgb(41 37 91 / 10%), inset 0 1px 1px rgb(0 0 0 / 10%);
+    box-shadow: 0 6px 20px var(--very-light-gray-1), inset 0 1px 1px var(--very-light-gray-2);
+    
+    &__title {
+        text-align: center;
+        font-size: 2.88rem;
+        color: var(--dark-blue);
+        margin-bottom: 2rem;
+    }
+
+    &__steps {
+        text-align: center;
+        margin: 4rem 0 2rem 0;
+    }
+
+        /* Verberg standaard alle tabs */
+        .tab {
+            display: none;
+
+            &__required-fields-text {
+                    font-size: 1.6rem;
+                    margin: 2rem 0 4rem 0;
+            }
+    
+            &__title {
+                font-size: 2.6rem;
+                line-height: 1.08;
+                color: var(--dark-blue);
+                margin-top: 4rem;
+                margin-bottom: 3rem;
+                font-weight: 600;
+            }
+
+            // Custom select field
+            .select-group {
+                position: relative;
+
+                .select-button {
+                    display: flex;
+                    padding: 0 2rem;
+                    margin-bottom: 3rem;
+                    justify-content: space-between;
+                    align-items: center;
+                    border-radius: .3rem;
+                    height: 6rem;
+                    width: 100%;
+                    background-color: white;
+                    //box-shadow: 0 6px 20px rgba(41, 37, 91, .04), inset 0 1px 1px rgba(0, 0, 0, .05);
+                    box-shadow: 6px 6px 20px rgb(41 37 91 / 20%), inset 0 1px 1px rgb(0 0 0 / 5%);
+                    color: var(--dark-gray);
+                    border: 1px solid #ededed;
+                    font-size: 1.4rem;
+                    position: relative;
+                    cursor: pointer;
+
+                    &:focus {
+                        border: 2px solid #000;
+                    }
+
+                    .select-label {
+                        font-family: $font-primary;
+                        color: black;
+
+                        &--placeholder {
+                            color: var(--dark-gray);
+                        }
+
+                    }
+
+                    .arrow {
+                        border: solid var(--orange);
+                        border-width: 0 3px 3px 0;
+                        padding: 4px;
+                        transition: .3s ease;
+                        &--down {
+                            transform: rotate(45deg);
+                        }
+
+                        &--up {
+                            transform: rotate(225deg);
+                        }
+                    }
+
+                }
+
+                .dropdown {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    gap: 1rem;
+                    padding: 1rem 2rem;
+
+                    position: absolute;
+                    width: 100%;
+                    top: 9rem;
+                    background-color: white;
+                    box-sizing: border-box;
+                    border: 1px solid #ededed;
+                    box-shadow: 2px 4px 5px #dedede;
+                    border-radius: .3rem;
+                    overflow-y: auto;
+                    max-height: 9rem;
+                    z-index: 999;
+                    @include scrollbars;
+
+                    input {
+
+                        &:checked+label {
+                            color: var(--orange);
+                        }
+
+                    }
+
+                    .option {
+                        display: none;
+                    }
+
+                    .select-item {
+                        display: block;
+                        margin: 0;
+                        font-weight: 400;
+                        background-color: #FFFFFF;
+                        color: black;
+
+                        &:hover {
+                            background-color: #f2f2f2;
+                            cursor: pointer;
+                        }
+                    }
+
+                }
+
+                .hidden {
+                    display: none;
+                }
+            }
+
+            .fieldset-container {
+                background-color: white;
+                //box-shadow: 0 6px 20px rgb(41 37 91 / 4%), inset 0 1px 1px rgb(0 0 0 / 5%);
+                box-shadow: 6px 6px 20px rgb(41 37 91 / 20%), inset 0 1px 1px rgb(0 0 0 / 5%);
+                border: 1px solid #ededed;
+                margin: 1rem 0 2rem 0;
+                border-radius: 3px;
+            }
+    
+            fieldset {
+                display: flex;
+                margin: 1.5rem 0;
+                padding: 2rem 2rem 0rem;
+                border: none;
+    
+                legend {
+                    font-size: 1.4rem;
+                }
+    
+                div {
+                    display: flex;
+                    gap: 1rem;
+                    align-items: center;
+                    flex-wrap: wrap;
+    
+                    label {
+                        font-size: 1.4rem;
+                        color: #000;
+                        font-weight: normal;
+                        margin: 0;
+                    }
+                }
+            }
+        }
 }
 
-.form__title {
-    text-align: center;
-    font-size: 2.88rem;
-    color: #29255b;
-    margin-bottom: 2rem;
-}
 
 p {
     margin: 1.4rem 0;
@@ -71,14 +260,15 @@ label {
 input[type=text], input[type=date], input[type=tel], input[type=email], select, textarea {
     font-size: 1.4rem;
     font-family: inherit;
-    box-shadow: 0 6px 20px rgba(41, 37, 91, .04), inset 0 1px 1px rgba(0, 0, 0, .05);
+    //box-shadow: 0 6px 20px rgba(41, 37, 91, .04), inset 0 1px 1px rgba(0, 0, 0, .05);
+    box-shadow: 6px 6px 20px rgb(41 37 91 / 20%), inset 0 1px 1px rgb(0 0 0 / 5%);
     border-radius: 3px;
     height: 6rem;
     padding: 0 2rem;
     margin-bottom: 3rem;
     width: 100%;
     display: block;
-    color: #8c8fa3;
+    color: var(--blue-gray);
     line-height: 2rem;
     border: 1px solid #ededed;
     -webkit-appearance: none;
@@ -86,92 +276,9 @@ input[type=text], input[type=date], input[type=tel], input[type=email], select, 
     appearance: none;
 }
 
-.select-group {
-    position: relative;
-
-    label {
-        display: block;
-        padding: 2rem 0 0.5rem;
-        }
-
-    .select-button {
-
-        // #select-label {
-
-        // }
-
-        display: flex;
-        padding: 1rem;
-        justify-content: space-between;
-        align-items: center;
-        border-radius: .3rem;
-        height: 6rem;
-        width: 100%;
-        background-color: white;
-        box-shadow: 0 6px 20px rgba(41, 37, 91, .04), inset 0 1px 1px rgba(0, 0, 0, .05);
-        color: #8c8fa3;
-        border: 1px solid #ededed;
-        font-size: 1.4rem;
-        position: relative;
-
-        &:focus {
-            border: 2px solid #000;
-        }
-
-        .arrow {
-            border: solid var(--orange);
-            border-width: 0 3px 3px 0;
-            padding: 4px;
-            transform: rotate(45deg);
-        }
-
-    }    
-
-    .dropdown {
-        position: absolute;
-        width: 100%;
-        top: 11.5rem;
-        background-color: white;
-        box-sizing: border-box;
-        border: 1px solid #ededed;
-        box-shadow: 2px 4px 5px #dedede;
-        border-radius: .3rem;
-        overflow-y: auto;
-        max-height: 9rem;
-
-        input {
-            
-            &:checked+label {
-                color: var(--orange);
-            }
-
-        }
-
-        .option {
-            display: none;
-        }
-
-        .select-item {
-            display: block;
-            padding: 1rem;
-            font-weight: 400;
-            background-color: #FFFFFF;
-            color: black;
-
-            &:hover {
-                background-color: #f2f2f2;
-            }
-        }
-
-    }
-
-    .hidden {
-        display: none;
-    }
-}
-
 textarea {
     height: 10rem;
+    padding: 2rem;
 }
 
 /* Mark input boxes that gets an error on validation: */
@@ -179,84 +286,43 @@ input.invalid {
     background-color: #ffdddd;
 }
 
-/* Hide all steps by default: */
-.tab {
-    display: none;
 
-    &__title {
-        font-size: 2.6rem;
-        line-height: 1.08;
-        color: var(--dark-blue);
-        margin-top: 4rem;
-        margin-bottom: 3rem;
-        font-weight: 600;
-    }
 
-    fieldset {
-        position: relative;
-        background: #efefef;
-        display: flex;
-        border: 1px solid #ccc;
-        margin: 1.5rem 0;
-        border-radius: 5px;
-        padding: 5rem 2rem 1rem;
-        box-shadow: 2px 2px 5px #ddd;
-
-        legend {
-            position: absolute;
-            top: -25px;
-            left: 10;
-            font-size: 1.6rem;
-            padding-top: 4rem;
-            color: var(--dark-blue);
-            font-weight: 600;
-        }
-
-        div {
-            /* width: 100%; */
-            display: flex;
-            gap: 1rem;
-            align-items: baseline;
-
-            label {
-                font-size: 1.6rem;
-                margin-bottom: 1rem;
-                color: #000;
-                font-weight: normal;
-                /* display: inline-flex; */
-                align-content: center;
-                /* align-items: center; */
-            }
-        }
-    }
-}
-
-button {
+.button {
     background-color: var(--orange);
     color: #ffffff;
     border: none;
+    border-radius: 3px;
     padding: 1rem 2rem;
     font-family: inherit;
     font-size: 1.8rem;
     cursor: pointer;
+
+    &:hover {
+        opacity: 0.8;
+    }
+
+    &#prevBtn {
+        background-color: #bbbbbb;   
+    }
+
+    &--red {
+        background-color: red;
+    }
+
+    &--green {
+        background-color: var(--green);
+    }
 }
 
-button:hover {
-    opacity: 0.8;
-}
-
-#prevBtn {
-    background-color: #bbbbbb;
-}
-
-/* Make circles that indicate the steps of the form: */
+/* Maak cirkels, die de stappen van het formulier aangeven */
 .step {
     height: 3rem;
     width: 3rem;
     font-size: 1.4rem;
     font-weight: 600;
     margin: 0 2px;
-    background-color: #bbbbbb;
+    background-color: var(--gray);
     border: none;
     border-radius: 50%;
     opacity: 0.5;
@@ -271,7 +337,7 @@ button:hover {
 
 /* Mark the steps that are finished and valid: */
 .step.finish {
-    background-color: #04AA6D;
+    background-color: var(--green);
 }
 
 details {

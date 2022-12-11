@@ -14,581 +14,653 @@
     <title>Persoonlijk profiel</title>
 </head>
 <body>
-    <form id="regForm" action="/action_page.php">
-  <h1 class="form__title">Persoonlijk profiel</h1>
+    <form id="persForm" class="persForm" action="/action_page.php">
+      <h1 class="persForm__title">Persoonlijk profiel</h1>
 
-  <!-- Cirkels, die de stappen van het formulier aangeven: -->
-  <div style="text-align:center;margin-top:40px;">
-    <span class="step" title="Persoonlijke gegevens">1</span>
-    <span class="step" title="Werksituatie">2</span>
-    <span class="step" title="Werkervaring">3</span>
-    <span class="step" title="Opleiding, cursus en training">4</span>
-    <span class="step" title="Vakgebieden">5</span>
-    <span class="step" title="Persoonlijke ontwikkeling">6</span>
-  </div>
+      <!-- Stappen van het formulier -->
+      <div class="persForm__steps" style="text-align:center;margin-top:40px;">
+        <span class="step" title="Persoonlijke gegevens">1</span>
+        <span class="step" title="Werksituatie">2</span>
+        <span class="step" title="Werkervaring">3</span>
+        <span class="step" title="Opleiding, cursus en training">4</span>
+        <span class="step" title="Vakgebieden">5</span>
+        <span class="step" title="Persoonlijke ontwikkeling">6</span>
+      </div>
 
-  <!-- Tab #1 Persoonlijke gegevens -->
-  <div class="tab">
-    <h2 class="tab__title">Persoonlijke gegevens</h2>
-    <p>Velden met een <span aria-label="required">*</span> dienen verplicht ingevuld te worden.</p>
-    <p>
-      <label for="voornaam">Voornaam <span aria-label="required">*</span></label>
-      <input type="text" oninput="this.className = ''" placeholder="Voornaam*" id="voornaam" name="voornaam" required>
-    </p>
-    <p>
-      <label for="tussenvoegsel">Tussenvoegsel</label>
-      <input type="text" oninput="this.className = ''" placeholder="Tussenvoegsel" id="tussenvoegsel" name="tussenvoegsel">
-    </p>
-    <p>
-      <label for="achternaam">Achternaam <span aria-label="required">*</span></label>
-      <input type="text" oninput="this.className = ''" placeholder="Achternaam*" id="achternaam" name="achternaam" required>
-    </p>
-    <p>
-      <label for="stad">Stad <span aria-label="required">*</span></label>
-      <input type="text" oninput="this.className = ''" placeholder="Stad" id="stad" name="stad">
-    </p>
+    <!-- Tab #1 Persoonlijke gegevens -->
+    <div class="tab">
+      <h2 class="tab__title">Persoonlijke gegevens</h2>
+      <p class="tab__required-fields-text">Velden met een <span aria-label="required">*</span> dienen verplicht ingevuld te worden.</p>
+      <p>
+        <label for="voornaam">Voornaam <span aria-label="required">*</span></label>
+        <input type="text" oninput="this.className = ''" placeholder="Voornaam" id="voornaam" name="voornaam" required>
+      </p>
+      <p>
+        <label for="tussenvoegsel">Tussenvoegsel</label>
+        <input type="text" oninput="this.className = ''" placeholder="Tussenvoegsel" id="tussenvoegsel" name="tussenvoegsel">
+      </p>
+      <p>
+        <label for="achternaam">Achternaam <span aria-label="required">*</span></label>
+        <input type="text" oninput="this.className = ''" placeholder="Achternaam" id="achternaam" name="achternaam" required>
+      </p>
+      <p>
+        <label for="stad">Plaats <span aria-label="required">*</span></label>
+        <input type="text" oninput="this.className = ''" placeholder="Je woonplaats" id="plaats" name="plaats">
+      </p>
+        
+      <p>
+        <label for="telefoon">Telefoon</label>
+        <input type="tel" oninput="this.className = ''" placeholder="Telefoon/mobiel" id="telefoon" name="telefoon">
+      </p>
+      <p>
+        <label for="email">E-mailadres</label>
+        <input type="email" oninput="this.className = ''" placeholder="E-mailadres" id="email" name="email">
+      </p>
+
+        <div class="select-group">
+
+          <label for="select-button-uitkering">Type uitkering <span aria-label="required">*</span></label>
+          <button type="button" id="select-button-uitkering" class="select-button">
+            <span class="select-label select-label--placeholder">Selecteer je type uitkering</span>
+            <div class="arrow arrow--down"></div>
+          </button>
+          
+          <div class="dropdown hidden">
+            <input type="radio" id="select-wia" name="type_uitkering" value="wia" class="option">
+            <label for="select-wia" class="select-item">WIA</label>
+    
+            <input type="radio" id="select-wao" name="type_uitkering" value="wao" class="option">
+            <label for="select-wao" class="select-item">WAO</label>
       
-    <p>
-      <label for="telefoon">Telefoon</label>
-      <input type="tel" oninput="this.className = ''" placeholder="Telefoon" id="telefoon" name="telefoon">
-    </p>
-    <p>
-      <label for="email">E-mailadres</label>
-      <input type="email" oninput="this.className = ''" placeholder="E-mailadres" id="email" name="email">
-    </p>
+            <input type="radio" id="select-wajong" name="type_uitkering" value="wajong" class="option">
+            <label for="select-wajong" class="select-item">Wajong</label>
 
+            <input type="radio" id="select-bijstand" name="type_uitkering" value="bijstand/doelgroep" class="option">
+            <label for="select-bijstand" class="select-item">Bijstand/Doelgroep</label>
+          </div>
+                
+        </div>
+
+        <label>Doelgroepregister <span aria-label="required">*</span></label>
+      <div class="fieldset-container" id="doelgroepregister">
+        <fieldset>
+        <legend>Ben je opgenomen in het doelgroepregister?</legend>
+        <div>
+          <input type="radio" oninput="this.className = ''" id="doelgroepregister_ja" name="doelgroepregister" value="ja">
+          <label for="doelgroepregister_ja">Ja</label>
+          <input type="radio" oninput="this.className = ''" id="doelgroepregister_nee" name="doelgroepregister" value="nee">
+          <label for="doelgroepregister_nee">Nee</label>
+        </div>
+        </fieldset>
+      </div>
+
+      <label>Rijbewijs <span aria-label="required">*</span></label>
+      <div class="fieldset-container">
+        <fieldset>
+          <legend>Heb je een rijbewijs?</legend>
+          <div>
+            <input type="radio" oninput="this.className = ''" id="rijbewijs_ja" name="rijbewijs" value="ja" required>
+            <label for="rijbewijs_ja">Ja</label>
+            <input type="radio" oninput="this.className = ''" id="rijbewijs_nee" name="rijbewijs" value="nee">
+            <label for="rijbewijs_nee">Nee</label>
+          </div>
+      </fieldset>
+      </div>
+
+      <label>Eigen auto</label>
+      <div class="fieldset-container">
+        <fieldset>
+          <legend>Beschik je over een eigen auto?</legend>
+          <div>
+            <input type="radio" oninput="this.className = ''" id="eigenauto_ja" name="eigenauto" value="ja">
+            <label for="eigenauto_ja">Ja</label>
+            <input type="radio" oninput="this.className = ''" id="eigenauto_nee" name="eigenauto" value="nee">
+            <label for="eigenauto_nee">Nee</label>
+          </div>
+        </fieldset>
+      </div>
+      
       <div class="select-group">
 
-        <label for="select-button-uitkering">Type uitkering <span aria-label="required">*</span></label>
-        <button id="select-button-uitkering" class="select-button">
-          <span id="select-label" class="select-label">Selecteer je type uitkering</span>
-          <div id="arrow" class="arrow"></div>
-        </button>
-        
-        <div class="dropdown hidden" id="dropdown">
-          <input type="radio" id="select-wia" name="type_uitkering" value="wia" class="option">
-          <label for="select-wia" class="select-item">WIA</label>
-  
-          <input type="radio" id="select-wao" name="type_uitkering" value="wao" class="option">
-          <label for="select-wao" class="select-item">WAO</label>
+          <label for="select-button-uren">Hoeveel uren per week ben je beschikbaar? <span aria-label="required">*</span></label>
+          <button type="button" id="select-button-uren" class="select-button">
+            <span class="select-label select-label--placeholder">Selecteer uren</span>
+            <div class="arrow arrow--down"></div>
+          </button>
+          
+          <div class="dropdown hidden">
+            <input type="radio" id="select-0-8" name="beschikbare_uren" value="0-8" class="option">
+            <label for="select-0-8" class="select-item">0-8</label>
     
-          <input type="radio" id="select-wajong" name="type_uitkering" value="wajong" class="option">
-          <label for="select-wajong" class="select-item">Wajong</label>
+            <input type="radio" id="select-9-16" name="beschikbare_uren" value="9-16" class="option">
+            <label for="select-9-16" class="select-item">9-16</label>
+      
+            <input type="radio" id="select-17-24" name="beschikbare_uren" value="17-24" class="option">
+            <label for="select-17-24" class="select-item">17-24</label>
 
-          <input type="radio" id="select-bijstand" name="type_uitkering" value="bijstand/doelgroep" class="option">
-          <label for="select-bijstand" class="select-item">Bijstand/Doelgroep</label>
+            <input type="radio" id="select-25-32" name="beschikbare_uren" value="25-32" class="option">
+            <label for="select-25-32" class="select-item">25-32</label>
+
+            <input type="radio" id="select-33-36" name="beschikbare_uren" value="33-36" class="option">
+            <label for="select-33-36" class="select-item">33-36</label>
+
+            <input type="radio" id="select-37-40+" name="beschikbare_uren" value="37-40+" class="option">
+            <label for="select-37-40+" class="select-item">37-40+</label>
+          </div>
+                
         </div>
-               
-      </div>
-    
-    <p>
-      <label for="doelgroepregister">Ben je opgenomen in het doelgroepregister? <span aria-label="required">*</span></label>
-      <input type="radio" oninput="this.className = ''" id="doelgroepregister_ja" name="doelgroepregister" value="ja">
-      <label for="doelgroepregister_ja">Ja</label>
-      <input type="radio" oninput="this.className = ''" id="doelgroepregister_nee" name="doelgroepregister" value="nee">
-      <label for="doelgroepregister_nee">Nee</label>
-    </p>
 
-    <p>
-      <label for="rijbewijs">Rijbewijs <span aria-label="required">*</span></label>
-      <input type="radio" oninput="this.className = ''" id="rijbewijs_ja" name="rijbewijs" value="ja" required>
-      <label for="rijbewijs_ja">Ja</label>
-      <input type="radio" oninput="this.className = ''" id="rijbewijs_nee" name="rijbewijs" value="nee">
-      <label for="rijbewijs_nee">Nee</label>
-    </p>
+    </div> <!-- end div tab #1 Persoonlijke gegevens -->
 
-    <p>
-      <label for="rijbewijs">Eigen auto</label>
-      <input type="radio" oninput="this.className = ''" id="eigenauto_ja" name="eigenauto" value="ja">
-      <label for="eigenauto_ja">Ja</label>
-      <input type="radio" oninput="this.className = ''" id="eigenauto_nee" name="eigenauto" value="nee">
-      <label for="eigenauto_nee">Nee</label>
-    </p>
-    
-    <div class="select-group">
-
-        <label for="select-button-uren">Hoeveel uren per week ben je beschikbaar? <span aria-label="required">*</span></label>
-        <button id="select-button-uren" class="select-button">
-          <span id="select-label" class="select-label">Selecteer uren</span>
-          <div id="arrow" class="arrow"></div>
-        </button>
-        
-        <div class="dropdown hidden" id="dropdown">
-          <input type="radio" id="select-0-8" name="beschikbare_uren" value="0-8" class="option">
-          <label for="select-0-8" class="select-item">0-8</label>
-  
-          <input type="radio" id="select-9-16" name="beschikbare_uren" value="9-16" class="option">
-          <label for="select-9-16" class="select-item">9-16</label>
-    
-          <input type="radio" id="select-17-24" name="beschikbare_uren" value="17-24" class="option">
-          <label for="select-17-24" class="select-item">17-24</label>
-
-          <input type="radio" id="select-25-32" name="beschikbare_uren" value="25-32" class="option">
-          <label for="select-25-32" class="select-item">25-32</label>
-
-          <input type="radio" id="select-33-36" name="beschikbare_uren" value="33-36" class="option">
-          <label for="select-33-36" class="select-item">33-36</label>
-
-          <input type="radio" id="select-37-40+" name="beschikbare_uren" value="37-40+" class="option">
-          <label for="select-37-40+" class="select-item">37-40+</label>
+    <!-- Tab #2 Werksituatie -->
+    <div class="tab">
+      <h2 class="tab__title">Werksituatie:</h2>
+      <label>Op tijd komen</label>
+      <div class="fieldset-container">
+      <fieldset>
+        <legend>Ik kan op tijd komen</legend>
+        <div>
+          <input type="radio" id="optijd_1" name="optijd" value="niet"><label for="optijd_1">niet</label>
+          <input type="radio" id="optijd_2" name="optijd" value="afwisselend"><label for="optijd_2">afwisselend</label>
+          <input type="radio" id="optijd_3" name="optijd" value="geen probleem"><label for="optijd_3">geen probleem</label>
         </div>
-               
+      </fieldset>
       </div>
 
-   </div> <!-- end div tab #1 Persoonlijke gegevens -->
-
-   <!-- Tab #2 Werksituatie -->
-  <div class="tab">
-    <h2 class="tab__title">Werksituatie:</h2>
-    <fieldset>
-      <legend>Ik kan op tijd komen</legend>
-      <div>
-        <input type="radio" id="optijd_1" name="optijd" value="niet"><label for="optijd_1">niet</label>
-        <input type="radio" id="optijd_2" name="optijd" value="afwisselend"><label for="optijd_2">afwisselend</label>
-        <input type="radio" id="optijd_3" name="optijd" value="geen probleem"><label for="optijd_3">geen probleem</label>
+      <label>Opstarten</label>
+      <div class="fieldset-container">
+      <fieldset>
+        <legend>Ik moet in de ochtend even opstarten</legend>
+        <div>
+          <input type="radio" id="opstarten_1" name="opstarten" value="niet"><label for="opstarten_1">niet</label>
+          <input type="radio" id="opstarten_2" name="opstarten" value="afwisselend"><label for="opstarten_2">afwisselend</label>
+          <input type="radio" id="opstarten_3" name="opstarten" value="geen probleem"><label for="opstarten_3">geen probleem</label>
+        </div>
+      </fieldset>
       </div>
-    </fieldset>
 
-    <fieldset>
-      <legend>Ik moet in de ochtend even opstarten</legend>
-      <div>
-        <input type="radio" id="opstarten_1" name="opstarten" value="niet"><label for="opstarten_1">niet</label>
-        <input type="radio" id="opstarten_2" name="opstarten" value="afwisselend"><label for="opstarten_2">afwisselend</label>
-        <input type="radio" id="opstarten_3" name="opstarten" value="geen probleem"><label for="opstarten_3">geen probleem</label>
+      <label>Geconcentreerd werken</label>
+      <div class="fieldset-container">
+      <fieldset>
+        <legend>Ik kan geconcentreerd werken</legend>
+        <div>
+          <input type="radio" id="geconcentreerd_1" name="geconcentreerd" value="niet"><label for="geconcentreerd_1">niet</label>
+          <input type="radio" id="geconcentreerd_2" name="geconcentreerd" value="afwisselend"><label for="geconcentreerd_2">afwisselend</label>
+          <input type="radio" id="geconcentreerd_3" name="geconcentreerd" value="geen probleem"><label for="geconcentreerd_3">geen probleem</label>
+        </div>
+      </fieldset>
       </div>
-    </fieldset>
 
-    <fieldset>
-      <legend>Ik kan geconcentreerd werken</legend>
-      <div>
-        <input type="radio" id="geconcentreerd_1" name="geconcentreerd" value="niet"><label for="geconcentreerd_1">niet</label>
-        <input type="radio" id="geconcentreerd_2" name="geconcentreerd" value="afwisselend"><label for="geconcentreerd_2">afwisselend</label>
-        <input type="radio" id="geconcentreerd_3" name="geconcentreerd" value="geen probleem"><label for="geconcentreerd_3">geen probleem</label>
+      <label>Veel staan</label>
+      <div class="fieldset-container">
+      <fieldset>
+        <legend>Ik kan veel staan</legend>
+        <div>
+          <input type="radio" id="staan_1" name="staan" value="niet"><label for="staan_1">niet</label>
+          <input type="radio" id="staan_2" name="staan" value="afwisselend"><label for="staan_2">afwisselend</label>
+          <input type="radio" id="staan_3" name="staan" value="geen probleem"><label for="staan_3">geen probleem</label>
+        </div>
+      </fieldset>
       </div>
-    </fieldset>
 
-    <fieldset>
-      <legend>Ik kan veel staan</legend>
-      <div>
-        <input type="radio" id="staan_1" name="staan" value="niet"><label for="staan_1">niet</label>
-        <input type="radio" id="staan_2" name="staan" value="afwisselend"><label for="staan_2">afwisselend</label>
-        <input type="radio" id="staan_3" name="staan" value="geen probleem"><label for="staan_3">geen probleem</label>
+      <label>Veel lopen</label>
+      <div class="fieldset-container">
+      <fieldset>
+        <legend>Ik kan veel lopen</legend>
+        <div>
+          <input type="radio" id="lopen_1" name="lopen" value="niet"><label for="lopen_1">niet</label>
+          <input type="radio" id="lopen_2" name="lopen" value="afwisselend"><label for="lopen_2">afwisselend</label>
+          <input type="radio" id="lopen_3" name="lopen" value="geen probleem"><label for="lopen_3">geen probleem</label>
+        </div>
+      </fieldset>
       </div>
-    </fieldset>
 
-    <fieldset>
-      <legend>Ik kan veel lopen</legend>
-      <div>
-        <input type="radio" id="lopen_1" name="lopen" value="niet"><label for="lopen_1">niet</label>
-        <input type="radio" id="lopen_2" name="lopen" value="afwisselend"><label for="lopen_2">afwisselend</label>
-        <input type="radio" id="lopen_3" name="lopen" value="geen probleem"><label for="lopen_3">geen probleem</label>
+      <label>Precies</label>
+      <div class="fieldset-container">
+      <fieldset>
+        <legend>Ik ben erg precies</legend>
+        <div>
+          <input type="radio" id="precies_1" name="precies" value="niet"><label for="precies_1">niet</label>
+          <input type="radio" id="precies_2" name="precies" value="afwisselend"><label for="precies_2">afwisselend</label>
+          <input type="radio" id="precies_3" name="precies" value="geen probleem"><label for="precies_3">geen probleem</label>
+        </div>
+      </fieldset>
       </div>
-    </fieldset>
 
-    <fieldset>
-      <legend>Ik ben erg precies</legend>
-      <div>
-        <input type="radio" id="precies_1" name="precies" value="niet"><label for="precies_1">niet</label>
-        <input type="radio" id="precies_2" name="precies" value="afwisselend"><label for="precies_2">afwisselend</label>
-        <input type="radio" id="precies_3" name="precies" value="geen probleem"><label for="precies_3">geen probleem</label>
+      <label>Met handen werken</label>
+      <div class="fieldset-container">
+      <fieldset>
+        <legend>Ik werk graag met mijn handen</legend>
+        <div>
+          <input type="radio" id="handen_1" name="" value="niet"><label for="handen_1">niet</label>
+          <input type="radio" id="handen_2" name="" value="afwisselend"><label for="handen_2">afwisselend</label>
+          <input type="radio" id="handen_3" name="" value="geen probleem"><label for="handen_3">geen probleem</label>
+        </div>
+      </fieldset>
       </div>
-    </fieldset>
 
-    <fieldset>
-      <legend>Ik werk graag met mijn handen</legend>
-      <div>
-        <input type="radio" id="handen_1" name="" value="niet"><label for="handen_1">niet</label>
-        <input type="radio" id="handen_2" name="" value="afwisselend"><label for="handen_2">afwisselend</label>
-        <input type="radio" id="handen_3" name="" value="geen probleem"><label for="handen_3">geen probleem</label>
+      <label>Samenwerken</label>
+      <div class="fieldset-container">
+      <fieldset>
+        <legend>Ik werk graag samen</legend>
+        <div>
+          <input type="radio" id="samenwerken_1" name="samenwerken" value="niet"><label for="samenwerken_1">niet</label>
+          <input type="radio" id="samenwerken_2" name="samenwerken" value="afwisselend"><label for="samenwerken_2">afwisselend</label>
+          <input type="radio" id="samenwerken_3" name="samenwerken" value="geen probleem"><label for="samenwerken_3">geen probleem</label>
+        </div>
+      </fieldset>
       </div>
-    </fieldset>
 
-    <fieldset>
-      <legend>Ik werk graag samen</legend>
-      <div>
-        <input type="radio" id="samenwerken_1" name="samenwerken" value="niet"><label for="samenwerken_1">niet</label>
-        <input type="radio" id="samenwerken_2" name="samenwerken" value="afwisselend"><label for="samenwerken_2">afwisselend</label>
-        <input type="radio" id="samenwerken_3" name="samenwerken" value="geen probleem"><label for="samenwerken_3">geen probleem</label>
+      <label>Zelfstandig werken</label>
+      <div class="fieldset-container">
+      <fieldset>
+        <legend>Ik kan zelfstandig werken</legend>
+        <div>
+          <input type="radio" id="zelfstandig_1" name="zelfstandig" value="niet"><label for="zelfstandig_1">niet</label>
+          <input type="radio" id="zelfstandig_2" name="zelfstandig" value="afwisselend"><label for="zelfstandig_2">afwisselend</label>
+          <input type="radio" id="zelfstandig_3" name="zelfstandig" value="geen probleem"><label for="zelfstandig_3">geen probleem</label>
+        </div>
+      </fieldset>
       </div>
-    </fieldset>
 
-    <fieldset>
-      <legend>Ik kan zelfstandig werken</legend>
-      <div>
-        <input type="radio" id="zelfstandig_1" name="zelfstandig" value="niet"><label for="zelfstandig_1">niet</label>
-        <input type="radio" id="zelfstandig_2" name="zelfstandig" value="afwisselend"><label for="zelfstandig_2">afwisselend</label>
-        <input type="radio" id="zelfstandig_3" name="zelfstandig" value="geen probleem"><label for="zelfstandig_3">geen probleem</label>
+      <label>Omgevingsgeluiden</label>
+      <div class="fieldset-container">
+      <fieldset>
+        <legend>Ik kan omgaan met omgevingsgeluiden</legend>
+        <div>
+          <input type="radio" id="omgeving_1" name="omgeving" value="niet"><label for="omgeving_1">niet</label>
+          <input type="radio" id="omgeving_2" name="omgeving" value="afwisselend"><label for="omgeving_2">afwisselend</label>
+          <input type="radio" id="omgeving_3" name="omgeving" value="geen probleem"><label for="omgeving_3">geen probleem</label>
+        </div>
+      </fieldset>
       </div>
-    </fieldset>
 
-    <fieldset>
-      <legend>Ik kan omgaan met omgevingsgeluiden</legend>
-      <div>
-        <input type="radio" id="omgeving_1" name="omgeving" value="niet"><label for="omgeving_1">niet</label>
-        <input type="radio" id="omgeving_2" name="omgeving" value="afwisselend"><label for="omgeving_2">afwisselend</label>
-        <input type="radio" id="omgeving_3" name="omgeving" value="geen probleem"><label for="omgeving_3">geen probleem</label>
+      <label>Aanspreekpunt</label>
+      <div class="fieldset-container">
+      <fieldset>
+        <legend>Ik heb een duidelijk aanspreekpunt nodig</legend>
+        <div>
+          <input type="radio" id="aanspreekpunt_1" name="aanspreekpunt" value="niet"><label for="aanspreekpunt_1">niet</label>
+          <input type="radio" id="aanspreekpunt_2" name="aanspreekpunt" value="afwisselend"><label for="aanspreekpunt_2">afwisselend</label>
+          <input type="radio" id="aanspreekpunt_3" name="aanspreekpunt" value="geen probleem"><label for="aanspreekpunt_3">geen probleem</label>
+        </div>
+      </fieldset>
       </div>
-    </fieldset>
 
-    <fieldset>
-      <legend>Ik heb een duidelijk aanspreekpunt nodig</legend>
-      <div>
-        <input type="radio" id="aanspreekpunt_1" name="aanspreekpunt" value="niet"><label for="aanspreekpunt_1">niet</label>
-        <input type="radio" id="aanspreekpunt_2" name="aanspreekpunt" value="afwisselend"><label for="aanspreekpunt_2">afwisselend</label>
-        <input type="radio" id="aanspreekpunt_3" name="aanspreekpunt" value="geen probleem"><label for="aanspreekpunt_3">geen probleem</label>
+      <label>Omgaan met prikkels</label>
+      <div class="fieldset-container">
+      <fieldset>
+        <legend>Ik kan goed met prikkels omgaan</legend>
+        <div>
+          <input type="radio" id="prikkels_1" name="prikkels" value="niet"><label for="prikkels_1">niet</label>
+          <input type="radio" id="prikkels_2" name="prikkels" value="afwisselend"><label for="prikkels_2">afwisselend</label>
+          <input type="radio" id="prikkels_3" name="prikkels" value="geen probleem"><label for="prikkels_3">geen probleem</label>
+        </div>
+      </fieldset>
       </div>
-    </fieldset>
 
-    <fieldset>
-      <legend>Ik kan goed met prikkels omgaan</legend>
-      <div>
-        <input type="radio" id="prikkels_1" name="prikkels" value="niet"><label for="prikkels_1">niet</label>
-        <input type="radio" id="prikkels_2" name="prikkels" value="afwisselend"><label for="prikkels_2">afwisselend</label>
-        <input type="radio" id="prikkels_3" name="prikkels" value="geen probleem"><label for="prikkels_3">geen probleem</label>
+      <label>Klantcontact</label>
+      <div class="fieldset-container">
+      <fieldset>
+        <legend>Ik kan klantcontact hebben</legend>
+        <div>
+          <input type="radio" id="klantcontact_1" name="klantcontact" value="niet"><label for="klantcontact_1">niet</label>
+          <input type="radio" id="klantcontact_2" name="klantcontact" value="afwisselend"><label for="klantcontact_2">afwisselend</label>
+          <input type="radio" id="klantcontact_3" name="klantcontact" value="geen probleem"><label for="klantcontact_3">geen probleem</label>
+        </div>
+      </fieldset>
       </div>
-    </fieldset>
 
-    <fieldset>
-      <legend>Ik kan klantcontact hebben</legend>
-      <div>
-        <input type="radio" id="klantcontact_1" name="klantcontact" value="niet"><label for="klantcontact_1">niet</label>
-        <input type="radio" id="klantcontact_2" name="klantcontact" value="afwisselend"><label for="klantcontact_2">afwisselend</label>
-        <input type="radio" id="klantcontact_3" name="klantcontact" value="geen probleem"><label for="klantcontact_3">geen probleem</label>
+      <label>Feedback/kritiek</label>
+      <div class="fieldset-container">
+      <fieldset>
+        <legend>Ik kan met feedback en/of kritiek omgaan</legend>
+        <div>
+          <input type="radio" id="feedback_1" name="feedback" value="niet"><label for="feedback_1">niet</label>
+          <input type="radio" id="feedback_2" name="feedback" value="afwisselend"><label for="feedback_2">afwisselend</label>
+          <input type="radio" id="feedback_3" name="feedback" value="geen probleem"><label for="feedback_3">geen probleem</label>
+        </div>
+      </fieldset>
       </div>
-    </fieldset>
 
-    <fieldset>
-      <legend>Ik kan met feedback en/of kritiek omgaan</legend>
-      <div>
-        <input type="radio" id="feedback_1" name="feedback" value="niet"><label for="feedback_1">niet</label>
-        <input type="radio" id="feedback_2" name="feedback" value="afwisselend"><label for="feedback_2">afwisselend</label>
-        <input type="radio" id="feedback_3" name="feedback" value="geen probleem"><label for="feedback_3">geen probleem</label>
+      <label>Repeterend werk</label>
+      <div class="fieldset-container">
+      <fieldset>
+        <legend>Ik kan repeterend werk doen</legend>
+        <div>
+          <input type="radio" id="repeterend_1" name="repeterend" value="niet"><label for="repeterend_1">niet</label>
+          <input type="radio" id="repeterend_2" name="repeterend" value="afwisselend"><label for="repeterend_2">afwisselend</label>
+          <input type="radio" id="repeterend_3" name="repeterend" value="geen probleem"><label for="repeterend_3">geen probleem</label>
+        </div>
+      </fieldset>
       </div>
-    </fieldset>
 
-    <fieldset>
-      <legend>Ik kan repeterend werk doen</legend>
-      <div>
-        <input type="radio" id="repeterend_1" name="repeterend" value="niet"><label for="repeterend_1">niet</label>
-        <input type="radio" id="repeterend_2" name="repeterend" value="afwisselend"><label for="repeterend_2">afwisselend</label>
-        <input type="radio" id="repeterend_3" name="repeterend" value="geen probleem"><label for="repeterend_3">geen probleem</label>
+      <label>Extra pauze</label>
+      <div class="fieldset-container">
+      <fieldset>
+        <legend>Ik heb extra pauze nodig</legend>
+        <div>
+          <input type="radio" id="pauze_1" name="pauze" value="niet"><label for="pauze_1">niet</label>
+          <input type="radio" id="pauze_2" name="pauze" value="afwisselend"><label for="pauze_2">afwisselend</label>
+          <input type="radio" id="pauze_3" name="pauze" value="geen probleem"><label for="pauze_3">geen probleem</label>
+        </div>
+      </fieldset>
       </div>
-    </fieldset>
 
-    <fieldset>
-      <legend>Ik heb extra pauze nodig</legend>
-      <div>
-        <input type="radio" id="pauze_1" name="pauze" value="niet"><label for="pauze_1">niet</label>
-        <input type="radio" id="pauze_2" name="pauze" value="afwisselend"><label for="pauze_2">afwisselend</label>
-        <input type="radio" id="pauze_3" name="pauze" value="geen probleem"><label for="pauze_3">geen probleem</label>
+      <label>Verantwoordelijkheid</label>
+      <div class="fieldset-container">
+      <fieldset>
+        <legend>Ik wil veel verantwoordelijkheden hebben</legend>
+        <div>
+          <input type="radio" id="verantwoordelijk_1" name="verantwoordelijk" value="niet"><label for="verantwoordelijk_1">niet</label>
+          <input type="radio" id="verantwoordelijk_2" name="verantwoordelijk" value="afwisselend"><label for="verantwoordelijk_2">afwisselend</label>
+          <input type="radio" id="verantwoordelijk_3" name="verantwoordelijk" value="geen probleem"><label for="verantwoordelijk_3">geen probleem</label>
+        </div>
+      </fieldset>
       </div>
-    </fieldset>
+    </div> <!-- End div tab #2 Werksituatie -->
 
-    <fieldset>
-      <legend>Ik wil veel verantwoordelijkheden hebben</legend>
-      <div>
-        <input type="radio" id="verantwoordelijk_1" name="verantwoordelijk" value="niet"><label for="verantwoordelijk_1">niet</label>
-        <input type="radio" id="verantwoordelijk_2" name="verantwoordelijk" value="afwisselend"><label for="verantwoordelijk_2">afwisselend</label>
-        <input type="radio" id="verantwoordelijk_3" name="verantwoordelijk" value="geen probleem"><label for="verantwoordelijk_3">geen probleem</label>
-      </div>
-    </fieldset>
-  </div> <!-- End div tab #2 Werksituatie -->
+    <!-- Tab #3 Werkervaring -->
+    <div class="tab">
+      <h2 class="tab__title">Werkervaring:</h2>
+      <div id="divWerkResult"></div>    
+      <button type="button" class="button button--green" id="btnToevoegenWerk" title="Werkervaring toevoegen" onclick="toevoegenRij('Werk')">+</button>
+          
+    </div> <!-- End div tab #3 Werkervaring -->
 
-   <!-- Tab #3 Werkervaring -->
-  <div class="tab">
-    <h2 class="tab__title">Werkervaring:</h2>
-    <div id="divWerkResult"></div>    
-    <button type="button" id="btnToevoegenWerk" title="Werkervaring toevoegen" onclick="toevoegenRij('Werk')">+</button>
-        
-  </div> <!-- End div tab #3 Werkervaring -->
+    <!-- Tab #4 Opleiding -->
+    <div class="tab">
+      <h2 class="tab__title">Opleiding, cursussen, trainingen:</h2>
+      <h3>Opleiding</h3>
+      <div id="divOpleidingResult"></div>
+      <button type="button" class="button button--green" id="btnToevoegenOpleiding" title="Opleiding toevoegen" onclick="toevoegenRij('Opleiding')">+</button>
+      
+      
+      <h3>Cursus</h3>
+      <button type="button" class="button button--green" id="btnToevoegenCursus" title="Cursus toevoegen" onclick="toevoegenRij('Cursus')">+</button>
+      <div id="divCursusResult"></div>
 
-  <!-- Tab #4 Opleiding -->
-  <div class="tab">
-    <h2 class="tab__title">Opleiding, cursussen, trainingen:</h2>
-    <h3>Opleiding</h3>
-    <div id="divOpleidingResult"></div>
-    <button type="button" id="btnToevoegenOpleiding" title="Opleiding toevoegen" onclick="toevoegenRij('Opleiding')">+</button>
+      <h3>Training</h3>
+      <button type="button" class="button button--green" id="btnToevoegenTraining" title="Training toevoegen" onclick="toevoegenRij('Training')">+</button>
+      <div id="divTrainingResult"></div>
+      
+      
+    </div> <!-- End div tab #4 Opleiding, cursus en training -->
+
+    <!-- Tab # 5 Vakgebieden -->
+    <div class="tab"><h2 class="tab__title">Vakgebieden:</h2>
+      
+      <details>
+        <summary>Bouw</summary>
+        <p>
+          <input type="checkbox" oninput="this.className = ''" id="opruimer" name="opruimer">
+          <label for="opruimer">Opruimer</label>      
+        </p>
+        <p>
+          <input type="checkbox" oninput="this.className = ''" id="loodgieter" name="loodgieter">
+          <label for="loodgieter">Loodgieter</label>      
+        </p>
+        <p>
+          <input type="checkbox" oninput="this.className = ''" id="installateur" name="installateur">
+          <label for="installateur">Installateur</label>      
+        </p>
+        <p>
+          <input type="checkbox" oninput="this.className = ''" id="timmerman" name="timmerman">
+          <label for="timmerman">Timmerman</label>      
+        </p>
+        <p>
+          <input type="checkbox" oninput="this.className = ''" id="metselaar" name="metselaar">
+          <label for="metselaar">Metselaar</label>      
+        </p>
+        <p>
+          <input type="checkbox" oninput="this.className = ''" id="overige-bouw" name="overige-bouw">
+          <label for="overige-bouw">Overige</label>      
+        </p>
+      </details>
+
+      <details>
+        <summary>Logistiek & transport</summary>
+        <p>
+          <input type="checkbox" oninput="this.className = ''" id="orderpicker" name="orderpicker">
+          <label for="orderpicker">Orderpicker</label>      
+        </p>
+        <p>
+          <input type="checkbox" oninput="this.className = ''" id="heftruckchauffeur" name="heftruckchauffeur">
+          <label for="heftruckchauffeur">Heftruckchauffeur</label>      
+        </p>
+        <p>
+          <input type="checkbox" oninput="this.className = ''" id="vrachtwagenchauffeur" name="vrachtwagenchauffeur">
+          <label for="vrachtwagenchauffeur">Vrachtwagenchauffeur</label>      
+        </p>
+        <p>
+          <input type="checkbox" oninput="this.className = ''" id="magazijnmedewerker" name="magazijnmedewerker">
+          <label for="magazijnmedewerker">Magazijnmedewerker</label>      
+        </p>
+        <p>
+          <input type="checkbox" oninput="this.className = ''" id="overige-logistiek&transport" name="overige-logistiek&transport">
+          <label for="overige-logistiek&transport">Overige</label>      
+        </p>
+      </details>
+
+      <details>
+        <summary>ICT</summary>
+        <p>
+          <input type="checkbox" oninput="this.className = ''" id="developer" name="developer">
+          <label for="developer">Developer</label>      
+        </p>
+        <p>
+          <input type="checkbox" oninput="this.className = ''" id="beheer" name="beheer">
+          <label for="beheer">Beheer</label>      
+        </p>
+        <p>
+          <input type="checkbox" oninput="this.className = ''" id="netwerk" name="netwerk">
+          <label for="netwerk">Netwerk</label>      
+        </p>
+        <p>
+          <input type="checkbox" oninput="this.className = ''" id="applicatie" name="applicatie">
+          <label for="applicatie">Applicatie</label>      
+        </p>
+        <p>
+          <input type="checkbox" oninput="this.className = ''" id="helpdesk" name="helpdesk">
+          <label for="helpdesk">Helpdesk</label>      
+        </p>
+        <p>
+          <input type="checkbox" oninput="this.className = ''" id="marketing" name="marketing">
+          <label for="marketing">Marketing</label>      
+        </p>
+        <p>
+          <input type="checkbox" oninput="this.className = ''" id="data & security" name="data & security">
+          <label for="data & security">Data & security</label>      
+        </p>
+        <p>
+          <input type="checkbox" oninput="this.className = ''" id="overige-it" name="overige-it">
+          <label for="overige-it">Overige</label>      
+        </p>
+      </details>
+
+      <details>
+        <summary>Horeca</summary>
+        <p>
+          <input type="checkbox" oninput="this.className = ''" id="bediening" name="bediening">
+          <label for="bediening">Bediening</label>      
+        </p>
+        <p>
+          <input type="checkbox" oninput="this.className = ''" id="kok" name="kok">
+          <label for="kok">Kok</label>     
+        </p>
+        <p>
+          <input type="checkbox" oninput="this.className = ''" id="overige-horeca" name="overige-horeca">
+          <label for="overige-horeca">Overige</label>      
+        </p>
+      </details>
+      <details>
+        <summary>Groen</summary>
+        <p>
+          <input type="checkbox" oninput="this.className = ''" id="Hovenier" name="Hovenier">
+          <label for="Hovenier">Hovenier</label>      
+        </p>
+        <p>
+          <input type="checkbox" oninput="this.className = ''" id="onderhoud" name="onderhoud">
+          <label for="onderhoud">Onderhoud</label>      
+        </p>
+      </details>
+      
+      <details>
+        <summary>Zorg</summary>
+        <p>
+          <input type="checkbox" oninput="this.className = ''" id="thuiszorg" name="thuiszorg">
+          <label for="thuiszorg">Thuiszorg</label>      
+        </p>
+        <p>
+          <input type="checkbox" oninput="this.className = ''" id="instellingen" name="instellingen">
+          <label for="instellingen">Instellingen</label>      
+        </p>
+        <p>
+          <input type="checkbox" oninput="this.className = ''" id="ouderenzorg" name="ouderenzorg">
+          <label for="ouderenzorg">Ouderenzorg</label>      
+        </p>
+        <p>
+          <input type="checkbox" oninput="this.className = ''" id="begeleider" name="begeleider">
+          <label for="begeleider">Begeleider</label>      
+        </p>
+        <p>
+          <input type="checkbox" oninput="this.className = ''" id="verpleegkundige" name="verpleegkundige">
+          <label for="verpleegkundige">verpleegkundige</label>      
+        </p>
+        <p>
+          <input type="checkbox" oninput="this.className = ''" id="overige-zorg" name="overige-zorg">
+          <label for="overige-zorg">Overige</label>      
+        </p>
+      </details>
+
+      <p>
+        <input type="checkbox" oninput="this.className = ''" id="klantenservice" name="klantenservice">
+        <label for="klantenservice">Klantenservice</label>      
+      </p>
+
+      <p>
+        <input type="checkbox" oninput="this.className = ''" id="administratief/secretarieel" name="administratief/secretarieel">
+        <label for="administratief/secretarieel">Administratief/secretarieel</label>      
+      </p>
+
+      <p>
+        <input type="checkbox" oninput="this.className = ''" id="detail-groothandel" name="detail-groothandel">
+        <label for="detail-groothandel">Detail-groothandel</label>      
+      </p>
+      <p>
+        <input type="checkbox" oninput="this.className = ''" id="Land- en tuinbouw" name="Land- en tuinbouw">
+        <label for="Land- en tuinbouw">Land- en tuinbouw</label>      
+      </p>
+
+      <p>
+        <input type="checkbox" oninput="this.className = ''" id="beveiliging" name="beveiliging">
+        <label for="beveiliging">Beveiliging</label>      
+      </p>
+
+      <details>
+        <summary>Kantoorbanen</summary>
+        <p>
+        <input type="checkbox" oninput="this.className = ''" id="bank & verzekeringen" name="bank & verzekeringen">
+        <label for="bank & verzekeringen">Bank & verzekeringen</label>      
+      </p>
+      <p>
+        <input type="checkbox" oninput="this.className = ''" id="hrm" name="hrm">
+        <label for="hrm">HRM (Human Resource Management)</label>      
+      </p>
+      <p>
+        <input type="checkbox" oninput="this.className = ''" id="leidinggevende" name="leidinggevende">
+        <label for="leidinggevende">Leidinggevende</label>      
+      </p>
+      </details>
+
+      <p>
+        <input type="checkbox" oninput="this.className = ''" id="juridisch" name="juridisch">
+        <label for="juridisch">Juridisch</label>      
+      </p>
+
+      <details>
+        <summary>Techniek</summary>
+        <p>
+        <input type="checkbox" oninput="this.className = ''" id="elektro" name="elektro">
+        <label for="elektro">Elektro</label>      
+      </p>
+      <p>
+        <input type="checkbox" oninput="this.className = ''" id="metaal" name="metaal">
+        <label for="metaal">Metaal</label>      
+      </p>
+      <p>
+        <input type="checkbox" oninput="this.className = ''" id="hout" name="hout">
+        <label for="hout">Hout</label>      
+      </p>
+      <p>
+        <input type="checkbox" oninput="this.className = ''" id="overige-techniek" name="overige-techniek">
+        <label for="overige-techniek">overige</label>      
+      </p>
+      </details>  
+      
+      <p>
+        <input type="checkbox" oninput="this.className = ''" id="facilitair" name="facilitair">
+        <label for="facilitair">Facilitair</label>      
+      </p>
+
+      <p>
+        <input type="checkbox" oninput="this.className = ''" id="productiemedewerker" name="productiemedewerker">
+        <label for="productiemedewerker">Productiemedewerker</label>      
+      </p>
+      
+      <p>
+        <input type="checkbox" oninput="this.className = ''" id="weetikniet" name="weetikniet">
+        <label for="weetikniet">Weet ik (nog) niet</label>      
+      </p>
+
+
+    </div> <!-- End div tab #5 Vakgebieden -->
+
     
-    
-    <h3>Cursus</h3>
-    <button type="button" id="btnToevoegenCursus" title="Cursus toevoegen" onclick="toevoegenRij('Cursus')">+</button>
-    <div id="divCursusResult"></div>
 
-    <h3>Training</h3>
-    <button type="button" id="btnToevoegenTraining" title="Training toevoegen" onclick="toevoegenRij('Training')">+</button>
-    <div id="divTrainingResult"></div>
-    
-    
-  </div> <!-- End div tab #4 Opleiding, cursus en training -->
-
-  <!-- Tab # 5 Vakgebieden -->
-  <div class="tab"><h2 class="tab__title">Vakgebieden:</h2>
-    
-    <details>
-      <summary>Bouw</summary>
-      <p>
-        <input type="checkbox" oninput="this.className = ''" id="opruimer" name="opruimer">
-        <label for="opruimer">Opruimer</label>      
-      </p>
-      <p>
-        <input type="checkbox" oninput="this.className = ''" id="loodgieter" name="loodgieter">
-        <label for="loodgieter">Loodgieter</label>      
-      </p>
-      <p>
-        <input type="checkbox" oninput="this.className = ''" id="installateur" name="installateur">
-        <label for="installateur">Installateur</label>      
-      </p>
-      <p>
-        <input type="checkbox" oninput="this.className = ''" id="timmerman" name="timmerman">
-        <label for="timmerman">Timmerman</label>      
-      </p>
-      <p>
-        <input type="checkbox" oninput="this.className = ''" id="metselaar" name="metselaar">
-        <label for="metselaar">Metselaar</label>      
-      </p>
-      <p>
-        <input type="checkbox" oninput="this.className = ''" id="overige-bouw" name="overige-bouw">
-        <label for="overige-bouw">Overige</label>      
-      </p>
-    </details>
-
-    <details>
-      <summary>Logistiek & transport</summary>
-      <p>
-        <input type="checkbox" oninput="this.className = ''" id="orderpicker" name="orderpicker">
-        <label for="orderpicker">Orderpicker</label>      
-      </p>
-      <p>
-        <input type="checkbox" oninput="this.className = ''" id="heftruckchauffeur" name="heftruckchauffeur">
-        <label for="heftruckchauffeur">Heftruckchauffeur</label>      
-      </p>
-      <p>
-        <input type="checkbox" oninput="this.className = ''" id="vrachtwagenchauffeur" name="vrachtwagenchauffeur">
-        <label for="vrachtwagenchauffeur">Vrachtwagenchauffeur</label>      
-      </p>
-      <p>
-        <input type="checkbox" oninput="this.className = ''" id="magazijnmedewerker" name="magazijnmedewerker">
-        <label for="magazijnmedewerker">Magazijnmedewerker</label>      
-      </p>
-      <p>
-        <input type="checkbox" oninput="this.className = ''" id="overige-logistiek&transport" name="overige-logistiek&transport">
-        <label for="overige-logistiek&transport">Overige</label>      
-      </p>
-    </details>
-
-    <details>
-      <summary>ICT</summary>
-      <p>
-        <input type="checkbox" oninput="this.className = ''" id="developer" name="developer">
-        <label for="developer">Developer</label>      
-      </p>
-      <p>
-        <input type="checkbox" oninput="this.className = ''" id="beheer" name="beheer">
-        <label for="beheer">Beheer</label>      
-      </p>
-      <p>
-        <input type="checkbox" oninput="this.className = ''" id="netwerk" name="netwerk">
-        <label for="netwerk">Netwerk</label>      
-      </p>
-      <p>
-        <input type="checkbox" oninput="this.className = ''" id="applicatie" name="applicatie">
-        <label for="applicatie">Applicatie</label>      
-      </p>
-      <p>
-        <input type="checkbox" oninput="this.className = ''" id="helpdesk" name="helpdesk">
-        <label for="helpdesk">Helpdesk</label>      
-      </p>
-      <p>
-        <input type="checkbox" oninput="this.className = ''" id="marketing" name="marketing">
-        <label for="marketing">Marketing</label>      
-      </p>
-      <p>
-        <input type="checkbox" oninput="this.className = ''" id="data & security" name="data & security">
-        <label for="data & security">Data & security</label>      
-      </p>
-      <p>
-        <input type="checkbox" oninput="this.className = ''" id="overige-it" name="overige-it">
-        <label for="overige-it">Overige</label>      
-      </p>
-    </details>
-
-    <details>
-      <summary>Horeca</summary>
-      <p>
-        <input type="checkbox" oninput="this.className = ''" id="bediening" name="bediening">
-        <label for="bediening">Bediening</label>      
-      </p>
-      <p>
-        <input type="checkbox" oninput="this.className = ''" id="kok" name="kok">
-        <label for="kok">Kok</label>     
-      </p>
-      <p>
-        <input type="checkbox" oninput="this.className = ''" id="overige-horeca" name="overige-horeca">
-        <label for="overige-horeca">Overige</label>      
-      </p>
-    </details>
-    <details>
-      <summary>Groen</summary>
-      <p>
-        <input type="checkbox" oninput="this.className = ''" id="Hovenier" name="Hovenier">
-        <label for="Hovenier">Hovenier</label>      
-      </p>
-      <p>
-        <input type="checkbox" oninput="this.className = ''" id="onderhoud" name="onderhoud">
-        <label for="onderhoud">Onderhoud</label>      
-      </p>
-    </details>
-    
-    <details>
-      <summary>Zorg</summary>
-      <p>
-        <input type="checkbox" oninput="this.className = ''" id="thuiszorg" name="thuiszorg">
-        <label for="thuiszorg">Thuiszorg</label>      
-      </p>
-      <p>
-        <input type="checkbox" oninput="this.className = ''" id="instellingen" name="instellingen">
-        <label for="instellingen">Instellingen</label>      
-      </p>
-      <p>
-        <input type="checkbox" oninput="this.className = ''" id="ouderenzorg" name="ouderenzorg">
-        <label for="ouderenzorg">Ouderenzorg</label>      
-      </p>
-      <p>
-        <input type="checkbox" oninput="this.className = ''" id="begeleider" name="begeleider">
-        <label for="begeleider">Begeleider</label>      
-      </p>
-      <p>
-        <input type="checkbox" oninput="this.className = ''" id="verpleegkundige" name="verpleegkundige">
-        <label for="verpleegkundige">verpleegkundige</label>      
-      </p>
-      <p>
-        <input type="checkbox" oninput="this.className = ''" id="overige-zorg" name="overige-zorg">
-        <label for="overige-zorg">Overige</label>      
-      </p>
-    </details>
-
-    <p>
-      <input type="checkbox" oninput="this.className = ''" id="klantenservice" name="klantenservice">
-      <label for="klantenservice">Klantenservice</label>      
-    </p>
-
-    <p>
-      <input type="checkbox" oninput="this.className = ''" id="administratief/secretarieel" name="administratief/secretarieel">
-      <label for="administratief/secretarieel">Administratief/secretarieel</label>      
-    </p>
-
-    <p>
-      <input type="checkbox" oninput="this.className = ''" id="detail-groothandel" name="detail-groothandel">
-      <label for="detail-groothandel">Detail-groothandel</label>      
-    </p>
-    <p>
-      <input type="checkbox" oninput="this.className = ''" id="Land- en tuinbouw" name="Land- en tuinbouw">
-      <label for="Land- en tuinbouw">Land- en tuinbouw</label>      
-    </p>
-
-    <p>
-      <input type="checkbox" oninput="this.className = ''" id="beveiliging" name="beveiliging">
-      <label for="beveiliging">Beveiliging</label>      
-    </p>
-
-    <details>
-      <summary>Kantoorbanen</summary>
-      <p>
-      <input type="checkbox" oninput="this.className = ''" id="bank & verzekeringen" name="bank & verzekeringen">
-      <label for="bank & verzekeringen">Bank & verzekeringen</label>      
-    </p>
-    <p>
-      <input type="checkbox" oninput="this.className = ''" id="hrm" name="hrm">
-      <label for="hrm">HRM (Human Resource Management)</label>      
-    </p>
-    <p>
-      <input type="checkbox" oninput="this.className = ''" id="leidinggevende" name="leidinggevende">
-      <label for="leidinggevende">Leidinggevende</label>      
-    </p>
-    </details>
-
-    <p>
-      <input type="checkbox" oninput="this.className = ''" id="juridisch" name="juridisch">
-      <label for="juridisch">Juridisch</label>      
-    </p>
-
-    <details>
-      <summary>Techniek</summary>
-      <p>
-      <input type="checkbox" oninput="this.className = ''" id="elektro" name="elektro">
-      <label for="elektro">Elektro</label>      
-    </p>
-    <p>
-      <input type="checkbox" oninput="this.className = ''" id="metaal" name="metaal">
-      <label for="metaal">Metaal</label>      
-    </p>
-    <p>
-      <input type="checkbox" oninput="this.className = ''" id="hout" name="hout">
-      <label for="hout">Hout</label>      
-    </p>
-    <p>
-      <input type="checkbox" oninput="this.className = ''" id="overige-techniek" name="overige-techniek">
-      <label for="overige-techniek">overige</label>      
-    </p>
-    </details>  
-    
-    <p>
-      <input type="checkbox" oninput="this.className = ''" id="facilitair" name="facilitair">
-      <label for="facilitair">Facilitair</label>      
-    </p>
-
-    <p>
-      <input type="checkbox" oninput="this.className = ''" id="productiemedewerker" name="productiemedewerker">
-      <label for="productiemedewerker">Productiemedewerker</label>      
-    </p>
-    
-    <p>
-      <input type="checkbox" oninput="this.className = ''" id="weetikniet" name="weetikniet">
-      <label for="weetikniet">Weet ik (nog) niet</label>      
-    </p>
-
-
-  </div> <!-- End div tab #5 Vakgebieden -->
-
-  
-
-  <!-- Tab # 6 Persoonlijke ontwikkeling -->
-  <div class="tab">
-    <h2 class="tab__title">Persoonlijke ontwikkeling</h2>
-    <fieldset>
-      <legend>Ik ben bereid een opleiding of cursus te volgen</legend>
-      <div>
-        <input type="radio" id="opleidingvolgen_1" name="opleidingvolgen" value="niet"><label for="opleidingvolgen_1">niet</label>
-        <input type="radio" id="opleidingvolgen_2" name="opleidingvolgen" value="afwisselend"><label for="opleidingvolgen_2">afwisselend</label>
-        <input type="radio" id="opleidingvolgen_3" name="opleidingvolgen" value="geen probleem"><label for="opleidingvolgen_3">geen probleem</label>
+    <!-- Tab # 6 Persoonlijke ontwikkeling -->
+    <div class="tab">
+      <h2 class="tab__title">Persoonlijke ontwikkeling</h2>
+      <div class="fieldset-container">
+      <fieldset>
+        <legend>Ik ben bereid een opleiding of cursus te volgen</legend>
+        <div>
+          <input type="radio" id="opleidingvolgen_1" name="opleidingvolgen" value="niet"><label for="opleidingvolgen_1">niet</label>
+          <input type="radio" id="opleidingvolgen_2" name="opleidingvolgen" value="afwisselend"><label for="opleidingvolgen_2">afwisselend</label>
+          <input type="radio" id="opleidingvolgen_3" name="opleidingvolgen" value="geen probleem"><label for="opleidingvolgen_3">geen probleem</label>
+        </div>
+      </fieldset>
       </div>
-    </fieldset>
 
-    <fieldset>
-      <legend>Ik wil graag doorgroeien in mijn functie</legend>
-      <div>
-        <input type="radio" id="doorgroeien_1" name="doorgroeien" value="niet"><label for="doorgroeien_1">niet</label>
-        <input type="radio" id="doorgroeien_2" name="doorgroeien" value="afwisselend"><label for="doorgroeien_2">afwisselend</label>
-        <input type="radio" id="doorgroeien_3" name="doorgroeien" value="geen probleem"><label for="doorgroeien_3">geen probleem</label>
+      <div class="fieldset-container">
+      <fieldset>
+        <legend>Ik wil graag doorgroeien in mijn functie</legend>
+        <div>
+          <input type="radio" id="doorgroeien_1" name="doorgroeien" value="niet"><label for="doorgroeien_1">niet</label>
+          <input type="radio" id="doorgroeien_2" name="doorgroeien" value="afwisselend"><label for="doorgroeien_2">afwisselend</label>
+          <input type="radio" id="doorgroeien_3" name="doorgroeien" value="geen probleem"><label for="doorgroeien_3">geen probleem</label>
+        </div>
+      </fieldset>
       </div>
-    </fieldset>
 
-    <fieldset>
-      <legend>Ik ben bereid buiten mijn werk zelfstudie te doen</legend>
-      <div>
-        <input type="radio" id="zelfstudie_1" name="zelfstudie" value="niet"><label for="zelfstudie_1">niet</label>
-        <input type="radio" id="zelfstudie_2" name="zelfstudie" value="afwisselend"><label for="zelfstudie_2">afwisselend</label>
-        <input type="radio" id="zelfstudie_3" name="zelfstudie" value="geen probleem"><label for="zelfstudie_3">geen probleem</label>
+      <div class="fieldset-container">
+      <fieldset>
+        <legend>Ik ben bereid buiten mijn werk zelfstudie te doen</legend>
+        <div>
+          <input type="radio" id="zelfstudie_1" name="zelfstudie" value="niet"><label for="zelfstudie_1">niet</label>
+          <input type="radio" id="zelfstudie_2" name="zelfstudie" value="afwisselend"><label for="zelfstudie_2">afwisselend</label>
+          <input type="radio" id="zelfstudie_3" name="zelfstudie" value="geen probleem"><label for="zelfstudie_3">geen probleem</label>
+        </div>
+      </fieldset>
       </div>
-    </fieldset>
-  </div> <!-- End div Tab # 6 Persoonlijke ontwikkeling -->
-  
-  <div style="overflow:auto;">
-    <div style="float:right;">
-      <button type="button" id="prevBtn" onclick="nextPrev(-1)">Vorige</button>
-      <button type="button" id="nextBtn" onclick="nextPrev(1)">Volgende</button>
+    </div> <!-- End div Tab # 6 Persoonlijke ontwikkeling -->
+    
+    <div style="overflow:auto;">
+      <div style="float:right;">
+        <button type="button" class="button" id="prevBtn" onclick="nextPrev(-1)">Vorige</button>
+        <button type="button" class="button" id="nextBtn" onclick="nextPrev(1)">Volgende</button>
+      </div>
     </div>
-  </div>
   
 </form>
     <script src="js/script.js"></script>

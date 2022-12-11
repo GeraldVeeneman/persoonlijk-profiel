@@ -12,17 +12,26 @@ const maxCursus = 3;
 
 // Elementen voor dropdown velden
 const selectButtons = document.querySelectorAll(".select-button");
-const select = document.querySelector("#dropdown");
 const options = document.querySelectorAll(".option");
-//const selectLabel = document.querySelector("#select-label");
 
 selectButtons.forEach(function(selectButton) {
   selectButton.addEventListener("click", (e) => {
       e.preventDefault();
-      const dropdown = e.currentTarget.nextElementSibling;
+      const selectGroup = e.target.closest('.select-group');
+      const dropdown = selectGroup.querySelector('.dropdown');
+      const arrow = selectGroup.querySelector('.arrow');
+      toggleArrows(arrow);      
       toggleHidden(dropdown);
     });
 });
+
+function toggleArrows(e) {
+  if (e.className == "arrow arrow--down") {
+    e.className = "arrow arrow--up";
+  } else {
+    e.className = "arrow arrow--down";
+  }
+}
 
 function toggleHidden(e) {
   e.classList.toggle("hidden");
@@ -37,10 +46,14 @@ options.forEach(function(option) {
 
 function setSelectTitle(e) {
 	const labelElement = document.querySelector(`label[for="${e.target.id}"]`).innerText;
-  const selectDropdown = e.target.closest('.dropdown');
-  const selectLabel = selectDropdown.previousElementSibling.firstElementChild;
+  const selectGroup = e.target.closest('.select-group');
+  const dropdown = e.target.closest('.dropdown');
+  const selectLabel = selectGroup.querySelector('.select-label');
+  selectLabel.classList.remove('select-label--placeholder');
 	selectLabel.innerText = labelElement;
-	toggleHidden(selectDropdown);
+  const arrow = selectGroup.querySelector('.arrow');
+  toggleArrows(arrow);
+	toggleHidden(dropdown);
 };
 
 let currentTab = 0; // Current tab is set to be the first tab (0)
@@ -362,6 +375,7 @@ function toevoegenRij(subject) {
     const btnVerwijderen = document.createElement("button");
     btnVerwijderen.type = "button";
     btnVerwijderen.textContent = "x";
+    btnVerwijderen.className = "button button--red";
     btnVerwijderen.id = "btnVerwijderen" + subject + index;
     btnVerwijderen.title = subject + " verwijderen";
     document
