@@ -13,17 +13,55 @@ const maxCursus = 3;
 // Elementen voor dropdown velden
 const selectButtons = document.querySelectorAll(".select-button");
 const options = document.querySelectorAll(".option");
+const dropdownDivs = document.querySelectorAll(".dropdown");
+const selectArrows = document.querySelectorAll(".arrow");
+
+// Functie die het openstaande dropdown veld sluit, 
+// zodra deze de focus verliest als op iets anders dan een dropdown veld (select button) wordt geklikt.
+document.addEventListener('click', (e) => {
+  if (!e.target.matches('.select-button')) {
+    for (let i=0; i < dropdownDivs.length; ++i) {
+      if (!dropdownDivs[i].classList.contains('hidden')) {
+        dropdownDivs[i].className = "dropdown hidden";            
+        const selectGroup = dropdownDivs[i].closest('.select-group');
+        const arrow = selectGroup.querySelector('.arrow');
+        toggleArrows(arrow);
+        break;
+      };
+    };
+  };
+});
 
 selectButtons.forEach(function(selectButton) {
   selectButton.addEventListener("click", (e) => {
       e.preventDefault();
-      const selectGroup = e.target.closest('.select-group');
-      const dropdown = selectGroup.querySelector('.dropdown');
-      const arrow = selectGroup.querySelector('.arrow');
+      const selectGroup = e.target.closest(".select-group");
+      const dropdown = selectGroup.querySelector(".dropdown");
+      const dropdownId = dropdown.id;
+      const arrow = selectGroup.querySelector(".arrow");
+      
+      closeOtherDropdowns(dropdownId);
+
       toggleArrows(arrow);      
       toggleHidden(dropdown);
     });
 });
+
+
+function closeOtherDropdowns(id) {
+  // Sluit alle evt andere aanwezige openstaande dropdown velden
+  dropdownDivs.forEach(dropdownDiv => {
+    if (
+      dropdownDiv.id !== id &&
+      !dropdownDiv.classList.contains("hidden")
+    ) {
+      dropdownDiv.className = "dropdown hidden";
+      const otherSelectGroup = dropdownDiv.closest(".select-group");
+      const otherArrow = otherSelectGroup.querySelector(".arrow");
+      toggleArrows(otherArrow);
+    }
+  });
+};
 
 function toggleArrows(e) {
   if (e.className == "arrow arrow--down") {

@@ -160,9 +160,8 @@ body {
                     display: flex;
                     flex-direction: column;
                     justify-content: space-between;
-                    gap: 1rem;
-                    padding: 1rem 2rem;
-
+                    padding: 1rem 1.5rem;
+                    gap: 0.1rem;
                     position: absolute;
                     width: 100%;
                     top: 9rem;
@@ -191,13 +190,13 @@ body {
                     .select-item {
                         display: block;
                         margin: 0;
+                        padding: 0.25rem 0.5rem;
                         font-weight: 400;
                         background-color: #FFFFFF;
                         color: black;
 
                         &:hover {
                             background-color: #f2f2f2;
-                            cursor: pointer;
                         }
                     }
 
