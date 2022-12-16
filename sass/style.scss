@@ -241,6 +241,13 @@ body {
                 }
             }
 
+            &__sub-title {
+                font-size: 2.2rem;
+                color: var(--dark-blue);
+                margin-bottom: 3rem;
+                font-weight: 600;
+            }
+
             .dynamic-row {
                 border: 1px solid #ededed;
                 border-radius: 3px;
@@ -251,7 +258,10 @@ body {
                 &__title {
                     display: flex;
                     justify-content: end;
-                    font-size: 1.4rem;
+                    font: {
+                        size: 1.4rem;
+                        weight: 600;
+                    }
                     color: var(--dark-blue);
                 }
 
@@ -266,6 +276,13 @@ body {
                 justify-content: start;
                 margin: 0 0 5rem 0;
             }
+        }
+
+        .nav-buttons-container {
+            display: flex;
+            justify-content: end;
+            margin: 5rem 0 0 0;
+            gap: 1rem;
         }
 }
 

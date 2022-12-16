@@ -373,20 +373,20 @@
     <!-- Tab #4 Opleiding -->
     <div class="tab">
       <h2 class="tab__title">Opleiding, cursussen, trainingen:</h2>
-      <h3>Opleiding</h3>
+      <h3 class="tab__sub-title">Opleiding</h3>
       <div id="divOpleidingResult"></div>
       <div class="dynamic-add-button-container">
         <button type="button" class="button button--green" id="btnToevoegenOpleiding" title="Opleiding toevoegen" onclick="toevoegenRij('Opleiding')">+</button>
       </div>
       
       
-      <h3>Cursus</h3>
+      <h3 class="tab__sub-title">Cursus</h3>
       <div id="divCursusResult"></div>
       <div class="dynamic-add-button-container">
         <button type="button" class="button button--green" id="btnToevoegenCursus" title="Cursus toevoegen" onclick="toevoegenRij('Cursus')">+</button>
       </div>
 
-      <h3>Training</h3>
+      <h3 class="tab__sub-title">Training</h3>
       <div id="divTrainingResult"></div>
       <div class="dynamic-add-button-container">
         <button type="button" class="button button--green" id="btnToevoegenTraining" title="Training toevoegen" onclick="toevoegenRij('Training')">+</button>
@@ -662,11 +662,10 @@
       </div>
     </div> <!-- End div Tab # 6 Persoonlijke ontwikkeling -->
     
-    <div style="overflow:auto;">
-      <div style="float:right;">
-        <button type="button" class="button" id="prevBtn" onclick="nextPrev(-1)">Vorige</button>
-        <button type="button" class="button" id="nextBtn" onclick="nextPrev(1)">Volgende</button>
-      </div>
+    
+    <div class="nav-buttons-container">
+      <button type="button" class="button" id="prevBtn" onclick="nextPrev(-1)">Vorige</button>
+      <button type="button" class="button" id="nextBtn" onclick="nextPrev(1)">Volgende</button>
     </div>
   
 </form>
