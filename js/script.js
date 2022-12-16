@@ -211,7 +211,7 @@ function changeToTextType() {
 
 function verwijderenRij() {
   // Deze functie verwijdert een rij uit werkervaring, opleiding, training of cursus
-  this.parentElement.parentElement.remove();
+  this.closest(".dynamic-row").remove();
 }
 
 function makenVelden(subject, index) {
