@@ -189,6 +189,28 @@ body {
   font-weight: normal;
   margin: 0;
 }
+.persForm .tab .dynamic-row {
+  border: 1px solid #ededed;
+  border-radius: 3px;
+  padding: 2rem;
+  margin: 3rem 0;
+  box-shadow: 6px 6px 20px rgba(41, 37, 91, 0.2), inset 0 1px 1px rgba(0, 0, 0, 0.05);
+}
+.persForm .tab .dynamic-row__title {
+  display: flex;
+  justify-content: end;
+  font-size: 1.4rem;
+  color: var(--dark-blue);
+}
+.persForm .tab .dynamic-remove-button-container {
+  display: flex;
+  justify-content: end;
+}
+.persForm .tab .dynamic-add-button-container {
+  display: flex;
+  justify-content: start;
+  margin: 0 0 5rem 0;
+}
 
 p {
   margin: 1.4rem 0;

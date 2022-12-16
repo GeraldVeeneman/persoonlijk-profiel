@@ -387,8 +387,17 @@ function toevoegenRij(subject) {
 
   if (aantal < max) {
     // Div maken die als parent div dient voor de velden per rij
-    let divRij = document.createElement("div");
+    const divRij = document.createElement("div");
     divRij.id = "div" + subject + index;
+    divRij.className = "dynamic-row";
+
+    // Div maken voor titel per rij
+    const divTitle = document.createElement("div");
+    divTitle.id = subject + " #" + index;
+    divTitle.className = "dynamic-row__title";
+    divTitle.textContent = divTitle.id;
+
+    divRij.appendChild(divTitle);
 
     // Div per rij binnen result div plaatsen
     divResult.appendChild(divRij);
@@ -398,9 +407,7 @@ function toevoegenRij(subject) {
     let veldElementen = Object.values(velden);
 
     veldElementen.forEach((veldElement) =>
-      document
-        .getElementById("div" + subject + index)
-        .appendChild(veldElement)
+      document.getElementById("div" + subject + index).appendChild(veldElement)
     );
 
     // Datumvelden converteren van datum naar tekst en visa versa
@@ -409,16 +416,23 @@ function toevoegenRij(subject) {
     velden.einddatum.addEventListener("focus", changeToDateType);
     velden.einddatum.addEventListener("blur", changeToTextType);
 
-    // Button verwijderen
+    // div maken voor remove button per rij
+    const divRemoveButton = document.createElement("div");
+    divRemoveButton.id = divRij.id + "dynamic-remove-button-container" + index;
+    divRemoveButton.className = "dynamic-remove-button-container";
+
+    divRij.appendChild(divRemoveButton);
+
+    // Button verwijderen maken
     const btnVerwijderen = document.createElement("button");
     btnVerwijderen.type = "button";
     btnVerwijderen.textContent = "x";
     btnVerwijderen.className = "button button--red";
     btnVerwijderen.id = "btnVerwijderen" + subject + index;
     btnVerwijderen.title = subject + " verwijderen";
-    document
-      .getElementById("div" + subject + index)
-      .appendChild(btnVerwijderen);
+
+    // Remove button in div container toevoegen
+    document.getElementById(divRemoveButton.id).appendChild(btnVerwijderen);
     btnVerwijderen.addEventListener("click", verwijderenRij);
 
     // Scroll naar de nieuwe rij

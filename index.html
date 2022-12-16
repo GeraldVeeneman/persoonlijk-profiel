@@ -363,8 +363,10 @@
     <!-- Tab #3 Werkervaring -->
     <div class="tab">
       <h2 class="tab__title">Werkervaring:</h2>
-      <div id="divWerkResult"></div>    
-      <button type="button" class="button button--green" id="btnToevoegenWerk" title="Werkervaring toevoegen" onclick="toevoegenRij('Werk')">+</button>
+      <div id="divWerkResult"></div>
+      <div class="dynamic-add-button-container">
+        <button type="button" class="button button--green" id="btnToevoegenWerk" title="Werkervaring toevoegen" onclick="toevoegenRij('Werk')">+</button>
+      </div>
           
     </div> <!-- End div tab #3 Werkervaring -->
 
@@ -373,17 +375,22 @@
       <h2 class="tab__title">Opleiding, cursussen, trainingen:</h2>
       <h3>Opleiding</h3>
       <div id="divOpleidingResult"></div>
-      <button type="button" class="button button--green" id="btnToevoegenOpleiding" title="Opleiding toevoegen" onclick="toevoegenRij('Opleiding')">+</button>
+      <div class="dynamic-add-button-container">
+        <button type="button" class="button button--green" id="btnToevoegenOpleiding" title="Opleiding toevoegen" onclick="toevoegenRij('Opleiding')">+</button>
+      </div>
       
       
       <h3>Cursus</h3>
-      <button type="button" class="button button--green" id="btnToevoegenCursus" title="Cursus toevoegen" onclick="toevoegenRij('Cursus')">+</button>
       <div id="divCursusResult"></div>
+      <div class="dynamic-add-button-container">
+        <button type="button" class="button button--green" id="btnToevoegenCursus" title="Cursus toevoegen" onclick="toevoegenRij('Cursus')">+</button>
+      </div>
 
       <h3>Training</h3>
-      <button type="button" class="button button--green" id="btnToevoegenTraining" title="Training toevoegen" onclick="toevoegenRij('Training')">+</button>
       <div id="divTrainingResult"></div>
-      
+      <div class="dynamic-add-button-container">
+        <button type="button" class="button button--green" id="btnToevoegenTraining" title="Training toevoegen" onclick="toevoegenRij('Training')">+</button>
+      </div>
       
     </div> <!-- End div tab #4 Opleiding, cursus en training -->
 
