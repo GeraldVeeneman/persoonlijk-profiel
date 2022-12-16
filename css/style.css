@@ -202,7 +202,7 @@ body {
   font-size: 1.4rem;
   color: var(--dark-blue);
 }
-.persForm .tab .dynamic-remove-button-container {
+.persForm .tab .dynamic-row__remove-button-container {
   display: flex;
   justify-content: end;
 }

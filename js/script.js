@@ -211,7 +211,7 @@ function changeToTextType() {
 
 function verwijderenRij() {
   // Deze functie verwijdert een rij uit werkervaring, opleiding, training of cursus
-  this.parentElement.remove();
+  this.parentElement.parentElement.remove();
 }
 
 function makenVelden(subject, index) {
@@ -419,7 +419,7 @@ function toevoegenRij(subject) {
     // div maken voor remove button per rij
     const divRemoveButton = document.createElement("div");
     divRemoveButton.id = divRij.id + "dynamic-remove-button-container" + index;
-    divRemoveButton.className = "dynamic-remove-button-container";
+    divRemoveButton.className = "dynamic-row__remove-button-container";
 
     divRij.appendChild(divRemoveButton);
 

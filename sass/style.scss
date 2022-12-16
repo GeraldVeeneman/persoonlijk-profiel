@@ -256,13 +256,9 @@ body {
                 }
 
                 &__remove-button-container {
-
+                    display: flex;
+                    justify-content: end;
                 }
-            }
-
-            .dynamic-remove-button-container {
-                display: flex;
-                justify-content: end;
             }
 
             .dynamic-add-button-container {
