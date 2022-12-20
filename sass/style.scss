@@ -317,6 +317,8 @@ body {
 
             .accordion {
                 border-radius: 3px;
+                box-shadow: 6px 6px 20px rgb(41 37 91 / 20%), inset 0 1px 1px rgb(0 0 0 / 5%);
+                border: 1px solid #ededed;
 
                 &__header {
                     display: flex;
@@ -362,6 +364,8 @@ body {
                         &-label {
                             display: inline-flex;
                             margin: 0;
+                            font-weight: normal;
+                            color: black;
                         }
                     }
 
@@ -386,7 +390,7 @@ body {
             }
 
             .accordion + .accordion {
-                margin-top: 1rem;
+                margin-top: 2rem;
             }
 
             .accordion + .checkbox {

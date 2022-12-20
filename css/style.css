@@ -251,6 +251,8 @@ body {
 }
 .persForm .tab .accordion {
   border-radius: 3px;
+  box-shadow: 6px 6px 20px rgba(41, 37, 91, 0.2), inset 0 1px 1px rgba(0, 0, 0, 0.05);
+  border: 1px solid #ededed;
 }
 .persForm .tab .accordion__header {
   display: flex;
@@ -289,6 +291,8 @@ body {
 .persForm .tab .accordion__panel .checkbox-label {
   display: inline-flex;
   margin: 0;
+  font-weight: normal;
+  color: black;
 }
 .persForm .tab .accordion__panel .checkbox + .checkbox {
   margin-top: 1.5rem;
@@ -301,7 +305,7 @@ body {
   transform: rotate(225deg);
 }
 .persForm .tab .accordion + .accordion {
-  margin-top: 1rem;
+  margin-top: 2rem;
 }
 .persForm .tab .accordion + .checkbox {
   margin-top: 2rem;
