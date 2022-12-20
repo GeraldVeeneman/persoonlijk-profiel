@@ -23,18 +23,35 @@
     &::-webkit-scrollbar {
         width: $size;
         height: $size;
+        overflow: scroll;
+    }
+
+    &::-webkit-scrollbar-button:single-button:vertical:decrement {
+        border-color: transparent transparent #9b6a2f transparent;
+    }
+
+    &::-webkit-scrollbar-button:single-button:vertical:decrement:hover {
+        border-color: transparent transparent white transparent;
+    }
+
+    &::-webkit-scrollbar-button:single-button:vertical:increment {
+        border-color: #9b6a2f transparent transparent transparent;
+    }
+
+    &::-webkit-scrollbar-button:single-button:vertical:increment:hover {
+        border-color: white transparent transparent transparent;
     }
 
     &::-webkit-scrollbar-thumb {
-        background: $foreground-color;
+        background: var(--orange);
     }
 
     &::-webkit-scrollbar-track {
-        background: $background-color;
+        background: var(--very-light-gray-1);
     }
 
     // Standard version (Firefox only for now)
-    scrollbar-color: $foreground-color $background-color;
+    scrollbar-color: var(--orange) var(--very-light-gray-1);
 }
 
 /* Typography */
@@ -237,7 +254,28 @@ body {
                         color: #000;
                         font-weight: normal;
                         margin: 0;
+                        cursor: pointer;
                     }
+
+                    input[type="radio"] {
+                        -webkit-appearance: none;
+                        -moz-appearance: none;
+                        appearance: none;
+                        cursor: pointer;
+                        background-color: #fff; // For iOS < 15 to remove gradient background
+                        margin: 0; // Not removed via appearance
+                        width: 1.2rem;
+                        height: 1.2rem;
+                        outline: 2px solid darkgray;
+                        outline-offset: 2px;
+                        border-radius: 50%;
+                        transition: .3s;
+                    }
+
+                    input[type="radio"]:checked {
+                        background-color: orange;
+                    }
+
                 }
             }
 
@@ -276,6 +314,129 @@ body {
                 justify-content: start;
                 margin: 0 0 5rem 0;
             }
+
+            .accordion {
+                border-radius: 3px;
+
+                &__header {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    height: 6rem;
+                    background: white;
+                    
+                    padding: 0 2rem;
+                    border-radius: 5px;
+                    cursor: pointer;
+
+                    &-title {
+                        color: var(--dark-blue);
+                        font: {
+                            size: 1.6rem;
+                            weight: 600;
+                        }
+                    }
+
+                    &-arrow {
+                        border: solid var(--orange);
+                        border-width: 0 3px 3px 0;
+                        padding: 4px;
+                        transition: .3s ease;
+                        transform: rotate(45deg);
+                    }
+                }
+
+                &__panel {
+                    padding: 2rem;
+
+                    .checkbox {
+                        display: flex;
+                        align-items: center;
+                        gap: 1rem;
+                        margin: 0;
+
+                        &-input {
+                            display: inline-flex;
+                        }
+                    
+                        &-label {
+                            display: inline-flex;
+                            margin: 0;
+                        }
+                    }
+
+                    .checkbox + .checkbox {
+                        margin-top: 1.5rem;
+                    }
+
+                    
+                }
+
+                &[open] {
+                    transition: .3s ease;
+                    background-color: #ededed;
+                    
+                    .accordion__header {
+
+                        &-arrow {
+                            transform: rotate(225deg);
+                        }
+                    }
+                }
+            }
+
+            .accordion + .accordion {
+                margin-top: 1rem;
+            }
+
+            .accordion + .checkbox {
+                margin-top: 2rem;
+            }
+
+            .checkbox + .accordion {
+                margin-top: 2rem;
+            }
+
+            .checkbox {
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+                margin: 0;
+
+                &-input {
+                    display: inline-flex;
+                }
+
+                &-label {
+                    display: inline-flex;
+                    margin: 0;
+                }
+            }
+
+            .checkbox + .checkbox {
+                margin-top: 1.5rem;
+            }
+
+            input[type="checkbox"] {
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                appearance: none;
+                display: inline-flex;
+                cursor: pointer;
+                background-color: #fff; // For iOS < 15 to remove gradient background
+                margin: 0; // Not removed via appearance
+                width: 1.2rem;
+                height: 1.2rem;
+                outline: 2px solid darkgray;
+                outline-offset: 2px;
+                border-radius: 2%;
+                transition: .3s;
+            }
+
+            input[type="checkbox"]:checked {
+                background-color: orange;
+            }
+            
         }
 
         .nav-buttons-container {
@@ -381,17 +542,4 @@ input.invalid {
 /* Mark the steps that are finished and valid: */
 .step.finish {
     background-color: var(--green);
-}
-
-details {
-
-    summary {
-        width: 100%;
-        background: var(--orange);
-        color: white;
-        font-size: 1.8rem;
-        padding: 5px;
-        border-radius: 5px;
-        margin-bottom: 1rem;
-    }
 }

@@ -397,227 +397,243 @@
     <!-- Tab # 5 Vakgebieden -->
     <div class="tab"><h2 class="tab__title">Vakgebieden:</h2>
       
-      <details>
-        <summary>Bouw</summary>
-        <p>
-          <input type="checkbox" oninput="this.className = ''" id="opruimer" name="opruimer">
-          <label for="opruimer">Opruimer</label>      
-        </p>
-        <p>
-          <input type="checkbox" oninput="this.className = ''" id="loodgieter" name="loodgieter">
-          <label for="loodgieter">Loodgieter</label>      
-        </p>
-        <p>
-          <input type="checkbox" oninput="this.className = ''" id="installateur" name="installateur">
-          <label for="installateur">Installateur</label>      
-        </p>
-        <p>
-          <input type="checkbox" oninput="this.className = ''" id="timmerman" name="timmerman">
-          <label for="timmerman">Timmerman</label>      
-        </p>
-        <p>
-          <input type="checkbox" oninput="this.className = ''" id="metselaar" name="metselaar">
-          <label for="metselaar">Metselaar</label>      
-        </p>
-        <p>
-          <input type="checkbox" oninput="this.className = ''" id="overige-bouw" name="overige-bouw">
-          <label for="overige-bouw">Overige</label>      
-        </p>
+      <details class="accordion">
+        <summary class="accordion__header"><span class="accordion__header-title">Bouw</span><span class="accordion__header-arrow"></span></summary>
+        <div class="accordion__panel">
+          <p class="checkbox">
+            <input type="checkbox" oninput="this.className = ''" class="checkbox-input" id="opruimer" name="opruimer">
+            <label for="opruimer" class="checkbox-label">Opruimer</label>      
+          </p>
+          <p class="checkbox">
+            <input type="checkbox" oninput="this.className = ''" class="checkbox-input" id="loodgieter" name="loodgieter">
+            <label for="loodgieter"  class="checkbox-label">Loodgieter</label>      
+          </p>
+          <p class="checkbox">
+            <input type="checkbox" oninput="this.className = ''" class="checkbox-input" id="installateur" name="installateur">
+            <label for="installateur" class="checkbox-label">Installateur</label>      
+          </p>
+          <p class="checkbox">
+            <input type="checkbox" oninput="this.className = ''" class="checkbox-input" id="timmerman" name="timmerman">
+            <label for="timmerman" class="checkbox-label">Timmerman</label>      
+          </p>
+          <p class="checkbox">
+            <input type="checkbox" oninput="this.className = ''" class="checkbox-input" id="metselaar" name="metselaar">
+            <label for="metselaar" class="checkbox-label">Metselaar</label>      
+          </p>
+          <p class="checkbox">
+            <input type="checkbox" oninput="this.className = ''" class="checkbox-input" id="overige-bouw" name="overige-bouw">
+            <label for="overige-bouw" class="checkbox-label">Overige</label>      
+          </p>        
+        </div>
       </details>
 
-      <details>
-        <summary>Logistiek & transport</summary>
-        <p>
-          <input type="checkbox" oninput="this.className = ''" id="orderpicker" name="orderpicker">
-          <label for="orderpicker">Orderpicker</label>      
-        </p>
-        <p>
-          <input type="checkbox" oninput="this.className = ''" id="heftruckchauffeur" name="heftruckchauffeur">
-          <label for="heftruckchauffeur">Heftruckchauffeur</label>      
-        </p>
-        <p>
-          <input type="checkbox" oninput="this.className = ''" id="vrachtwagenchauffeur" name="vrachtwagenchauffeur">
-          <label for="vrachtwagenchauffeur">Vrachtwagenchauffeur</label>      
-        </p>
-        <p>
-          <input type="checkbox" oninput="this.className = ''" id="magazijnmedewerker" name="magazijnmedewerker">
-          <label for="magazijnmedewerker">Magazijnmedewerker</label>      
-        </p>
-        <p>
-          <input type="checkbox" oninput="this.className = ''" id="overige-logistiek&transport" name="overige-logistiek&transport">
-          <label for="overige-logistiek&transport">Overige</label>      
-        </p>
+      <details class="accordion">
+        <summary class="accordion__header"><span class="accordion__header-title">Logistiek & transport</span><span class="accordion__header-arrow"></span></summary>
+        <div class="accordion__panel">
+          <p class="checkbox">
+            <input type="checkbox" oninput="this.className = ''" class="checkbox-input" id="orderpicker" name="orderpicker">
+            <label for="orderpicker" class="checkbox-label">Orderpicker</label>      
+          </p>
+          <p class="checkbox">
+            <input type="checkbox" oninput="this.className = ''" class="checkbox-input" id="heftruckchauffeur" name="heftruckchauffeur">
+            <label for="heftruckchauffeur" class="checkbox-label">Heftruckchauffeur</label>      
+          </p>
+          <p class="checkbox">
+            <input type="checkbox" oninput="this.className = ''" class="checkbox-input" id="vrachtwagenchauffeur" name="vrachtwagenchauffeur">
+            <label for="vrachtwagenchauffeur" class="checkbox-label">Vrachtwagenchauffeur</label>      
+          </p>
+          <p class="checkbox">
+            <input type="checkbox" oninput="this.className = ''" class="checkbox-input" id="magazijnmedewerker" name="magazijnmedewerker">
+            <label for="magazijnmedewerker" class="checkbox-label">Magazijnmedewerker</label>      
+          </p>
+          <p class="checkbox">
+            <input type="checkbox" oninput="this.className = ''" class="checkbox-input" id="overige-logistiek&transport" name="overige-logistiek&transport">
+            <label for="overige-logistiek&transport" class="checkbox-label">Overige</label>      
+          </p>
+        </div>
       </details>
 
-      <details>
-        <summary>ICT</summary>
-        <p>
-          <input type="checkbox" oninput="this.className = ''" id="developer" name="developer">
-          <label for="developer">Developer</label>      
-        </p>
-        <p>
-          <input type="checkbox" oninput="this.className = ''" id="beheer" name="beheer">
-          <label for="beheer">Beheer</label>      
-        </p>
-        <p>
-          <input type="checkbox" oninput="this.className = ''" id="netwerk" name="netwerk">
-          <label for="netwerk">Netwerk</label>      
-        </p>
-        <p>
-          <input type="checkbox" oninput="this.className = ''" id="applicatie" name="applicatie">
-          <label for="applicatie">Applicatie</label>      
-        </p>
-        <p>
-          <input type="checkbox" oninput="this.className = ''" id="helpdesk" name="helpdesk">
-          <label for="helpdesk">Helpdesk</label>      
-        </p>
-        <p>
-          <input type="checkbox" oninput="this.className = ''" id="marketing" name="marketing">
-          <label for="marketing">Marketing</label>      
-        </p>
-        <p>
-          <input type="checkbox" oninput="this.className = ''" id="data & security" name="data & security">
-          <label for="data & security">Data & security</label>      
-        </p>
-        <p>
-          <input type="checkbox" oninput="this.className = ''" id="overige-it" name="overige-it">
-          <label for="overige-it">Overige</label>      
-        </p>
+      <details class="accordion">
+        <summary class="accordion__header"><span class="accordion__header-title">ICT</span><span class="accordion__header-arrow"></span></summary>
+        <div class="accordion__panel">
+          <p class="checkbox">
+            <input type="checkbox" oninput="this.className = ''" class="checkbox-input" id="developer" name="developer">
+            <label for="developer" class="checkbox-label">Developer</label>      
+          </p>
+          <p class="checkbox">
+            <input type="checkbox" oninput="this.className = ''" class="checkbox-input" id="beheer" name="beheer">
+            <label for="beheer" class="checkbox-label">Beheer</label>      
+          </p>
+          <p class="checkbox">
+            <input type="checkbox" oninput="this.className = ''" class="checkbox-input" id="netwerk" name="netwerk">
+            <label for="netwerk" class="checkbox-label">Netwerk</label>      
+          </p>
+          <p class="checkbox">
+            <input type="checkbox" oninput="this.className = ''" class="checkbox-input" id="applicatie" name="applicatie">
+            <label for="applicatie" class="checkbox-label">Applicatie</label>      
+          </p>
+          <p class="checkbox">
+            <input type="checkbox" oninput="this.className = ''" class="checkbox-input" id="helpdesk" name="helpdesk">
+            <label for="helpdesk" class="checkbox-label">Helpdesk</label>      
+          </p>
+          <p class="checkbox">
+            <input type="checkbox" oninput="this.className = ''" class="checkbox-input" id="marketing" name="marketing">
+            <label for="marketing" class="checkbox-label">Marketing</label>      
+          </p>
+          <p class="checkbox">
+            <input type="checkbox" oninput="this.className = ''" class="checkbox-input" id="data & security" name="data & security">
+            <label for="data & security" class="checkbox-label">Data & security</label>      
+          </p>
+          <p class="checkbox">
+            <input type="checkbox" oninput="this.className = ''" class="checkbox-input" id="overige-it" name="overige-it">
+            <label for="overige-it" class="checkbox-label">Overige</label>      
+          </p>
+        </div>
       </details>
 
-      <details>
-        <summary>Horeca</summary>
-        <p>
-          <input type="checkbox" oninput="this.className = ''" id="bediening" name="bediening">
-          <label for="bediening">Bediening</label>      
-        </p>
-        <p>
-          <input type="checkbox" oninput="this.className = ''" id="kok" name="kok">
-          <label for="kok">Kok</label>     
-        </p>
-        <p>
-          <input type="checkbox" oninput="this.className = ''" id="overige-horeca" name="overige-horeca">
-          <label for="overige-horeca">Overige</label>      
-        </p>
+      <details class="accordion">
+        <summary class="accordion__header"><span class="accordion__header-title">Horeca</span><span class="accordion__header-arrow"></span></summary>
+        <div class="accordion__panel">
+          <p class="checkbox">
+            <input type="checkbox" oninput="this.className = ''" class="checkbox-input" id="bediening" name="bediening">
+            <label for="bediening" class="checkbox-label">Bediening</label>      
+          </p>
+          <p class="checkbox">
+            <input type="checkbox" oninput="this.className = ''" class="checkbox-input" id="kok" name="kok">
+            <label for="kok" class="checkbox-label">Kok</label>     
+          </p>
+          <p class="checkbox">
+            <input type="checkbox" oninput="this.className = ''" class="checkbox-input" id="overige-horeca" name="overige-horeca">
+            <label for="overige-horeca" class="checkbox-label">Overige</label>      
+          </p>
+        </div>
       </details>
-      <details>
-        <summary>Groen</summary>
-        <p>
-          <input type="checkbox" oninput="this.className = ''" id="Hovenier" name="Hovenier">
-          <label for="Hovenier">Hovenier</label>      
-        </p>
-        <p>
-          <input type="checkbox" oninput="this.className = ''" id="onderhoud" name="onderhoud">
-          <label for="onderhoud">Onderhoud</label>      
-        </p>
+      <details class="accordion">
+        <summary class="accordion__header"><span class="accordion__header-title">Groen</span><span class="accordion__header-arrow"></span></summary>
+        <div class="accordion__panel">
+          <p class="checkbox">
+            <input type="checkbox" oninput="this.className = ''" class="checkbox-input" id="Hovenier" name="Hovenier">
+            <label for="Hovenier" class="checkbox-label">Hovenier</label>      
+          </p>
+          <p class="checkbox">
+            <input type="checkbox" oninput="this.className = ''" class="checkbox-input" id="onderhoud" name="onderhoud">
+            <label for="onderhoud" class="checkbox-label">Onderhoud</label>      
+          </p>
+        </div>
       </details>
       
-      <details>
-        <summary>Zorg</summary>
-        <p>
-          <input type="checkbox" oninput="this.className = ''" id="thuiszorg" name="thuiszorg">
-          <label for="thuiszorg">Thuiszorg</label>      
-        </p>
-        <p>
-          <input type="checkbox" oninput="this.className = ''" id="instellingen" name="instellingen">
-          <label for="instellingen">Instellingen</label>      
-        </p>
-        <p>
-          <input type="checkbox" oninput="this.className = ''" id="ouderenzorg" name="ouderenzorg">
-          <label for="ouderenzorg">Ouderenzorg</label>      
-        </p>
-        <p>
-          <input type="checkbox" oninput="this.className = ''" id="begeleider" name="begeleider">
-          <label for="begeleider">Begeleider</label>      
-        </p>
-        <p>
-          <input type="checkbox" oninput="this.className = ''" id="verpleegkundige" name="verpleegkundige">
-          <label for="verpleegkundige">verpleegkundige</label>      
-        </p>
-        <p>
-          <input type="checkbox" oninput="this.className = ''" id="overige-zorg" name="overige-zorg">
-          <label for="overige-zorg">Overige</label>      
-        </p>
+      <details class="accordion">
+        <summary class="accordion__header"><span class="accordion__header-title">Zorg</span><span class="accordion__header-arrow"></span></summary>
+        <div class="accordion__panel">
+          <p class="checkbox">
+            <input type="checkbox" oninput="this.className = ''" class="checkbox-input" id="thuiszorg" name="thuiszorg">
+            <label for="thuiszorg" class="checkbox-label">Thuiszorg</label>      
+          </p>
+          <p class="checkbox">
+            <input type="checkbox" oninput="this.className = ''" class="checkbox-input" id="instellingen" name="instellingen">
+            <label for="instellingen" class="checkbox-label">Instellingen</label>      
+          </p>
+          <p class="checkbox">
+            <input type="checkbox" oninput="this.className = ''" class="checkbox-input" id="ouderenzorg" name="ouderenzorg">
+            <label for="ouderenzorg" class="checkbox-label">Ouderenzorg</label>      
+          </p>
+          <p class="checkbox">
+            <input type="checkbox" oninput="this.className = ''" class="checkbox-input" id="begeleider" name="begeleider">
+            <label for="begeleider" class="checkbox-label">Begeleider</label>      
+          </p>
+          <p class="checkbox">
+            <input type="checkbox" oninput="this.className = ''" class="checkbox-input" id="verpleegkundige" name="verpleegkundige">
+            <label for="verpleegkundige" class="checkbox-label">verpleegkundige</label>      
+          </p>
+          <p class="checkbox">
+            <input type="checkbox" oninput="this.className = ''" class="checkbox-input" id="overige-zorg" name="overige-zorg">
+            <label for="overige-zorg" class="checkbox-label">Overige</label>      
+          </p>
+        </div>
       </details>
 
-      <p>
-        <input type="checkbox" oninput="this.className = ''" id="klantenservice" name="klantenservice">
-        <label for="klantenservice">Klantenservice</label>      
+      <p class="checkbox">
+        <input type="checkbox" oninput="this.className = ''" class="checkbox-input" id="klantenservice" name="klantenservice">
+        <label for="klantenservice" class="checkbox-label">Klantenservice</label>      
       </p>
 
-      <p>
-        <input type="checkbox" oninput="this.className = ''" id="administratief/secretarieel" name="administratief/secretarieel">
-        <label for="administratief/secretarieel">Administratief/secretarieel</label>      
+      <p class="checkbox">
+        <input type="checkbox" oninput="this.className = ''" class="checkbox-input" id="administratief/secretarieel" name="administratief/secretarieel">
+        <label for="administratief/secretarieel" class="checkbox-label">Administratief/secretarieel</label>      
       </p>
 
-      <p>
-        <input type="checkbox" oninput="this.className = ''" id="detail-groothandel" name="detail-groothandel">
-        <label for="detail-groothandel">Detail-groothandel</label>      
+      <p class="checkbox">
+        <input type="checkbox" oninput="this.className = ''" class="checkbox-input" id="detail-groothandel" name="detail-groothandel">
+        <label for="detail-groothandel" class="checkbox-label">Detail-groothandel</label>      
       </p>
-      <p>
-        <input type="checkbox" oninput="this.className = ''" id="Land- en tuinbouw" name="Land- en tuinbouw">
-        <label for="Land- en tuinbouw">Land- en tuinbouw</label>      
-      </p>
-
-      <p>
-        <input type="checkbox" oninput="this.className = ''" id="beveiliging" name="beveiliging">
-        <label for="beveiliging">Beveiliging</label>      
+      <p class="checkbox">
+        <input type="checkbox" oninput="this.className = ''" class="checkbox-input" id="Land- en tuinbouw" name="Land- en tuinbouw">
+        <label for="Land- en tuinbouw" class="checkbox-label">Land- en tuinbouw</label>      
       </p>
 
-      <details>
-        <summary>Kantoorbanen</summary>
-        <p>
-        <input type="checkbox" oninput="this.className = ''" id="bank & verzekeringen" name="bank & verzekeringen">
-        <label for="bank & verzekeringen">Bank & verzekeringen</label>      
-      </p>
-      <p>
-        <input type="checkbox" oninput="this.className = ''" id="hrm" name="hrm">
-        <label for="hrm">HRM (Human Resource Management)</label>      
-      </p>
-      <p>
-        <input type="checkbox" oninput="this.className = ''" id="leidinggevende" name="leidinggevende">
-        <label for="leidinggevende">Leidinggevende</label>      
-      </p>
-      </details>
-
-      <p>
-        <input type="checkbox" oninput="this.className = ''" id="juridisch" name="juridisch">
-        <label for="juridisch">Juridisch</label>      
+      <p class="checkbox">
+        <input type="checkbox" oninput="this.className = ''" class="checkbox-input" id="beveiliging" name="beveiliging">
+        <label for="beveiliging" class="checkbox-label">Beveiliging</label>      
       </p>
 
-      <details>
-        <summary>Techniek</summary>
-        <p>
-        <input type="checkbox" oninput="this.className = ''" id="elektro" name="elektro">
-        <label for="elektro">Elektro</label>      
+      <details class="accordion">
+        <summary class="accordion__header"><span class="accordion__header-title">Kantoorbanen</span><span class="accordion__header-arrow"></span></summary>
+        <div class="accordion__panel">
+          <p class="checkbox">
+          <input type="checkbox" oninput="this.className = ''" class="checkbox-input" id="bank & verzekeringen" name="bank & verzekeringen">
+          <label for="bank & verzekeringen" class="checkbox-label">Bank & verzekeringen</label>      
+          </p>
+          <p class="checkbox">
+            <input type="checkbox" oninput="this.className = ''" class="checkbox-input" id="hrm" name="hrm">
+            <label for="hrm" class="checkbox-label">HRM (Human Resource Management)</label>      
+          </p>
+          <p class="checkbox">
+            <input type="checkbox" oninput="this.className = ''" class="checkbox-input" id="leidinggevende" name="leidinggevende">
+            <label for="leidinggevende" class="checkbox-label">Leidinggevende</label>      
+          </p>
+      </div>  
+    </details>
+
+      <p class="checkbox">
+        <input type="checkbox" oninput="this.className = ''" class="checkbox-input" id="juridisch" name="juridisch">
+        <label for="juridisch" class="checkbox-label">Juridisch</label>      
       </p>
-      <p>
-        <input type="checkbox" oninput="this.className = ''" id="metaal" name="metaal">
-        <label for="metaal">Metaal</label>      
-      </p>
-      <p>
-        <input type="checkbox" oninput="this.className = ''" id="hout" name="hout">
-        <label for="hout">Hout</label>      
-      </p>
-      <p>
-        <input type="checkbox" oninput="this.className = ''" id="overige-techniek" name="overige-techniek">
-        <label for="overige-techniek">overige</label>      
-      </p>
-      </details>  
+
+      <details class="accordion">
+        <summary class="accordion__header"><span class="accordion__header-title">Techniek</span><span class="accordion__header-arrow"></span></summary>
+        <div class="accordion__panel">
+          <p class="checkbox">
+          <input type="checkbox" oninput="this.className = ''" class="checkbox-input" id="elektro" name="elektro">
+          <label for="elektro" class="checkbox-label">Elektro</label>      
+          </p>
+          <p class="checkbox">
+            <input type="checkbox" oninput="this.className = ''" class="checkbox-input" id="metaal" name="metaal">
+            <label for="metaal" class="checkbox-label">Metaal</label>      
+          </p>
+          <p class="checkbox">
+            <input type="checkbox" oninput="this.className = ''" class="checkbox-input" id="hout" name="hout">
+            <label for="hout" class="checkbox-label">Hout</label>      
+          </p>
+          <p class="checkbox">
+            <input type="checkbox" oninput="this.className = ''" class="checkbox-input" id="overige-techniek" name="overige-techniek">
+            <label for="overige-techniek" class="checkbox-label">overige</label>      
+          </p>
+      </div>  
+    </details>  
       
-      <p>
-        <input type="checkbox" oninput="this.className = ''" id="facilitair" name="facilitair">
-        <label for="facilitair">Facilitair</label>      
+      <p class="checkbox">
+        <input type="checkbox" oninput="this.className = ''" class="checkbox-input" id="facilitair" name="facilitair">
+        <label for="facilitair" class="checkbox-label">Facilitair</label>      
       </p>
 
-      <p>
-        <input type="checkbox" oninput="this.className = ''" id="productiemedewerker" name="productiemedewerker">
-        <label for="productiemedewerker">Productiemedewerker</label>      
+      <p class="checkbox">
+        <input type="checkbox" oninput="this.className = ''" class="checkbox-input" id="productiemedewerker" name="productiemedewerker">
+        <label for="productiemedewerker" class="checkbox-label">Productiemedewerker</label>      
       </p>
       
-      <p>
-        <input type="checkbox" oninput="this.className = ''" id="weetikniet" name="weetikniet">
-        <label for="weetikniet">Weet ik (nog) niet</label>      
+      <p class="checkbox">
+        <input type="checkbox" oninput="this.className = ''" class="checkbox-input" id="weetikniet" name="weetikniet">
+        <label for="weetikniet" class="checkbox-label">Weet ik (nog) niet</label>      
       </p>
 
 
