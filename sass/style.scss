@@ -377,11 +377,11 @@ body {
                 }
 
                 &__panel {
-                    padding: 2rem;
+                    padding: 2rem 1.5rem;
 
                     .checkbox {
                         display: flex;
-                        align-items: center;
+                        align-items: baseline;
                         gap: 1rem;
                         margin: 0;
 
@@ -417,23 +417,17 @@ body {
                 }
             }
 
-            .accordion + .accordion {
-                margin-top: 2rem;
-            }
-
-            .accordion + .checkbox {
-                margin-top: 2rem;
-            }
-
-            .checkbox + .accordion {
-                margin-top: 2rem;
-            }
-
             .checkbox {
                 display: flex;
-                align-items: center;
+                align-items: baseline;
                 gap: 1rem;
                 margin: 0;
+                padding: 0 .5rem;
+
+                &-privacy {
+                    align-items: baseline;
+                    margin-top: 3rem;
+                }
 
                 &-input {
                     display: inline-flex;
@@ -443,10 +437,6 @@ body {
                     display: inline-flex;
                     margin: 0;
                 }
-            }
-
-            .checkbox + .checkbox {
-                margin-top: 1.5rem;
             }
 
             input[type="checkbox"] {
