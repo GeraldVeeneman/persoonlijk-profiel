@@ -28,8 +28,8 @@
       </div>
 
     <!-- Tab #1 Persoonlijke gegevens -->
-    <div class="tab">
-      <h2 class="tab__title">Persoonlijke gegevens</h2>
+    <div class="tab" id="tab-pers-gegevens">
+      <h2 class="tab__title" id="pers-gegevens">Persoonlijke gegevens</h2>
       <p class="tab__required-fields-text">Velden met een <span aria-label="required">*</span> dienen verplicht ingevuld te worden.</p>
 
       <div class="formfields-container">
@@ -55,8 +55,8 @@
         <input type="tel" oninput="this.className = ''" placeholder="Telefoon/mobiel" id="telefoon" name="telefoon">
       </p>
       <p>
-        <label for="email">E-mailadres</label>
-        <input type="email" oninput="this.className = ''" placeholder="E-mailadres" id="email" name="email">
+        <label for="email">E-mailadres <span aria-label="required">*</span></label>
+        <input type="email" oninput="this.className = ''" placeholder="E-mailadres" id="email" name="email" required>
       </p>
 
         <div class="select-group">
@@ -88,10 +88,14 @@
         <legend>Doelgroepregister <span aria-label="required">*</span></legend>
         <p>Ben je opgenomen in het doelgroepregister?</p>
         <div>
-          <input type="radio" oninput="this.className = ''" id="doelgroepregister_ja" name="doelgroepregister" value="ja">
-          <label for="doelgroepregister_ja">Ja</label>
-          <input type="radio" oninput="this.className = ''" id="doelgroepregister_nee" name="doelgroepregister" value="nee">
-          <label for="doelgroepregister_nee">Nee</label>
+          <p>
+            <input type="radio" oninput="this.className = ''" id="doelgroepregister_ja" name="doelgroepregister" value="ja">
+            <label for="doelgroepregister_ja">Ja</label>
+          </p>
+          <p>
+            <input type="radio" oninput="this.className = ''" id="doelgroepregister_nee" name="doelgroepregister" value="nee">
+            <label for="doelgroepregister_nee">Nee</label>
+          </p>
         </div>
         </fieldset>
       </div>
@@ -101,10 +105,14 @@
           <legend>Rijbewijs <span aria-label="required">*</span></legend>
           <p>Heb je een rijbewijs?</p>
           <div>
-            <input type="radio" oninput="this.className = ''" id="rijbewijs_ja" name="rijbewijs" value="ja" required>
-            <label for="rijbewijs_ja">Ja</label>
-            <input type="radio" oninput="this.className = ''" id="rijbewijs_nee" name="rijbewijs" value="nee">
-            <label for="rijbewijs_nee">Nee</label>
+            <p>
+              <input type="radio" oninput="this.className = ''" id="rijbewijs_ja" name="rijbewijs" value="ja" required>
+              <label for="rijbewijs_ja">Ja</label>
+            </p>
+            <p>
+              <input type="radio" oninput="this.className = ''" id="rijbewijs_nee" name="rijbewijs" value="nee">
+              <label for="rijbewijs_nee">Nee</label>
+            </p>
           </div>
       </fieldset>
       </div>
@@ -114,17 +122,21 @@
           <legend>Eigen auto</legend>
           <p>Beschik je over een eigen auto?</p>
           <div>
-            <input type="radio" oninput="this.className = ''" id="eigenauto_ja" name="eigenauto" value="ja">
-            <label for="eigenauto_ja">Ja</label>
-            <input type="radio" oninput="this.className = ''" id="eigenauto_nee" name="eigenauto" value="nee">
-            <label for="eigenauto_nee">Nee</label>
+            <p>
+              <input type="radio" oninput="this.className = ''" id="eigenauto_ja" name="eigenauto" value="ja">
+              <label for="eigenauto_ja">Ja</label>
+            </p>
+            <p>
+              <input type="radio" oninput="this.className = ''" id="eigenauto_nee" name="eigenauto" value="nee">
+              <label for="eigenauto_nee">Nee</label>
+            </p>
           </div>
         </fieldset>
       </div>
       
       <div class="select-group">
 
-          <label for="select-button-uren">Hoeveel uren per week ben je beschikbaar? <span aria-label="required">*</span></label>
+          <label for="select-button-uren">Aantal uren beschikbaar <span aria-label="required">*</span></label>
           <button type="button" id="select-button-uren" class="select-button">
             <span class="select-label select-label--placeholder">Selecteer uren</span>
             <div class="arrow arrow--down"></div>
@@ -157,212 +169,212 @@
     </div> <!-- end div tab #1 Persoonlijke gegevens -->
 
     <!-- Tab #2 Werksituatie -->
-    <div class="tab">
-      <h2 class="tab__title">Werksituatie:</h2>
+    <div class="tab" id="tab-werksituatie">
+      <h2 class="tab__title" id="werksituatie">Werksituatie:</h2>
       <div class="formfields-container">
-      <div class="fieldset-container">
-      <fieldset>
-        <legend>Op tijd komen</legend>
-        <p>Ik kan op tijd komen</p>
-        <div>
-          <p><input type="radio" id="optijd_1" name="optijd" value="niet"><label for="optijd_1">niet</label></p>
-          <p><input type="radio" id="optijd_2" name="optijd" value="afwisselend"><label for="optijd_2">afwisselend</label></p>
-          <p><input type="radio" id="optijd_3" name="optijd" value="geen probleem"><label for="optijd_3">geen probleem</label></p>
+        <div class="fieldset-container">
+        <fieldset>
+          <legend>Op tijd komen</legend>
+          <p>Ik kan op tijd komen</p>
+          <div>
+            <p><input type="radio" id="optijd_1" name="optijd" value="niet"><label for="optijd_1">niet</label></p>
+            <p><input type="radio" id="optijd_2" name="optijd" value="afwisselend"><label for="optijd_2">afwisselend</label></p>
+            <p><input type="radio" id="optijd_3" name="optijd" value="geen probleem"><label for="optijd_3">geen probleem</label></p>
+          </div>
+        </fieldset>
         </div>
-      </fieldset>
-      </div>
 
-      <div class="fieldset-container">
-      <fieldset>
-        <legend>Opstarten</legend>
-        <p>Ik moet in de ochtend even opstarten</p>
-        <div>
-          <p><input type="radio" id="opstarten_1" name="opstarten" value="niet"><label for="opstarten_1">niet</label></p>
-          <p><input type="radio" id="opstarten_2" name="opstarten" value="afwisselend"><label for="opstarten_2">afwisselend</label></p>
-          <p><input type="radio" id="opstarten_3" name="opstarten" value="geen probleem"><label for="opstarten_3">geen probleem</label></p>
+        <div class="fieldset-container">
+        <fieldset>
+          <legend>Opstarten</legend>
+          <p>Ik moet in de ochtend even opstarten</p>
+          <div>
+            <p><input type="radio" id="opstarten_1" name="opstarten" value="niet"><label for="opstarten_1">niet</label></p>
+            <p><input type="radio" id="opstarten_2" name="opstarten" value="afwisselend"><label for="opstarten_2">afwisselend</label></p>
+            <p><input type="radio" id="opstarten_3" name="opstarten" value="geen probleem"><label for="opstarten_3">geen probleem</label></p>
+          </div>
+        </fieldset>
         </div>
-      </fieldset>
-      </div>
 
-      <div class="fieldset-container">
-      <fieldset>
-        <legend>Geconcentreerd werken</legend>
-        <p>Ik kan geconcentreerd werken</p>
-        <div>
-          <p><input type="radio" id="geconcentreerd_1" name="geconcentreerd" value="niet"><label for="geconcentreerd_1">niet</label></p>
-          <p><input type="radio" id="geconcentreerd_2" name="geconcentreerd" value="afwisselend"><label for="geconcentreerd_2">afwisselend</label></p>
-          <p><input type="radio" id="geconcentreerd_3" name="geconcentreerd" value="geen probleem"><label for="geconcentreerd_3">geen probleem</label></p>
+        <div class="fieldset-container">
+        <fieldset>
+          <legend>Geconcentreerd werken</legend>
+          <p>Ik kan geconcentreerd werken</p>
+          <div>
+            <p><input type="radio" id="geconcentreerd_1" name="geconcentreerd" value="niet"><label for="geconcentreerd_1">niet</label></p>
+            <p><input type="radio" id="geconcentreerd_2" name="geconcentreerd" value="afwisselend"><label for="geconcentreerd_2">afwisselend</label></p>
+            <p><input type="radio" id="geconcentreerd_3" name="geconcentreerd" value="geen probleem"><label for="geconcentreerd_3">geen probleem</label></p>
+          </div>
+        </fieldset>
         </div>
-      </fieldset>
-      </div>
 
-      <div class="fieldset-container">
-      <fieldset>
-        <legend>Veel staan</legend>
-        <p>Ik kan veel staan</p>
-        <div>
-          <p><input type="radio" id="staan_1" name="staan" value="niet"><label for="staan_1">niet</label></p>
-          <p><input type="radio" id="staan_2" name="staan" value="afwisselend"><label for="staan_2">afwisselend</label></p>
-          <p><input type="radio" id="staan_3" name="staan" value="geen probleem"><label for="staan_3">geen probleem</label></p>
+        <div class="fieldset-container">
+        <fieldset>
+          <legend>Veel staan</legend>
+          <p>Ik kan veel staan</p>
+          <div>
+            <p><input type="radio" id="staan_1" name="staan" value="niet"><label for="staan_1">niet</label></p>
+            <p><input type="radio" id="staan_2" name="staan" value="afwisselend"><label for="staan_2">afwisselend</label></p>
+            <p><input type="radio" id="staan_3" name="staan" value="geen probleem"><label for="staan_3">geen probleem</label></p>
+          </div>
+        </fieldset>
         </div>
-      </fieldset>
-      </div>
 
-      <div class="fieldset-container">
-      <fieldset>
-        <legend>Veel lopen</legend>
-        <p>Ik kan veel lopen</p>
-        <div>
-          <p><input type="radio" id="lopen_1" name="lopen" value="niet"><label for="lopen_1">niet</label></p>
-          <p><input type="radio" id="lopen_2" name="lopen" value="afwisselend"><label for="lopen_2">afwisselend</label></p>
-          <p><input type="radio" id="lopen_3" name="lopen" value="geen probleem"><label for="lopen_3">geen probleem</label></p>
+        <div class="fieldset-container">
+        <fieldset>
+          <legend>Veel lopen</legend>
+          <p>Ik kan veel lopen</p>
+          <div>
+            <p><input type="radio" id="lopen_1" name="lopen" value="niet"><label for="lopen_1">niet</label></p>
+            <p><input type="radio" id="lopen_2" name="lopen" value="afwisselend"><label for="lopen_2">afwisselend</label></p>
+            <p><input type="radio" id="lopen_3" name="lopen" value="geen probleem"><label for="lopen_3">geen probleem</label></p>
+          </div>
+        </fieldset>
         </div>
-      </fieldset>
-      </div>
 
-      <div class="fieldset-container">
-      <fieldset>
-        <legend>Precies</legend>
-        <p>Ik ben erg precies</p>
-        <div>
-          <p><input type="radio" id="precies_1" name="precies" value="niet"><label for="precies_1">niet</label></p>
-          <p><input type="radio" id="precies_2" name="precies" value="afwisselend"><label for="precies_2">afwisselend</label></p>
-          <p><input type="radio" id="precies_3" name="precies" value="geen probleem"><label for="precies_3">geen probleem</label></p>
+        <div class="fieldset-container">
+        <fieldset>
+          <legend>Precies</legend>
+          <p>Ik ben erg precies</p>
+          <div>
+            <p><input type="radio" id="precies_1" name="precies" value="niet"><label for="precies_1">niet</label></p>
+            <p><input type="radio" id="precies_2" name="precies" value="afwisselend"><label for="precies_2">afwisselend</label></p>
+            <p><input type="radio" id="precies_3" name="precies" value="geen probleem"><label for="precies_3">geen probleem</label></p>
+          </div>
+        </fieldset>
         </div>
-      </fieldset>
-      </div>
 
-      <div class="fieldset-container">
-      <fieldset>
-        <legend>Met handen werken</legend>
-        <p>Ik werk graag met mijn handen</p>
-        <div>
-          <p><input type="radio" id="handen_1" name="" value="niet"><label for="handen_1">niet</label></p>
-          <p><input type="radio" id="handen_2" name="" value="afwisselend"><label for="handen_2">afwisselend</label></p>
-          <p><input type="radio" id="handen_3" name="" value="geen probleem"><label for="handen_3">geen probleem</label></p>
+        <div class="fieldset-container">
+        <fieldset>
+          <legend>Met handen werken</legend>
+          <p>Ik werk graag met mijn handen</p>
+          <div>
+            <p><input type="radio" id="handen_1" name="" value="niet"><label for="handen_1">niet</label></p>
+            <p><input type="radio" id="handen_2" name="" value="afwisselend"><label for="handen_2">afwisselend</label></p>
+            <p><input type="radio" id="handen_3" name="" value="geen probleem"><label for="handen_3">geen probleem</label></p>
+          </div>
+        </fieldset>
         </div>
-      </fieldset>
-      </div>
 
-      <div class="fieldset-container">
-      <fieldset>
-        <legend>Samenwerken</legend>
-        <p>Ik werk graag samen</p>
-        <div>
-          <p><input type="radio" id="samenwerken_1" name="samenwerken" value="niet"><label for="samenwerken_1">niet</label></p>
-          <p><input type="radio" id="samenwerken_2" name="samenwerken" value="afwisselend"><label for="samenwerken_2">afwisselend</label></p>
-          <p><input type="radio" id="samenwerken_3" name="samenwerken" value="geen probleem"><label for="samenwerken_3">geen probleem</label></p>
+        <div class="fieldset-container">
+        <fieldset>
+          <legend>Samenwerken</legend>
+          <p>Ik werk graag samen</p>
+          <div>
+            <p><input type="radio" id="samenwerken_1" name="samenwerken" value="niet"><label for="samenwerken_1">niet</label></p>
+            <p><input type="radio" id="samenwerken_2" name="samenwerken" value="afwisselend"><label for="samenwerken_2">afwisselend</label></p>
+            <p><input type="radio" id="samenwerken_3" name="samenwerken" value="geen probleem"><label for="samenwerken_3">geen probleem</label></p>
+          </div>
+        </fieldset>
         </div>
-      </fieldset>
-      </div>
 
-      <div class="fieldset-container">
-      <fieldset>
-        <legend>Zelfstandig werken</legend>
-        <p>Ik kan zelfstandig werken</p>
-        <div>
-          <p><input type="radio" id="zelfstandig_1" name="zelfstandig" value="niet"><label for="zelfstandig_1">niet</label></p>
-          <p><input type="radio" id="zelfstandig_2" name="zelfstandig" value="afwisselend"><label for="zelfstandig_2">afwisselend</label></p>
-          <p><input type="radio" id="zelfstandig_3" name="zelfstandig" value="geen probleem"><label for="zelfstandig_3">geen probleem</label></p>
+        <div class="fieldset-container">
+        <fieldset>
+          <legend>Zelfstandig werken</legend>
+          <p>Ik kan zelfstandig werken</p>
+          <div>
+            <p><input type="radio" id="zelfstandig_1" name="zelfstandig" value="niet"><label for="zelfstandig_1">niet</label></p>
+            <p><input type="radio" id="zelfstandig_2" name="zelfstandig" value="afwisselend"><label for="zelfstandig_2">afwisselend</label></p>
+            <p><input type="radio" id="zelfstandig_3" name="zelfstandig" value="geen probleem"><label for="zelfstandig_3">geen probleem</label></p>
+          </div>
+        </fieldset>
         </div>
-      </fieldset>
-      </div>
 
-      <div class="fieldset-container">
-      <fieldset>
-        <legend>Omgevingsgeluiden</legend>
-        <p>Ik kan omgaan met omgevingsgeluiden</p>
-        <div>
-          <p><input type="radio" id="omgeving_1" name="omgeving" value="niet"><label for="omgeving_1">niet</label></p>
-          <p><input type="radio" id="omgeving_2" name="omgeving" value="afwisselend"><label for="omgeving_2">afwisselend</label></p>
-          <p><input type="radio" id="omgeving_3" name="omgeving" value="geen probleem"><label for="omgeving_3">geen probleem</label></p>
+        <div class="fieldset-container">
+        <fieldset>
+          <legend>Omgevingsgeluiden</legend>
+          <p>Ik kan omgaan met omgevingsgeluiden</p>
+          <div>
+            <p><input type="radio" id="omgeving_1" name="omgeving" value="niet"><label for="omgeving_1">niet</label></p>
+            <p><input type="radio" id="omgeving_2" name="omgeving" value="afwisselend"><label for="omgeving_2">afwisselend</label></p>
+            <p><input type="radio" id="omgeving_3" name="omgeving" value="geen probleem"><label for="omgeving_3">geen probleem</label></p>
+          </div>
+        </fieldset>
         </div>
-      </fieldset>
-      </div>
 
-      <div class="fieldset-container">
-      <fieldset>
-        <legend>Aanspreekpunt</legend>
-        <p>Ik heb een duidelijk aanspreekpunt nodig</p>
-        <div>
-          <p><input type="radio" id="aanspreekpunt_1" name="aanspreekpunt" value="niet"><label for="aanspreekpunt_1">niet</label></p>
-          <p><input type="radio" id="aanspreekpunt_2" name="aanspreekpunt" value="afwisselend"><label for="aanspreekpunt_2">afwisselend</label></p>
-          <p><input type="radio" id="aanspreekpunt_3" name="aanspreekpunt" value="geen probleem"><label for="aanspreekpunt_3">geen probleem</label></p>
+        <div class="fieldset-container">
+        <fieldset>
+          <legend>Aanspreekpunt</legend>
+          <p>Ik heb een duidelijk aanspreekpunt nodig</p>
+          <div>
+            <p><input type="radio" id="aanspreekpunt_1" name="aanspreekpunt" value="niet"><label for="aanspreekpunt_1">niet</label></p>
+            <p><input type="radio" id="aanspreekpunt_2" name="aanspreekpunt" value="afwisselend"><label for="aanspreekpunt_2">afwisselend</label></p>
+            <p><input type="radio" id="aanspreekpunt_3" name="aanspreekpunt" value="geen probleem"><label for="aanspreekpunt_3">geen probleem</label></p>
+          </div>
+        </fieldset>
         </div>
-      </fieldset>
-      </div>
 
-      <div class="fieldset-container">
-      <fieldset>
-        <legend>Omgaan met prikkels</legend>
-        <p>Ik kan goed met prikkels omgaan</p>
-        <div>
-          <p><input type="radio" id="prikkels_1" name="prikkels" value="niet"><label for="prikkels_1">niet</label></p>
-          <p><input type="radio" id="prikkels_2" name="prikkels" value="afwisselend"><label for="prikkels_2">afwisselend</label></p>
-          <p><input type="radio" id="prikkels_3" name="prikkels" value="geen probleem"><label for="prikkels_3">geen probleem</label></p>
+        <div class="fieldset-container">
+        <fieldset>
+          <legend>Omgaan met prikkels</legend>
+          <p>Ik kan goed met prikkels omgaan</p>
+          <div>
+            <p><input type="radio" id="prikkels_1" name="prikkels" value="niet"><label for="prikkels_1">niet</label></p>
+            <p><input type="radio" id="prikkels_2" name="prikkels" value="afwisselend"><label for="prikkels_2">afwisselend</label></p>
+            <p><input type="radio" id="prikkels_3" name="prikkels" value="geen probleem"><label for="prikkels_3">geen probleem</label></p>
+          </div>
+        </fieldset>
         </div>
-      </fieldset>
-      </div>
 
-      <div class="fieldset-container">
-      <fieldset>
-        <legend>Klantcontact</legend>
-        <p>Ik kan klantcontact hebben</p>
-        <div>
-          <p><input type="radio" id="klantcontact_1" name="klantcontact" value="niet"><label for="klantcontact_1">niet</label></p>
-          <p><input type="radio" id="klantcontact_2" name="klantcontact" value="afwisselend"><label for="klantcontact_2">afwisselend</label></p>
-          <p><input type="radio" id="klantcontact_3" name="klantcontact" value="geen probleem"><label for="klantcontact_3">geen probleem</label></p>
+        <div class="fieldset-container">
+        <fieldset>
+          <legend>Klantcontact</legend>
+          <p>Ik kan klantcontact hebben</p>
+          <div>
+            <p><input type="radio" id="klantcontact_1" name="klantcontact" value="niet"><label for="klantcontact_1">niet</label></p>
+            <p><input type="radio" id="klantcontact_2" name="klantcontact" value="afwisselend"><label for="klantcontact_2">afwisselend</label></p>
+            <p><input type="radio" id="klantcontact_3" name="klantcontact" value="geen probleem"><label for="klantcontact_3">geen probleem</label></p>
+          </div>
+        </fieldset>
         </div>
-      </fieldset>
-      </div>
 
-      <div class="fieldset-container">
-      <fieldset>
-        <legend>Feedback/kritiek</legend>
-        <p>Ik kan met feedback en/of kritiek omgaan</p>
-        <div>
-          <p><input type="radio" id="feedback_1" name="feedback" value="niet"><label for="feedback_1">niet</label></p>
-          <p><input type="radio" id="feedback_2" name="feedback" value="afwisselend"><label for="feedback_2">afwisselend</label></p>
-          <p><input type="radio" id="feedback_3" name="feedback" value="geen probleem"><label for="feedback_3">geen probleem</label></p>
+        <div class="fieldset-container">
+        <fieldset>
+          <legend>Feedback/kritiek</legend>
+          <p>Ik kan met feedback en/of kritiek omgaan</p>
+          <div>
+            <p><input type="radio" id="feedback_1" name="feedback" value="niet"><label for="feedback_1">niet</label></p>
+            <p><input type="radio" id="feedback_2" name="feedback" value="afwisselend"><label for="feedback_2">afwisselend</label></p>
+            <p><input type="radio" id="feedback_3" name="feedback" value="geen probleem"><label for="feedback_3">geen probleem</label></p>
+          </div>
+        </fieldset>
         </div>
-      </fieldset>
-      </div>
 
-      <div class="fieldset-container">
-      <fieldset>
-        <legend>Repeterend werk</legend>
-        <p>Ik kan repeterend werk doen</p>
-        <div>
-          <p><input type="radio" id="repeterend_1" name="repeterend" value="niet"><label for="repeterend_1">niet</label></p>
-          <p><input type="radio" id="repeterend_2" name="repeterend" value="afwisselend"><label for="repeterend_2">afwisselend</label></p>
-          <p><input type="radio" id="repeterend_3" name="repeterend" value="geen probleem"><label for="repeterend_3">geen probleem</label></p>
+        <div class="fieldset-container">
+        <fieldset>
+          <legend>Repeterend werk</legend>
+          <p>Ik kan repeterend werk doen</p>
+          <div>
+            <p><input type="radio" id="repeterend_1" name="repeterend" value="niet"><label for="repeterend_1">niet</label></p>
+            <p><input type="radio" id="repeterend_2" name="repeterend" value="afwisselend"><label for="repeterend_2">afwisselend</label></p>
+            <p><input type="radio" id="repeterend_3" name="repeterend" value="geen probleem"><label for="repeterend_3">geen probleem</label></p>
+          </div>
+        </fieldset>
         </div>
-      </fieldset>
-      </div>
 
-      <div class="fieldset-container">
-      <fieldset>
-        <legend>Extra pauze</legend>
-        <p>Ik heb extra pauze nodig</p>
-        <div>
-          <p><input type="radio" id="pauze_1" name="pauze" value="niet"><label for="pauze_1">niet</label></p>
-          <p><input type="radio" id="pauze_2" name="pauze" value="afwisselend"><label for="pauze_2">afwisselend</label></p>
-          <p><input type="radio" id="pauze_3" name="pauze" value="geen probleem"><label for="pauze_3">geen probleem</label></p>
+        <div class="fieldset-container">
+        <fieldset>
+          <legend>Extra pauze</legend>
+          <p>Ik heb extra pauze nodig</p>
+          <div>
+            <p><input type="radio" id="pauze_1" name="pauze" value="niet"><label for="pauze_1">niet</label></p>
+            <p><input type="radio" id="pauze_2" name="pauze" value="afwisselend"><label for="pauze_2">afwisselend</label></p>
+            <p><input type="radio" id="pauze_3" name="pauze" value="geen probleem"><label for="pauze_3">geen probleem</label></p>
+          </div>
+        </fieldset>
         </div>
-      </fieldset>
-      </div>
 
-      <div class="fieldset-container">
-      <fieldset>
-        <legend>Verantwoordelijkheid</legend>
-        <p>Ik wil veel verantwoordelijkheden hebben</p>
-        <div>
-          <p><input type="radio" id="verantwoordelijk_1" name="verantwoordelijk" value="niet"><label for="verantwoordelijk_1">niet</label></p>
-          <p><input type="radio" id="verantwoordelijk_2" name="verantwoordelijk" value="afwisselend"><label for="verantwoordelijk_2">afwisselend</label></p>
-          <p><input type="radio" id="verantwoordelijk_3" name="verantwoordelijk" value="geen probleem"><label for="verantwoordelijk_3">geen probleem</label></p>
-        </div>
-      </fieldset>
-      </div> <!-- End div fieldset-container -->
+        <div class="fieldset-container">
+        <fieldset>
+          <legend>Verantwoordelijkheid</legend>
+          <p>Ik wil veel verantwoordelijkheden hebben</p>
+          <div>
+            <p><input type="radio" id="verantwoordelijk_1" name="verantwoordelijk" value="niet"><label for="verantwoordelijk_1">niet</label></p>
+            <p><input type="radio" id="verantwoordelijk_2" name="verantwoordelijk" value="afwisselend"><label for="verantwoordelijk_2">afwisselend</label></p>
+            <p><input type="radio" id="verantwoordelijk_3" name="verantwoordelijk" value="geen probleem"><label for="verantwoordelijk_3">geen probleem</label></p>
+          </div>
+        </fieldset>
+        </div> <!-- End div fieldset-container -->
       </div> <!-- End div formfields-container -->
     </div> <!-- End div tab #2 Werksituatie -->
 
@@ -370,7 +382,7 @@
     <div class="tab">
       <h2 class="tab__title">Werkervaring:</h2>
 
-        <div id="divWerkResult"></div>
+        <div class="formfields-container" id="divWerkResult"></div>
         <div class="dynamic-add-button-container">
           <button type="button" class="button button--green" id="btnToevoegenWerk" title="Werkervaring toevoegen" onclick="toevoegenRij('Werk')">+</button>
         </div>
@@ -381,20 +393,20 @@
     <div class="tab">
       <h2 class="tab__title">Opleiding, cursussen, trainingen:</h2>
       <h3 class="tab__sub-title">Opleiding</h3>
-      <div id="divOpleidingResult"></div>
+      <div class="formfields-container" id="divOpleidingResult"></div>
       <div class="dynamic-add-button-container">
         <button type="button" class="button button--green" id="btnToevoegenOpleiding" title="Opleiding toevoegen" onclick="toevoegenRij('Opleiding')">+</button>
       </div>
       
       
       <h3 class="tab__sub-title">Cursus</h3>
-      <div id="divCursusResult"></div>
+      <div class="formfields-container" id="divCursusResult"></div>
       <div class="dynamic-add-button-container">
         <button type="button" class="button button--green" id="btnToevoegenCursus" title="Cursus toevoegen" onclick="toevoegenRij('Cursus')">+</button>
       </div>
 
       <h3 class="tab__sub-title">Training</h3>
-      <div id="divTrainingResult"></div>
+      <div class="formfields-container" id="divTrainingResult"></div>
       <div class="dynamic-add-button-container">
         <button type="button" class="button button--green" id="btnToevoegenTraining" title="Training toevoegen" onclick="toevoegenRij('Training')">+</button>
       </div>
@@ -651,41 +663,51 @@
     <!-- Tab # 6 Persoonlijke ontwikkeling -->
     <div class="tab">
       <h2 class="tab__title">Persoonlijke ontwikkeling</h2>
-      <div class="fieldset-container">
-      <fieldset>
-        <legend>Opleiding/cursus</legend>
-        <p>Ik ben bereid een opleiding of cursus te volgen</p>
-        <div>
-          <p><input type="radio" id="opleidingvolgen_1" name="opleidingvolgen" value="niet"><label for="opleidingvolgen_1">niet</label></p>
-          <p><input type="radio" id="opleidingvolgen_2" name="opleidingvolgen" value="afwisselend"><label for="opleidingvolgen_2">afwisselend</label></p>
-          <p><input type="radio" id="opleidingvolgen_3" name="opleidingvolgen" value="geen probleem"><label for="opleidingvolgen_3">geen probleem</label></p>
-        </div>
-      </fieldset>
-      </div>
 
-      <div class="fieldset-container">
-      <fieldset>
-        <legend>Doorgroeien</legend>
-        <p>Ik wil graag doorgroeien in mijn functie</p>
-        <div>
-          <p><input type="radio" id="doorgroeien_1" name="doorgroeien" value="niet"><label for="doorgroeien_1">niet</label></p>
-          <p><input type="radio" id="doorgroeien_2" name="doorgroeien" value="afwisselend"><label for="doorgroeien_2">afwisselend</label></p>
-          <p><input type="radio" id="doorgroeien_3" name="doorgroeien" value="geen probleem"><label for="doorgroeien_3">geen probleem</label></p>
-        </div>
-      </fieldset>
-      </div>
+      <div class="formfields-container">
 
-      <div class="fieldset-container">
-      <fieldset>
-        <legend>Zelfstudie</legend>
-        <p>Ik ben bereid buiten mijn werk zelfstudie te doen</p>
-        <div>
-          <p><input type="radio" id="zelfstudie_1" name="zelfstudie" value="niet"><label for="zelfstudie_1">niet</label></p>
-          <p><input type="radio" id="zelfstudie_2" name="zelfstudie" value="afwisselend"><label for="zelfstudie_2">afwisselend</label></p>
-          <p><input type="radio" id="zelfstudie_3" name="zelfstudie" value="geen probleem"><label for="zelfstudie_3">geen probleem</label></p>
+        <div class="fieldset-container">
+          <fieldset>
+            <legend>Opleiding/cursus</legend>
+            <p>Ik ben bereid een opleiding of cursus te volgen</p>
+            <div>
+              <p><input type="radio" id="opleidingvolgen_1" name="opleidingvolgen" value="niet"><label for="opleidingvolgen_1">niet</label></p>
+              <p><input type="radio" id="opleidingvolgen_2" name="opleidingvolgen" value="afwisselend"><label for="opleidingvolgen_2">afwisselend</label></p>
+              <p><input type="radio" id="opleidingvolgen_3" name="opleidingvolgen" value="geen probleem"><label for="opleidingvolgen_3">geen probleem</label></p>
+            </div>
+          </fieldset>
         </div>
-      </fieldset>
-      </div>
+
+        <div class="fieldset-container">
+          <fieldset>
+            <legend>Doorgroeien</legend>
+            <p>Ik wil graag doorgroeien in mijn functie</p>
+            <div>
+              <p><input type="radio" id="doorgroeien_1" name="doorgroeien" value="niet"><label for="doorgroeien_1">niet</label></p>
+              <p><input type="radio" id="doorgroeien_2" name="doorgroeien" value="afwisselend"><label for="doorgroeien_2">afwisselend</label></p>
+              <p><input type="radio" id="doorgroeien_3" name="doorgroeien" value="geen probleem"><label for="doorgroeien_3">geen probleem</label></p>
+            </div>
+          </fieldset>
+        </div>
+
+        <div class="fieldset-container">
+          <fieldset>
+            <legend>Zelfstudie</legend>
+            <p>Ik ben bereid buiten mijn werk zelfstudie te doen</p>
+            <div>
+              <p><input type="radio" id="zelfstudie_1" name="zelfstudie" value="niet"><label for="zelfstudie_1">niet</label></p>
+              <p><input type="radio" id="zelfstudie_2" name="zelfstudie" value="afwisselend"><label for="zelfstudie_2">afwisselend</label></p>
+              <p><input type="radio" id="zelfstudie_3" name="zelfstudie" value="geen probleem"><label for="zelfstudie_3">geen probleem</label></p>
+            </div>
+          </fieldset>
+        </div>
+      </div> <!-- End div formfields-container -->
+
+      <p class="checkbox">
+        <input type="checkbox" oninput="this.className = ''" class="checkbox-input" id="privacy-verklaring" name="privacy-verklaring">
+        <label for="privacy-verklaring" class="checkbox-label">Door het gebruik van dit registratieproces ga je akkoord met de&nbsp;<a href="https://maatwerkbanen.nl/privacy-verklaring">privacy verklaring</a>&nbsp;van Maatwerkbanen.</label>      
+      </p>
+      
     </div> <!-- End div Tab # 6 Persoonlijke ontwikkeling -->
     
     

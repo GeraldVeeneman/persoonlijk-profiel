@@ -39,7 +39,7 @@ body {
   margin: 10rem auto;
   font-family: "Lexend Deca", sans-serif;
   padding: 4rem;
-  max-width: 144rem;
+  max-width: 98rem;
   min-width: 30rem;
   border-radius: 3px;
   box-shadow: 0 6px 20px var(--very-light-gray-1), inset 0 1px 1px var(--very-light-gray-2);
@@ -205,8 +205,8 @@ body {
 }
 .persForm .tab .fieldset-container fieldset div {
   display: flex;
+  flex-direction: column;
   gap: 1rem;
-  align-items: center;
   flex-wrap: wrap;
 }
 .persForm .tab .fieldset-container fieldset div p {
@@ -249,7 +249,6 @@ body {
   border: 1px solid #ededed;
   border-radius: 3px;
   padding: 2rem;
-  margin: 3rem 0;
   box-shadow: 6px 6px 20px rgba(41, 37, 91, 0.2), inset 0 1px 1px rgba(0, 0, 0, 0.05);
 }
 .persForm .tab .dynamic-row__title {
@@ -259,14 +258,21 @@ body {
   font-weight: 600;
   color: var(--dark-blue);
 }
+.persForm .tab .dynamic-row p + p {
+  margin-top: 2rem;
+}
 .persForm .tab .dynamic-row__remove-button-container {
+  margin-top: 3rem;
   display: flex;
   justify-content: end;
 }
 .persForm .tab .dynamic-add-button-container {
   display: flex;
   justify-content: start;
-  margin: 0 0 5rem 0;
+  margin-bottom: 5rem;
+}
+.persForm .tab .formfields-container > .dynamic-row {
+  margin-bottom: 3rem;
 }
 .persForm .tab .accordion {
   border-radius: 3px;
