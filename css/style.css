@@ -271,6 +271,9 @@ body {
   justify-content: start;
   margin-bottom: 5rem;
 }
+.persForm .tab #divWerkResult, .persForm .tab #divOpleidingResult, .persForm .tab #divCursusResult, .persForm .tab #divTrainingResult {
+  gap: 0 1.5rem;
+}
 .persForm .tab .formfields-container > .dynamic-row {
   margin-bottom: 3rem;
 }

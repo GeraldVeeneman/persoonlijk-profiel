@@ -339,6 +339,10 @@ body {
                 margin-bottom: 5rem;
             }
 
+            #divWerkResult, #divOpleidingResult, #divCursusResult, #divTrainingResult {
+                gap: 0 1.5rem;
+            }
+
             .formfields-container > .dynamic-row {
                 margin-bottom: 3rem;
             }
